@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * Contains zencrm_entities.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function zencrm_entities_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the zencrm_entities module.
+    case 'help.page.zencrm_entities':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Zen CRM Entities') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function zencrm_entities_theme() {
+  return [
+    'zencrm_entities' => [
+      'render element' => 'children',
+    ],
+  ];
+}

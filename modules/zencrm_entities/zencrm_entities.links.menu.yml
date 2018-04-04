@@ -1,0 +1,14 @@
+
+# Person menu items definition
+entity.person.collection:
+  title: 'Person list'
+  route_name: entity.person.collection
+  description: 'List Person entities'
+  parent: system.admin_structure
+  weight: 100
+
+person.admin.structure.settings:
+  title: 'Person settings'
+  description: 'Configure Person entities'
+  route_name: person.settings
+  parent: system.admin_structure

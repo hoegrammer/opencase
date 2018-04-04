@@ -1,0 +1,14 @@
+{
+  "name": "drupal/zencrm_entities",
+  "type": "drupal-module",
+  "description": "Zen CRM Entities",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/zencrm_entities",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/zencrm_entities",
+    "source": "http://cgit.drupalcode.org/zencrm_entities"
+  },
+  "require": { }
+}

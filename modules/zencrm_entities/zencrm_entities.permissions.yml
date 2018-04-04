@@ -1,0 +1,30 @@
+add person entities:
+  title: 'Create new Person entities'
+
+administer person entities:
+  title: 'Administer Person entities'
+  description: 'Allow to access the administration form to configure Person entities.'
+  restrict access: true
+
+delete person entities:
+  title: 'Delete Person entities'
+
+edit person entities:
+  title: 'Edit Person entities'
+
+view published person entities:
+  title: 'View published Person entities'
+
+view unpublished person entities:
+  title: 'View unpublished Person entities'
+
+view all person revisions:
+  title: 'View all Person revisions'
+
+revert all person revisions:
+  title: 'Revert all Person revisions'
+  description: 'Role requires permission <em>view Person revisions</em> and <em>edit rights</em> for person entities in question or <em>administer person entities</em>.'
+
+delete all person revisions:
+  title: 'Delete all revisions'
+  description: 'Role requires permission to <em>view Person revisions</em> and <em>delete rights</em> for person entities in question or <em>administer person entities</em>.'

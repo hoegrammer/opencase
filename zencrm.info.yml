@@ -1,0 +1,5 @@
+name: 'Zen CRM'
+type: module
+description: 'Zen CRM'
+core: 8.x
+package: 'Zen CRM'
