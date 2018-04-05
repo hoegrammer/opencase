@@ -224,9 +224,34 @@ class Profile extends RevisionableContentEntityBase implements ProfileInterface 
           'autocomplete_type' => 'tags',
           'placeholder' => '',
         ],
+      ]);
+
+    $fields['person'] = BaseFieldDefinition::create('entity_reference')
+      ->setLabel(t('Person'))
+      ->setDescription(t('The person this profile is of.'))
+      ->setSetting('target_type', 'person')
+      ->setSetting('handler', 'views')
+      ->setSetting('handler_settings', [
+        'view' => [
+          'view_name' => 'persons',            
+          'display_name' => 'entity_reference_1',
+          'arguments' => []
+        ]
       ])
-      ->setDisplayConfigurable('form', TRUE)
-      ->setDisplayConfigurable('view', TRUE);
+      ->setDisplayOptions('form', [
+        'type' => 'entity_reference_autocomplete',
+        'weight' => 5,
+        'settings' => [
+          'match_operator' => 'CONTAINS',
+          'size' => '60',
+          'autocomplete_type' => 'tags',
+          'placeholder' => '',
+        ],
+      ])
+      ->setDisplayOptions('view', [
+        'label' => 'above',
+        'weight' => 0,
+      ]);
 
     $fields['name'] = BaseFieldDefinition::create('string')
       ->setLabel(t('Name'))
