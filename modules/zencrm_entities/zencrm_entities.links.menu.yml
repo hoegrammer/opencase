@@ -12,3 +12,21 @@ person.admin.structure.settings:
   description: 'Configure Person entities'
   route_name: person.settings
   parent: system.admin_structure
+
+# Profile menu items definition
+entity.profile.collection:
+  title: 'Profile list'
+  route_name: entity.profile.collection
+  description: 'List Profile entities'
+  parent: system.admin_structure
+  weight: 100
+
+
+# Profile type menu items definition
+entity.profile_type.collection:
+  title: 'Profile type'
+  route_name: entity.profile_type.collection
+  description: 'List Profile type (bundles)'
+  parent: system.admin_structure
+  weight: 99
+

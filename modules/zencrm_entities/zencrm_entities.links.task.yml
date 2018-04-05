@@ -25,3 +25,26 @@ entity.person.delete_form:
   title: Delete
   weight: 10
 
+# Profile routing definition
+
+entity.profile.canonical:
+  route_name: entity.profile.canonical
+  base_route: entity.profile.canonical
+  title: 'View'
+
+entity.profile.edit_form:
+  route_name: entity.profile.edit_form
+  base_route: entity.profile.canonical
+  title: 'Edit'
+
+entity.profile.version_history:
+  route_name: entity.profile.version_history
+  base_route: entity.profile.canonical
+  title: 'Revisions'
+
+entity.profile.delete_form:
+  route_name:  entity.profile.delete_form
+  base_route:  entity.profile.canonical
+  title: Delete
+  weight: 10
+

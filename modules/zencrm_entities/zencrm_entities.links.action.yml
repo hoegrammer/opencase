@@ -3,3 +3,14 @@ entity.person.add_form:
   title: 'Add Person'
   appears_on:
     - entity.person.collection
+entity.profile.add_form:
+  route_name: entity.profile.add_page
+  title: 'Add Profile'
+  appears_on:
+    - entity.profile.collection
+entity.profile_type.add_form:
+  route_name: entity.profile_type.add_form
+  title: 'Add Profile type'
+  appears_on:
+    - entity.profile_type.collection
+

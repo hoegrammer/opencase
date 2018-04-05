@@ -27,9 +27,35 @@ function zencrm_entities_help($route_name, RouteMatchInterface $route_match) {
  * Implements hook_theme().
  */
 function zencrm_entities_theme() {
-  return [
-    'zencrm_entities' => [
-      'render element' => 'children',
-    ],
+  $theme = [];
+  $theme['zencrm_entities'] = [
+    'render element' => 'children',
   ];
+  $theme['profile'] = [
+    'render element' => 'elements',
+    'file' => 'profile.page.inc',
+    'template' => 'profile',
+  ];
+  $theme['profile_content_add_list'] = [
+    'render element' => 'content',
+    'variables' => ['content' => NULL],
+    'file' => 'profile.page.inc',
+  ];
+  return $theme;
+}
+
+/**
+* Implements hook_theme_suggestions_HOOK().
+*/
+function zencrm_entities_theme_suggestions_profile(array $variables) {
+  $suggestions = [];
+  $entity = $variables['elements']['#profile'];
+  $sanitized_view_mode = strtr($variables['elements']['#view_mode'], '.', '_');
+
+  $suggestions[] = 'profile__' . $sanitized_view_mode;
+  $suggestions[] = 'profile__' . $entity->bundle();
+  $suggestions[] = 'profile__' . $entity->bundle() . '__' . $sanitized_view_mode;
+  $suggestions[] = 'profile__' . $entity->id();
+  $suggestions[] = 'profile__' . $entity->id() . '__' . $sanitized_view_mode;
+  return $suggestions;
 }
