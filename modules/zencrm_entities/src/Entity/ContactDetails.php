@@ -224,6 +224,37 @@ class ContactDetails extends RevisionableContentEntityBase implements ContactDet
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayConfigurable('view', TRUE);
 
+
+    $fields['label'] = BaseFieldDefinition::create('entity_reference')
+      ->setLabel(t('Label'))
+      ->setDescription(t('E.g. Home, Business, Temporary'))
+      ->setSetting('handler', 'default:taxonomy_term')
+      ->setSetting('target_type', 'taxonomy_term')
+      ->setSetting('handler_settings', [
+        'target_bundles' => [
+          'tags' => 'tags',
+        ],
+        'auto_create' => 'true'
+      ])
+      ->setDisplayOptions('form', [
+        'type' => 'entity_reference_autocomplete',
+        'weight' => 5,
+        'settings' => [
+          'match_operator' => 'CONTAINS',
+          'size' => '60',
+          'placeholder' => '',
+        ],
+      ])
+      ->setDisplayOptions('view', [
+        'settings' => ['link' => 'false'],
+        'type' => 'entity_reference_label',
+        'label' => 'above',
+        'weight' => 0,
+      ])
+      ->setDisplayConfigurable('view', TRUE)
+      ->setRequired(TRUE);
+
+
     $fields['person'] = BaseFieldDefinition::create('entity_reference')
       ->setLabel(t('Person'))
       ->setDescription(t('The person this profile is of.'))
