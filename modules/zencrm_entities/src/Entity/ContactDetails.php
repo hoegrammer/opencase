@@ -280,11 +280,11 @@ class ContactDetails extends RevisionableContentEntityBase implements ContactDet
       ->setLabel(t('Enabled'))
       ->setDescription(t('If this is ticked then this set of contact details is active.'))
       ->setRevisionable(TRUE)
-      ->setDefaultValue(TRUE)
-      ->setDisplayOptions('form', [
-        'type' => 'boolean_checkbox',
-        'weight' => -3,
-      ]);
+   #   ->setDisplayOptions('form', [
+   #     'type' => 'boolean_checkbox',
+   #     'weight' => -3,
+   #   ])
+      ->setDefaultValue(TRUE);
 
     $fields['created'] = BaseFieldDefinition::create('created')
       ->setLabel(t('Created'))

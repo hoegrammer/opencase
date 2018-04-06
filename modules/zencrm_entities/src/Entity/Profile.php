@@ -211,9 +211,9 @@ class Profile extends RevisionableContentEntityBase implements ProfileInterface 
       ->setSetting('handler', 'default')
       ->setTranslatable(TRUE)
       ->setDisplayOptions('view', [
-        'label' => 'hidden',
+        'label' => 'inline',
         'type' => 'author',
-        'weight' => 0,
+        'weight' => 100,
       ])
       ->setDisplayOptions('form', [
         'type' => 'entity_reference_autocomplete',
@@ -279,11 +279,11 @@ class Profile extends RevisionableContentEntityBase implements ProfileInterface 
       ->setLabel(t('Publishing status'))
       ->setDescription(t('A boolean indicating whether the Profile is published.'))
       ->setRevisionable(TRUE)
-      ->setDefaultValue(TRUE)
-      ->setDisplayOptions('form', [
-        'type' => 'boolean_checkbox',
-        'weight' => -3,
-      ]);
+    #  ->setDisplayOptions('form', [
+    #    'type' => 'boolean_checkbox',
+    #    'weight' => -3,
+    #  ])
+      ->setDefaultValue(TRUE);
 
     $fields['created'] = BaseFieldDefinition::create('created')
       ->setLabel(t('Created'))

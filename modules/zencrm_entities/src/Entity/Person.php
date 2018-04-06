@@ -191,6 +191,21 @@ class Person extends RevisionableContentEntityBase implements PersonInterface {
       ->setRevisionable(TRUE)
       ->setSetting('target_type', 'user')
       ->setSetting('handler', 'default')
+      ->setDisplayOptions('form', [
+        'type' => 'entity_reference_autocomplete',
+        'weight' => 5,
+        'settings' => [
+          'match_operator' => 'CONTAINS',
+          'size' => '60',
+          'autocomplete_type' => 'tags',
+          'placeholder' => '',
+        ],
+      ])
+      ->setDisplayOptions('view', [
+        'label' => 'inline',
+        'type' => 'author',
+        'weight' => 100,
+      ])
       ->setTranslatable(TRUE);
 
     $fields['full_name'] = BaseFieldDefinition::create('string')
@@ -272,11 +287,11 @@ class Person extends RevisionableContentEntityBase implements PersonInterface {
       ->setLabel(t('Enabled'))
       ->setDescription(t('If this is ticked, the record is active'))
       ->setRevisionable(TRUE)
-      ->setDefaultValue(TRUE)
-      ->setDisplayOptions('form', [
-        'type' => 'boolean_checkbox',
-        'weight' => -3,
-      ]);
+    #  ->setDisplayOptions('form', [
+    #    'type' => 'boolean_checkbox',
+    #    'weight' => -3,
+    #  ])
+      ->setDefaultValue(TRUE);
 
     $fields['created'] = BaseFieldDefinition::create('created')
       ->setLabel(t('Created'))
