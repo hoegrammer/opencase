@@ -45,7 +45,7 @@ use Drupal\user\UserInterface;
  *   entity_keys = {
  *     "id" = "id",
  *     "revision" = "vid",
- *     "label" = "name",
+ *     "label" = "type",
  *     "uuid" = "uuid",
  *     "uid" = "user_id",
  *     "langcode" = "langcode",
@@ -171,6 +171,7 @@ class ContactDetails extends RevisionableContentEntityBase implements ContactDet
   }
 
   /**
+      ->setDisplayConfigurable('view', TRUE);
    * {@inheritdoc}
    */
   public function setOwner(UserInterface $account) {
@@ -207,9 +208,9 @@ class ContactDetails extends RevisionableContentEntityBase implements ContactDet
       ->setSetting('handler', 'default')
       ->setTranslatable(TRUE)
       ->setDisplayOptions('view', [
-        'label' => 'hidden',
+        'label' => 'inline',
         'type' => 'author',
-        'weight' => 0,
+        'weight' => 100,
       ])
       ->setDisplayOptions('form', [
         'type' => 'entity_reference_autocomplete',
@@ -220,12 +221,8 @@ class ContactDetails extends RevisionableContentEntityBase implements ContactDet
           'autocomplete_type' => 'tags',
           'placeholder' => '',
         ],
-      ])
-      ->setDisplayConfigurable('form', TRUE)
-      ->setDisplayConfigurable('view', TRUE);
+      ]);
 
-    // This field is not displayed but is used to compute the name of the entity.
-    // See zencrm_entities.module - zencrm_entities_contact_details_presave().
     $fields['type'] = BaseFieldDefinition::create('entity_reference')
       ->setLabel(t('Type'))
       ->setDescription(t('E.g. Home, Business, Temporary'))
@@ -249,10 +246,9 @@ class ContactDetails extends RevisionableContentEntityBase implements ContactDet
       ->setDisplayOptions('view', [
         'settings' => ['link' => 'false'],
         'type' => 'entity_reference_label',
-        'label' => 'above',
+        'label' => 'hidden',
         'weight' => 0,
       ])
-      ->setDisplayConfigurable('view', TRUE)
       ->setRequired(TRUE);
 
 
@@ -278,32 +274,11 @@ class ContactDetails extends RevisionableContentEntityBase implements ContactDet
           'placeholder' => '',
         ],
       ])
-      ->setDisplayOptions('view', [
-        'label' => 'above',
-        'weight' => 0,
-      ]);
-
-    $fields['name'] = BaseFieldDefinition::create('string')
-      ->setLabel(t('Name'))
-      ->setDescription(t('The name of the Contact Details entity.'))
-      ->setRevisionable(TRUE)
-      ->setSettings([
-        'max_length' => 50,
-        'text_processing' => 0,
-      ])
-      ->setDisplayOptions('view', [
-        'label' => 'above',
-        'type' => 'string',
-        'weight' => -4,
-      ])
-      ->setDisplayOptions('form', [
-        'type' => 'string_textfield',
-        'weight' => -4,
-      ]);
+      ->setRequired(TRUE);
 
     $fields['status'] = BaseFieldDefinition::create('boolean')
-      ->setLabel(t('Publishing status'))
-      ->setDescription(t('A boolean indicating whether the Contact Details is published.'))
+      ->setLabel(t('Enabled'))
+      ->setDescription(t('If this is ticked then this set of contact details is active.'))
       ->setRevisionable(TRUE)
       ->setDefaultValue(TRUE)
       ->setDisplayOptions('form', [
