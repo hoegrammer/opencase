@@ -48,3 +48,30 @@ entity.profile.delete_form:
   title: Delete
   weight: 10
 
+# Contact Details routing definition
+contact_details.settings_tab:
+  route_name: contact_details.settings
+  title: 'Settings'
+  base_route: contact_details.settings
+
+entity.contact_details.canonical:
+  route_name: entity.contact_details.canonical
+  base_route: entity.contact_details.canonical
+  title: 'View'
+
+entity.contact_details.edit_form:
+  route_name: entity.contact_details.edit_form
+  base_route: entity.contact_details.canonical
+  title: 'Edit'
+
+entity.contact_details.version_history:
+  route_name: entity.contact_details.version_history
+  base_route: entity.contact_details.canonical
+  title: 'Revisions'
+
+entity.contact_details.delete_form:
+  route_name:  entity.contact_details.delete_form
+  base_route:  entity.contact_details.canonical
+  title: Delete
+  weight: 10
+

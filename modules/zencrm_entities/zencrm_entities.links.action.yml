@@ -14,3 +14,8 @@ entity.profile_type.add_form:
   appears_on:
     - entity.profile_type.collection
 
+entity.contact_details.add_form:
+  route_name: entity.contact_details.add_form
+  title: 'Add Contact Details'
+  appears_on:
+    - entity.contact_details.collection

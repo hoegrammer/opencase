@@ -58,3 +58,33 @@ revert all profile revisions:
 delete all profile revisions:
   title: 'Delete all revisions'
   description: 'Role requires permission to <em>view Profile revisions</em> and <em>delete rights</em> for profile entities in question or <em>administer profile entities</em>.'
+add contact details entities:
+  title: 'Create new Contact Details entities'
+
+administer contact details entities:
+  title: 'Administer Contact Details entities'
+  description: 'Allow to access the administration form to configure Contact Details entities.'
+  restrict access: true
+
+delete contact details entities:
+  title: 'Delete Contact Details entities'
+
+edit contact details entities:
+  title: 'Edit Contact Details entities'
+
+view published contact details entities:
+  title: 'View published Contact Details entities'
+
+view unpublished contact details entities:
+  title: 'View unpublished Contact Details entities'
+
+view all contact details revisions:
+  title: 'View all Contact Details revisions'
+
+revert all contact details revisions:
+  title: 'Revert all Contact Details revisions'
+  description: 'Role requires permission <em>view Contact Details revisions</em> and <em>edit rights</em> for contact details entities in question or <em>administer contact details entities</em>.'
+
+delete all contact details revisions:
+  title: 'Delete all revisions'
+  description: 'Role requires permission to <em>view Contact Details revisions</em> and <em>delete rights</em> for contact details entities in question or <em>administer contact details entities</em>.'

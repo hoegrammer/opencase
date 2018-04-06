@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'Contact Types'
+vid: contact_types
+description: ''
+hierarchy: 0
+weight: 0

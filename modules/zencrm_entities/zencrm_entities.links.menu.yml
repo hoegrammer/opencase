@@ -30,3 +30,17 @@ entity.profile_type.collection:
   parent: system.admin_structure
   weight: 99
 
+
+# Contact Details menu items definition
+entity.contact_details.collection:
+  title: 'Contact Details list'
+  route_name: entity.contact_details.collection
+  description: 'List Contact Details entities'
+  parent: system.admin_structure
+  weight: 100
+
+contact_details.admin.structure.settings:
+  title: 'Contact Details settings'
+  description: 'Configure Contact Details entities'
+  route_name: contact_details.settings
+  parent: system.admin_structure
