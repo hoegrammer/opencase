@@ -214,7 +214,7 @@ class ContactDetails extends RevisionableContentEntityBase implements ContactDet
       ])
       ->setDisplayOptions('form', [
         'type' => 'entity_reference_autocomplete',
-        'weight' => 5,
+        'weight' => 100,
         'settings' => [
           'match_operator' => 'CONTAINS',
           'size' => '60',
@@ -236,7 +236,7 @@ class ContactDetails extends RevisionableContentEntityBase implements ContactDet
       ])
       ->setDisplayOptions('form', [
         'type' => 'entity_reference_autocomplete',
-        'weight' => 5,
+        'weight' => 0,
         'settings' => [
           'match_operator' => 'CONTAINS',
           'size' => '60',
@@ -266,7 +266,7 @@ class ContactDetails extends RevisionableContentEntityBase implements ContactDet
       ])
       ->setDisplayOptions('form', [
         'type' => 'entity_reference_autocomplete',
-        'weight' => 5,
+        'weight' => 1,
         'settings' => [
           'match_operator' => 'CONTAINS',
           'size' => '60',
@@ -275,6 +275,92 @@ class ContactDetails extends RevisionableContentEntityBase implements ContactDet
         ],
       ])
       ->setRequired(TRUE);
+
+    $fields['phone'] = BaseFieldDefinition::create('string')
+      ->setLabel(t('Main Phone Number'))
+      ->setSettings(array(
+        'default_value' => '',
+        'max_length' => 20,
+        'text_processing' => 0,
+      ))
+      ->setDisplayOptions('view', array(
+        'label' => 'above',
+        'type' => 'string',
+        'weight' => 2,
+      ))
+      ->setDisplayOptions('form', array(
+        'type' => 'string_textfield',
+        'weight' => 2,
+      ));
+
+    $fields['phone2'] = BaseFieldDefinition::create('string')
+      ->setLabel(t('Alternative Phone Number'))
+      ->setSettings(array(
+        'default_value' => '',
+        'max_length' => 20,
+        'text_processing' => 0,
+      ))
+      ->setDisplayOptions('view', array(
+        'label' => 'above',
+        'type' => 'string',
+        'weight' => 3,
+      ))
+      ->setDisplayOptions('form', array(
+        'type' => 'string_textfield',
+        'weight' => 3,
+      ));
+
+    $fields['email'] = BaseFieldDefinition::create('string')
+      ->setLabel(t('Email Address'))
+      ->setSettings(array(
+        'default_value' => '',
+        'max_length' => 30,
+        'text_processing' => 0,
+      ))
+      ->setDisplayOptions('view', array(
+        'label' => 'above',
+        'type' => 'string',
+        'weight' => 4,
+      ))
+      ->setDisplayOptions('form', array(
+        'type' => 'string_textfield',
+        'weight' => 4,
+      ));
+
+    $fields['postal_address'] = BaseFieldDefinition::create('string_long')
+      ->setLabel(t('Postal Address'))
+      ->setDescription(t('Full address, apart from post code.'))
+      ->setSettings(array(
+        'default_value' => '',
+        'max_length' => 255,
+        'text_processing' => 0,
+      ))
+      ->setDisplayOptions('view', array(
+        'label' => 'above',
+        'type' => 'text',
+        'weight' => 5,
+      ))
+      ->setDisplayOptions('form', array(
+        'type' => 'string_textarea',
+        'weight' => 5,
+      ));
+
+    $fields['post_code'] = BaseFieldDefinition::create('string')
+      ->setLabel(t('Post Code'))
+      ->setSettings(array(
+        'default_value' => '',
+        'max_length' => 10,
+        'text_processing' => 0,
+      ))
+      ->setDisplayOptions('view', array(
+        'label' => 'above',
+        'type' => 'string',
+        'weight' => 6,
+      ))
+      ->setDisplayOptions('form', array(
+        'type' => 'string_textfield',
+        'weight' => 6,
+      ));
 
     $fields['status'] = BaseFieldDefinition::create('boolean')
       ->setLabel(t('Enabled'))
