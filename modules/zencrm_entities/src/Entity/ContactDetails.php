@@ -224,15 +224,16 @@ class ContactDetails extends RevisionableContentEntityBase implements ContactDet
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayConfigurable('view', TRUE);
 
-
-    $fields['label'] = BaseFieldDefinition::create('entity_reference')
-      ->setLabel(t('Label'))
+    // This field is not displayed but is used to compute the name of the entity.
+    // See zencrm_entities.module - zencrm_entities_contact_details_presave().
+    $fields['type'] = BaseFieldDefinition::create('entity_reference')
+      ->setLabel(t('Type'))
       ->setDescription(t('E.g. Home, Business, Temporary'))
       ->setSetting('handler', 'default:taxonomy_term')
       ->setSetting('target_type', 'taxonomy_term')
       ->setSetting('handler_settings', [
         'target_bundles' => [
-          'tags' => 'tags',
+          'contact_details_types' => 'contact_details_types',
         ],
         'auto_create' => 'true'
       ])
@@ -290,7 +291,6 @@ class ContactDetails extends RevisionableContentEntityBase implements ContactDet
         'max_length' => 50,
         'text_processing' => 0,
       ])
-      ->setDefaultValue('')
       ->setDisplayOptions('view', [
         'label' => 'above',
         'type' => 'string',
@@ -299,10 +299,7 @@ class ContactDetails extends RevisionableContentEntityBase implements ContactDet
       ->setDisplayOptions('form', [
         'type' => 'string_textfield',
         'weight' => -4,
-      ])
-      ->setDisplayConfigurable('form', TRUE)
-      ->setDisplayConfigurable('view', TRUE)
-      ->setRequired(TRUE);
+      ]);
 
     $fields['status'] = BaseFieldDefinition::create('boolean')
       ->setLabel(t('Publishing status'))
