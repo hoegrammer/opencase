@@ -208,11 +208,13 @@ class Person extends RevisionableContentEntityBase implements PersonInterface {
       ])
       ->setTranslatable(TRUE);
 
+    // This field is computed in a presave hook.
     $fields['full_name'] = BaseFieldDefinition::create('string')
       ->setLabel(t('Full Name'))
       ->setDescription(t('The full name of the person.'))
       ->setRevisionable(TRUE);
 
+    // This field is computed in a presave hook.
     $fields['first_and_last_name'] = BaseFieldDefinition::create('string')
       ->setLabel(t('First and Last Name'))
       ->setDescription(t('The first and last name of the person. Used for searching and autocomplete'))

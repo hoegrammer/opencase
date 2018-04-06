@@ -27,6 +27,20 @@ function zencrm_entities_person_presave($entity) {
 
 
 /**
+ * Implements hook_ENTITY_TYPE_presave().
+ * Computes the name field from the full name of the referenced person
+ * plus the profile type.
+ */
+function zencrm_entities_profile_presave($entity) {
+  $person_id =  $entity->person->first()->getValue()['target_id'];
+  $person = \Drupal\zencrm_entities\Entity\Person::load($person_id);
+  $full_name = $person->full_name->getString();
+  $bundle_name = $entity->type->entity->label();
+  $entity->set('name', $full_name . ' - ' . $bundle_name);
+} 
+
+
+/**
  * Implements hook_help().
  */
 function zencrm_entities_help($route_name, RouteMatchInterface $route_match) {
