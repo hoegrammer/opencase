@@ -1,0 +1,7 @@
+zencrm.profile.create:
+  path: '/zencrm/profile/add/{type}/{person_id}'
+  defaults:
+    _controller: '\Drupal\zencrm\Controller\ProfileController::createProfileForPerson'
+    _title: 'Add New Profile'
+  requirements:
+    _permission: 'access content'
