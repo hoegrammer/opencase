@@ -209,49 +209,22 @@ class Profile extends RevisionableContentEntityBase implements ProfileInterface 
       ->setRevisionable(TRUE)
       ->setSetting('target_type', 'user')
       ->setSetting('handler', 'default')
-      ->setTranslatable(TRUE)
-      ->setDisplayOptions('view', [
-        'label' => 'inline',
-        'type' => 'author',
-        'weight' => 100,
-      ])
-      ->setDisplayOptions('form', [
-        'type' => 'entity_reference_autocomplete',
-        'weight' => 5,
-        'settings' => [
-          'match_operator' => 'CONTAINS',
-          'size' => '60',
-          'autocomplete_type' => 'tags',
-          'placeholder' => '',
-        ],
-      ]);
+      ->setTranslatable(TRUE);
+    #  ->setDisplayOptions('form', [
+    #    'type' => 'entity_reference_autocomplete',
+    #    'weight' => 5,
+    #    'settings' => [
+    #      'match_operator' => 'CONTAINS',
+    #      'size' => '60',
+    #      'autocomplete_type' => 'tags',
+    #      'placeholder' => '',
+    #    ],
+    #  ]);
 
     $fields['person'] = BaseFieldDefinition::create('entity_reference')
       ->setLabel(t('Person'))
       ->setDescription(t('The person this profile is of.'))
-      ->setSetting('target_type', 'person')
-      ->setSetting('handler', 'views')
-      ->setSetting('handler_settings', [
-        'view' => [
-          'view_name' => 'persons',            
-          'display_name' => 'entity_reference_1',
-          'arguments' => []
-        ]
-      ])
-      ->setDisplayOptions('form', [
-        'type' => 'entity_reference_autocomplete',
-        'weight' => 5,
-        'settings' => [
-          'match_operator' => 'CONTAINS',
-          'size' => '60',
-          'autocomplete_type' => 'tags',
-          'placeholder' => '',
-        ],
-      ])
-      ->setDisplayOptions('view', [
-        'label' => 'above',
-        'weight' => 0,
-      ]);
+      ->setSetting('target_type', 'person');
 
     // This field is computed in a presave hook.
     $fields['name'] = BaseFieldDefinition::create('string')
