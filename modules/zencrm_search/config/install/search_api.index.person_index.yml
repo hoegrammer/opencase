@@ -22,9 +22,17 @@ datasource_settings:
       default: true
       selected: {  }
 processor_settings:
+processor_settings:
   rendered_item: {  }
   aggregated_field: {  }
   add_url: {  }
+  ignorecase:
+    all_fields: true
+    fields:
+      - full_name
+    weights:
+      preprocess_index: -20
+      preprocess_query: -20
 tracker_settings:
   default:
     indexing_order: fifo
