@@ -1,0 +1,34 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - search_api.server.zencrm_server
+  module:
+    - search_api
+    - zencrm_entities
+id: person_index
+name: 'Person Index'
+description: ''
+read_only: false
+field_settings:
+  full_name:
+    label: 'Full Name'
+    datasource_id: 'entity:person'
+    property_path: full_name
+    type: text
+datasource_settings:
+  'entity:person':
+    languages:
+      default: true
+      selected: {  }
+processor_settings:
+  rendered_item: {  }
+  aggregated_field: {  }
+  add_url: {  }
+tracker_settings:
+  default:
+    indexing_order: fifo
+options:
+  index_directly: true
+  cron_limit: 50
+server: zencrm_server
