@@ -191,21 +191,21 @@ class Person extends RevisionableContentEntityBase implements PersonInterface {
       ->setRevisionable(TRUE)
       ->setSetting('target_type', 'user')
       ->setSetting('handler', 'default')
-      ->setDisplayOptions('form', [
-        'type' => 'entity_reference_autocomplete',
-        'weight' => 5,
-        'settings' => [
-          'match_operator' => 'CONTAINS',
-          'size' => '60',
-          'autocomplete_type' => 'tags',
-          'placeholder' => '',
-        ],
-      ])
-      ->setDisplayOptions('view', [
-        'label' => 'inline',
-        'type' => 'author',
-        'weight' => 100,
-      ])
+#      ->setDisplayOptions('form', [
+#        'type' => 'entity_reference_autocomplete',
+#        'weight' => 5,
+#        'settings' => [
+#          'match_operator' => 'CONTAINS',
+#          'size' => '60',
+#          'autocomplete_type' => 'tags',
+#          'placeholder' => '',
+#        ],
+#      ])
+#      ->setDisplayOptions('view', [
+#        'label' => 'inline',
+#        'type' => 'author',
+#        'weight' => 100,
+#      ])
       ->setTranslatable(TRUE);
 
     // This field is computed in a presave hook.
@@ -228,18 +228,11 @@ class Person extends RevisionableContentEntityBase implements PersonInterface {
         'max_length' => 50,
         'text_processing' => 0,
       ])
-      ->setDefaultValue('')
-      ->setDisplayOptions('view', [
-        'label' => 'above',
-        'type' => 'string',
-        'weight' => -4,
-      ])
       ->setDisplayOptions('form', [
         'type' => 'string_textfield',
         'weight' => -4,
       ])
       ->setDisplayConfigurable('form', TRUE)
-      ->setDisplayConfigurable('view', TRUE)
       ->setRequired(TRUE);
 
     $fields['middle_names'] = BaseFieldDefinition::create('string')
@@ -250,18 +243,11 @@ class Person extends RevisionableContentEntityBase implements PersonInterface {
         'max_length' => 50,
         'text_processing' => 0,
       ])
-      ->setDefaultValue('')
-      ->setDisplayOptions('view', [
-        'label' => 'above',
-        'type' => 'string',
-        'weight' => -4,
-      ])
       ->setDisplayOptions('form', [
         'type' => 'string_textfield',
         'weight' => -4,
       ])
-      ->setDisplayConfigurable('form', TRUE)
-      ->setDisplayConfigurable('view', TRUE);
+      ->setDisplayConfigurable('form', TRUE);
 
     $fields['last_name'] = BaseFieldDefinition::create('string')
       ->setLabel(t('Last Name'))
@@ -271,18 +257,11 @@ class Person extends RevisionableContentEntityBase implements PersonInterface {
         'max_length' => 50,
         'text_processing' => 0,
       ])
-      ->setDefaultValue('')
-      ->setDisplayOptions('view', [
-        'label' => 'above',
-        'type' => 'string',
-        'weight' => -4,
-      ])
       ->setDisplayOptions('form', [
         'type' => 'string_textfield',
         'weight' => -4,
       ])
       ->setDisplayConfigurable('form', TRUE)
-      ->setDisplayConfigurable('view', TRUE)
       ->setRequired(TRUE);
 
     $fields['status'] = BaseFieldDefinition::create('boolean')
