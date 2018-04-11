@@ -1,0 +1,29 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.this_person_s_contact_details
+  module:
+    - system
+    - views
+  theme:
+    - bartik
+id: views_block__this_person_s_contact_details_block_1
+theme: bartik
+region: content
+weight: 0
+provider: null
+plugin: 'views_block:this_person_s_contact_details-block_1'
+settings:
+  id: 'views_block:this_person_s_contact_details-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: '/zencrm/person/*'
+    negate: false
+    context_mapping: {  }
