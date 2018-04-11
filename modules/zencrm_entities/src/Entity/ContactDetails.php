@@ -171,7 +171,6 @@ class ContactDetails extends RevisionableContentEntityBase implements ContactDet
   }
 
   /**
-      ->setDisplayConfigurable('view', TRUE);
    * {@inheritdoc}
    */
   public function setOwner(UserInterface $account) {
@@ -206,78 +205,72 @@ class ContactDetails extends RevisionableContentEntityBase implements ContactDet
       ->setRevisionable(TRUE)
       ->setSetting('target_type', 'user')
       ->setSetting('handler', 'default')
-      ->setTranslatable(TRUE)
-      ->setDisplayOptions('view', [
-        'label' => 'inline',
-        'type' => 'author',
-        'weight' => 100,
-      ])
-      ->setDisplayOptions('form', [
-        'type' => 'entity_reference_autocomplete',
-        'weight' => 100,
-        'settings' => [
-          'match_operator' => 'CONTAINS',
-          'size' => '60',
-          'autocomplete_type' => 'tags',
-          'placeholder' => '',
-        ],
-      ]);
+     # ->setDisplayOptions('view', [
+     #   'label' => 'inline',
+     #   'type' => 'author',
+     #   'weight' => 100,
+     # ])
+     # ->setDisplayOptions('form', [
+     #   'type' => 'entity_reference_autocomplete',
+     #   'weight' => 100,
+     #   'settings' => [
+     #     'match_operator' => 'CONTAINS',
+     #     'size' => '60',
+     #     'autocomplete_type' => 'tags',
+     #     'placeholder' => '',
+     #   ],
+     # ])
+      ->setTranslatable(TRUE);
 
-    $fields['type'] = BaseFieldDefinition::create('entity_reference')
+
+    // Type field is used in entity reference fields etc
+    // so it is not exposed to user configuration. 
+    $fields['type'] = BaseFieldDefinition::create('string')
       ->setLabel(t('Type'))
       ->setDescription(t('E.g. Home, Business, Temporary'))
-      ->setSetting('handler', 'default:taxonomy_term')
-      ->setSetting('target_type', 'taxonomy_term')
-      ->setSetting('handler_settings', [
-        'target_bundles' => [
-          'contact_details_types' => 'contact_details_types',
-        ],
-        'auto_create' => 'true'
-      ])
       ->setDisplayOptions('form', [
-        'type' => 'entity_reference_autocomplete',
-        'weight' => 0,
-        'settings' => [
-          'match_operator' => 'CONTAINS',
-          'size' => '60',
-          'placeholder' => '',
-        ],
-      ])
-      ->setDisplayOptions('view', [
-        'settings' => ['link' => 'false'],
-        'type' => 'entity_reference_label',
         'label' => 'hidden',
+        'type' => 'text',
         'weight' => 0,
       ])
+      ->setDisplayOptions('view', array(
+        'label' => 'hidden',
+        'type' => 'string',
+        'weight' => 0,
+      ))
       ->setRequired(TRUE);
 
 
+    // Person field is always set from the context so no form or display required.
     $fields['person'] = BaseFieldDefinition::create('entity_reference')
       ->setLabel(t('Person'))
       ->setDescription(t('The person this profile is of.'))
       ->setSetting('target_type', 'person')
-      ->setSetting('handler', 'views')
-      ->setSetting('handler_settings', [
-        'view' => [
-          'view_name' => 'persons',            
-          'display_name' => 'entity_reference_1',
-          'arguments' => []
-        ]
-      ])
-      ->setDisplayOptions('form', [
-        'type' => 'entity_reference_autocomplete',
-        'weight' => 1,
-        'settings' => [
-          'match_operator' => 'CONTAINS',
-          'size' => '60',
-          'autocomplete_type' => 'tags',
-          'placeholder' => '',
-        ],
-      ])
       ->setRequired(TRUE);
+
+    // Type field is used for mailings, 
+    // so it is not exposed to user configuration. 
+    $fields['email'] = BaseFieldDefinition::create('string')
+      ->setLabel(t('Email Address'))
+      ->setSettings(array(
+        'default_value' => '',
+        'max_length' => 30,
+        'text_processing' => 0,
+      ))
+      ->setDisplayOptions('view', array(
+        'label' => 'hidden',
+        'type' => 'string',
+        'weight' => 0,
+      ))
+      ->setDisplayOptions('form', array(
+        'type' => 'string_textfield',
+        'weight' => 0,
+      ));
 
     $fields['phone'] = BaseFieldDefinition::create('string')
       ->setLabel(t('Main Phone Number'))
+      ->setDisplayConfigurable('view', TRUE)
+      ->setDisplayConfigurable('form', TRUE)
       ->setSettings(array(
         'default_value' => '',
         'max_length' => 20,
@@ -300,6 +293,8 @@ class ContactDetails extends RevisionableContentEntityBase implements ContactDet
         'max_length' => 20,
         'text_processing' => 0,
       ))
+      ->setDisplayConfigurable('view', TRUE)
+      ->setDisplayConfigurable('form', TRUE)
       ->setDisplayOptions('view', array(
         'label' => 'above',
         'type' => 'string',
@@ -308,28 +303,13 @@ class ContactDetails extends RevisionableContentEntityBase implements ContactDet
       ->setDisplayOptions('form', array(
         'type' => 'string_textfield',
         'weight' => 3,
-      ));
-
-    $fields['email'] = BaseFieldDefinition::create('string')
-      ->setLabel(t('Email Address'))
-      ->setSettings(array(
-        'default_value' => '',
-        'max_length' => 30,
-        'text_processing' => 0,
-      ))
-      ->setDisplayOptions('view', array(
-        'label' => 'above',
-        'type' => 'string',
-        'weight' => 4,
-      ))
-      ->setDisplayOptions('form', array(
-        'type' => 'string_textfield',
-        'weight' => 4,
       ));
 
     $fields['postal_address'] = BaseFieldDefinition::create('string_long')
       ->setLabel(t('Postal Address'))
       ->setDescription(t('Full address, apart from post code.'))
+      ->setDisplayConfigurable('view', TRUE)
+      ->setDisplayConfigurable('form', TRUE)
       ->setSettings(array(
         'default_value' => '',
         'max_length' => 255,
