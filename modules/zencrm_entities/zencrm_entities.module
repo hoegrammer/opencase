@@ -10,7 +10,6 @@ use Drupal\Core\Routing\RouteMatchInterface;
 /**
  * Implements hook_ENTITY_TYPE_presave().
  * Computes the full_name field from first_name middle_names and last_name.
- * Computes the first_and_last_name field from first_name and last_name.
  */
 function zencrm_entities_person_presave($entity) {
   $first_name = $entity->first_name->getString(); 
@@ -19,10 +18,8 @@ function zencrm_entities_person_presave($entity) {
   if ($middle_names) {
     $middle_names .= ' ';
   }
-  $first_and_last_name = $first_name . ' ' . $last_name; 
   $full_name = $first_name . ' ' . $middle_names . $last_name;
   $entity->set('full_name', $full_name);
-  $entity->set('first_and_last_name', $first_and_last_name);
 } 
 
 

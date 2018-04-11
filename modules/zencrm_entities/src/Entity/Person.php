@@ -44,10 +44,10 @@ use Drupal\user\UserInterface;
  *     "status" = "status",
  *   },
  *   links = {
- *     "canonical" = "/admin/structure/person/{person}",
- *     "add-form" = "/admin/structure/person/add",
- *     "edit-form" = "/admin/structure/person/{person}/edit",
- *     "delete-form" = "/admin/structure/person/{person}/delete",
+ *     "canonical" = "/zencrm/person/{person}",
+ *     "add-form" = "/zencrm/person/add",
+ *     "edit-form" = "/zencrm/person/{person}/edit",
+ *     "delete-form" = "/zencrm/person/{person}/delete",
  *     "collection" = "/admin/structure/person",
  *   },
  *   field_ui_base_route = "person.settings"

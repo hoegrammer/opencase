@@ -6,6 +6,8 @@ use Drupal\Core\Block\BlockBase;
 
 /**
  * Provides a 'HatCreator' block.
+ * Block contains links for creating hats of types that the person does not already have.
+ * The links open an entity create form in a popup.
  *
  * @Block(
  *  id = "hat_creator",
