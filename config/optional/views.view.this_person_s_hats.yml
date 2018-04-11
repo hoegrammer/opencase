@@ -1,6 +1,8 @@
 langcode: en
 status: true
 dependencies:
+  config:
+    - block.block.hatcreator
   module:
     - zencrm_entities
 id: this_person_s_hats
@@ -244,7 +246,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '<a class=''use-ajax'' data-dialog-type=''modal'' href=''/zencrm/hat/{{ id }}/edit?destination=/zencrm/person/{{ raw_arguments.person }}''>Edit</a>'
+            text: '<div><a class=''use-ajax'' data-dialog-type=''modal'' href=''/zencrm/hat/{{ id }}/edit?destination=/zencrm/person/{{ raw_arguments.person }}''>Edit</a></div>'
             make_link: false
             path: ''
             absolute: false
@@ -287,7 +289,20 @@ display:
       title: 'This Person''s Hats'
       header: {  }
       footer: {  }
-      empty: {  }
+      empty:
+        entity_block:
+          id: entity_block
+          table: views
+          field: entity_block
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: true
+          target: hatcreator
+          view_mode: default
+          bypass_access: false
+          plugin_id: entity
       relationships: {  }
       arguments:
         person:
