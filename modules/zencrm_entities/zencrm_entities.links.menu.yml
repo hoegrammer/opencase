@@ -58,3 +58,17 @@ person.admin.structure.settings:
   description: 'Configure Person entities'
   route_name: person.settings
   parent: system.admin_structure
+
+# Contact details menu items definition
+entity.contact_details.collection:
+  title: 'Contact details list'
+  route_name: entity.contact_details.collection
+  description: 'List Contact details entities'
+  parent: system.admin_structure
+  weight: 100
+
+contact_details.admin.structure.settings:
+  title: 'Contact details settings'
+  description: 'Configure Contact details entities'
+  route_name: contact_details.settings
+  parent: system.admin_structure

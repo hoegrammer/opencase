@@ -35,7 +35,7 @@ class ContactDetailsSettingsForm extends FormBase {
   }
 
   /**
-   * Defines the settings form for Contact Details entities.
+   * Defines the settings form for Contact details entities.
    *
    * @param array $form
    *   An associative array containing the structure of the form.
@@ -46,7 +46,7 @@ class ContactDetailsSettingsForm extends FormBase {
    *   Form definition array.
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    $form['contactdetails_settings']['#markup'] = 'Settings form for Contact Details entities. Manage field settings here.';
+    $form['contactdetails_settings']['#markup'] = 'Settings form for Contact details entities. Manage field settings here.';
     return $form;
   }
 

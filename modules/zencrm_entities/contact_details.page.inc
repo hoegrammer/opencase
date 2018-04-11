@@ -4,13 +4,13 @@
  * @file
  * Contains contact_details.page.inc.
  *
- * Page callback for Contact Details entities.
+ * Page callback for Contact details entities.
  */
 
 use Drupal\Core\Render\Element;
 
 /**
- * Prepares variables for Contact Details templates.
+ * Prepares variables for Contact details templates.
  *
  * Default template: contact_details.html.twig.
  *

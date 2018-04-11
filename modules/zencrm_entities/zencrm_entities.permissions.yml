@@ -107,3 +107,22 @@ view published person entities:
 
 view unpublished person entities:
   title: 'View unpublished Person entities'
+add contact details entities:
+  title: 'Create new Contact details entities'
+
+administer contact details entities:
+  title: 'Administer Contact details entities'
+  description: 'Allow to access the administration form to configure Contact details entities.'
+  restrict access: true
+
+delete contact details entities:
+  title: 'Delete Contact details entities'
+
+edit contact details entities:
+  title: 'Edit Contact details entities'
+
+view published contact details entities:
+  title: 'View published Contact details entities'
+
+view unpublished contact details entities:
+  title: 'View unpublished Contact details entities'

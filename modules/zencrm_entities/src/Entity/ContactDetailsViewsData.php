@@ -5,7 +5,7 @@ namespace Drupal\zencrm_entities\Entity;
 use Drupal\views\EntityViewsData;
 
 /**
- * Provides Views data for Contact Details entities.
+ * Provides Views data for Contact details entities.
  */
 class ContactDetailsViewsData extends EntityViewsData {
 

@@ -4,26 +4,23 @@ namespace Drupal\zencrm_entities\Entity;
 
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
-use Drupal\Core\Entity\RevisionableContentEntityBase;
-use Drupal\Core\Entity\RevisionableInterface;
+use Drupal\Core\Entity\ContentEntityBase;
 use Drupal\Core\Entity\EntityChangedTrait;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\user\UserInterface;
 
 /**
- * Defines the Contact Details entity.
+ * Defines the Contact details entity.
  *
  * @ingroup zencrm_entities
  *
  * @ContentEntityType(
  *   id = "contact_details",
- *   label = @Translation("Contact Details"),
+ *   label = @Translation("Contact details"),
  *   handlers = {
- *     "storage" = "Drupal\zencrm_entities\ContactDetailsStorage",
  *     "view_builder" = "Drupal\Core\Entity\EntityViewBuilder",
  *     "list_builder" = "Drupal\zencrm_entities\ContactDetailsListBuilder",
  *     "views_data" = "Drupal\zencrm_entities\Entity\ContactDetailsViewsData",
- *     "translation" = "Drupal\zencrm_entities\ContactDetailsTranslationHandler",
  *
  *     "form" = {
  *       "default" = "Drupal\zencrm_entities\Form\ContactDetailsForm",
@@ -37,36 +34,26 @@ use Drupal\user\UserInterface;
  *     },
  *   },
  *   base_table = "contact_details",
- *   data_table = "contact_details_field_data",
- *   revision_table = "contact_details_revision",
- *   revision_data_table = "contact_details_field_revision",
- *   translatable = TRUE,
  *   admin_permission = "administer contact details entities",
  *   entity_keys = {
  *     "id" = "id",
- *     "revision" = "vid",
- *     "label" = "type",
+ *     "label" = "name",
  *     "uuid" = "uuid",
  *     "uid" = "user_id",
  *     "langcode" = "langcode",
  *     "status" = "status",
  *   },
  *   links = {
- *     "canonical" = "/zencrm/contact_details/{contact_details}",
- *     "add-form" = "/zencrm/contact_details/add",
- *     "edit-form" = "/zencrm/contact_details/{contact_details}/edit",
- *     "delete-form" = "/zencrm/contact_details/{contact_details}/delete",
- *     "version-history" = "/zencrm/contact_details/{contact_details}/revisions",
- *     "revision" = "/zencrm/contact_details/{contact_details}/revisions/{contact_details_revision}/view",
- *     "revision_revert" = "/zencrm/contact_details/{contact_details}/revisions/{contact_details_revision}/revert",
- *     "revision_delete" = "/zencrm/contact_details/{contact_details}/revisions/{contact_details_revision}/delete",
- *     "translation_revert" = "/zencrm/contact_details/{contact_details}/revisions/{contact_details_revision}/revert/{langcode}",
- *     "collection" = "/zencrm/contact_details",
+ *     "canonical" = "/admin/structure/contact_details/{contact_details}",
+ *     "add-form" = "/admin/structure/contact_details/add",
+ *     "edit-form" = "/admin/structure/contact_details/{contact_details}/edit",
+ *     "delete-form" = "/admin/structure/contact_details/{contact_details}/delete",
+ *     "collection" = "/admin/structure/contact_details",
  *   },
  *   field_ui_base_route = "contact_details.settings"
  * )
  */
-class ContactDetails extends RevisionableContentEntityBase implements ContactDetailsInterface {
+class ContactDetails extends ContentEntityBase implements ContactDetailsInterface {
 
   use EntityChangedTrait;
 
@@ -78,44 +65,6 @@ class ContactDetails extends RevisionableContentEntityBase implements ContactDet
     $values += [
       'user_id' => \Drupal::currentUser()->id(),
     ];
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  protected function urlRouteParameters($rel) {
-    $uri_route_parameters = parent::urlRouteParameters($rel);
-
-    if ($rel === 'revision_revert' && $this instanceof RevisionableInterface) {
-      $uri_route_parameters[$this->getEntityTypeId() . '_revision'] = $this->getRevisionId();
-    }
-    elseif ($rel === 'revision_delete' && $this instanceof RevisionableInterface) {
-      $uri_route_parameters[$this->getEntityTypeId() . '_revision'] = $this->getRevisionId();
-    }
-
-    return $uri_route_parameters;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function preSave(EntityStorageInterface $storage) {
-    parent::preSave($storage);
-
-    foreach (array_keys($this->getTranslationLanguages()) as $langcode) {
-      $translation = $this->getTranslation($langcode);
-
-      // If no owner has been set explicitly, make the anonymous user the owner.
-      if (!$translation->getOwner()) {
-        $translation->setOwnerId(0);
-      }
-    }
-
-    // If no revision author has been set explicitly, make the contact_details owner the
-    // revision author.
-    if (!$this->getRevisionUser()) {
-      $this->setRevisionUserId($this->getOwnerId());
-    }
   }
 
   /**
@@ -201,156 +150,58 @@ class ContactDetails extends RevisionableContentEntityBase implements ContactDet
 
     $fields['user_id'] = BaseFieldDefinition::create('entity_reference')
       ->setLabel(t('Authored by'))
-      ->setDescription(t('The user ID of author of the Contact Details entity.'))
+      ->setDescription(t('The user ID of author of the Contact details entity.'))
       ->setRevisionable(TRUE)
       ->setSetting('target_type', 'user')
       ->setSetting('handler', 'default')
-     # ->setDisplayOptions('view', [
-     #   'label' => 'inline',
-     #   'type' => 'author',
-     #   'weight' => 100,
-     # ])
-     # ->setDisplayOptions('form', [
-     #   'type' => 'entity_reference_autocomplete',
-     #   'weight' => 100,
-     #   'settings' => [
-     #     'match_operator' => 'CONTAINS',
-     #     'size' => '60',
-     #     'autocomplete_type' => 'tags',
-     #     'placeholder' => '',
-     #   ],
-     # ])
-      ->setTranslatable(TRUE);
-
-
-    // Type field is used in entity reference fields etc
-    // so it is not exposed to user configuration. 
-    $fields['type'] = BaseFieldDefinition::create('string')
-      ->setLabel(t('Type'))
-      ->setDescription(t('E.g. Home, Business, Temporary'))
-      ->setDisplayOptions('form', [
+      ->setTranslatable(TRUE)
+      ->setDisplayOptions('view', [
         'label' => 'hidden',
-        'type' => 'text',
+        'type' => 'author',
         'weight' => 0,
       ])
-      ->setDisplayOptions('view', array(
-        'label' => 'hidden',
-        'type' => 'string',
-        'weight' => 0,
-      ))
-      ->setRequired(TRUE);
-
-
-    // Person field is always set from the context so no form or display required.
-    $fields['person'] = BaseFieldDefinition::create('entity_reference')
-      ->setLabel(t('Person'))
-      ->setDescription(t('The person this profile is of.'))
-      ->setSetting('target_type', 'person')
-      ->setRequired(TRUE);
-
-    // Type field is used for mailings, 
-    // so it is not exposed to user configuration. 
-    $fields['email'] = BaseFieldDefinition::create('string')
-      ->setLabel(t('Email Address'))
-      ->setSettings(array(
-        'default_value' => '',
-        'max_length' => 30,
-        'text_processing' => 0,
-      ))
-      ->setDisplayOptions('view', array(
-        'label' => 'hidden',
-        'type' => 'string',
-        'weight' => 0,
-      ))
-      ->setDisplayOptions('form', array(
-        'type' => 'string_textfield',
-        'weight' => 0,
-      ));
-
-    $fields['phone'] = BaseFieldDefinition::create('string')
-      ->setLabel(t('Main Phone Number'))
-      ->setDisplayConfigurable('view', TRUE)
-      ->setDisplayConfigurable('form', TRUE)
-      ->setSettings(array(
-        'default_value' => '',
-        'max_length' => 20,
-        'text_processing' => 0,
-      ))
-      ->setDisplayOptions('view', array(
-        'label' => 'above',
-        'type' => 'string',
-        'weight' => 2,
-      ))
-      ->setDisplayOptions('form', array(
-        'type' => 'string_textfield',
-        'weight' => 2,
-      ));
-
-    $fields['phone2'] = BaseFieldDefinition::create('string')
-      ->setLabel(t('Alternative Phone Number'))
-      ->setSettings(array(
-        'default_value' => '',
-        'max_length' => 20,
-        'text_processing' => 0,
-      ))
-      ->setDisplayConfigurable('view', TRUE)
-      ->setDisplayConfigurable('form', TRUE)
-      ->setDisplayOptions('view', array(
-        'label' => 'above',
-        'type' => 'string',
-        'weight' => 3,
-      ))
-      ->setDisplayOptions('form', array(
-        'type' => 'string_textfield',
-        'weight' => 3,
-      ));
-
-    $fields['postal_address'] = BaseFieldDefinition::create('string_long')
-      ->setLabel(t('Postal Address'))
-      ->setDescription(t('Full address, apart from post code.'))
-      ->setDisplayConfigurable('view', TRUE)
-      ->setDisplayConfigurable('form', TRUE)
-      ->setSettings(array(
-        'default_value' => '',
-        'max_length' => 255,
-        'text_processing' => 0,
-      ))
-      ->setDisplayOptions('view', array(
-        'label' => 'above',
-        'type' => 'text',
+      ->setDisplayOptions('form', [
+        'type' => 'entity_reference_autocomplete',
         'weight' => 5,
-      ))
-      ->setDisplayOptions('form', array(
-        'type' => 'string_textarea',
-        'weight' => 5,
-      ));
+        'settings' => [
+          'match_operator' => 'CONTAINS',
+          'size' => '60',
+          'autocomplete_type' => 'tags',
+          'placeholder' => '',
+        ],
+      ])
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayConfigurable('view', TRUE);
 
-    $fields['post_code'] = BaseFieldDefinition::create('string')
-      ->setLabel(t('Post Code'))
-      ->setSettings(array(
-        'default_value' => '',
-        'max_length' => 10,
+    $fields['name'] = BaseFieldDefinition::create('string')
+      ->setLabel(t('Name'))
+      ->setDescription(t('The name of the Contact details entity.'))
+      ->setSettings([
+        'max_length' => 50,
         'text_processing' => 0,
-      ))
-      ->setDisplayOptions('view', array(
+      ])
+      ->setDefaultValue('')
+      ->setDisplayOptions('view', [
         'label' => 'above',
         'type' => 'string',
-        'weight' => 6,
-      ))
-      ->setDisplayOptions('form', array(
+        'weight' => -4,
+      ])
+      ->setDisplayOptions('form', [
         'type' => 'string_textfield',
-        'weight' => 6,
-      ));
+        'weight' => -4,
+      ])
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayConfigurable('view', TRUE)
+      ->setRequired(TRUE);
 
     $fields['status'] = BaseFieldDefinition::create('boolean')
-      ->setLabel(t('Enabled'))
-      ->setDescription(t('If this is ticked then this set of contact details is active.'))
-      ->setRevisionable(TRUE)
-   #   ->setDisplayOptions('form', [
-   #     'type' => 'boolean_checkbox',
-   #     'weight' => -3,
-   #   ])
-      ->setDefaultValue(TRUE);
+      ->setLabel(t('Publishing status'))
+      ->setDescription(t('A boolean indicating whether the Contact details is published.'))
+      ->setDefaultValue(TRUE)
+      ->setDisplayOptions('form', [
+        'type' => 'boolean_checkbox',
+        'weight' => -3,
+      ]);
 
     $fields['created'] = BaseFieldDefinition::create('created')
       ->setLabel(t('Created'))
@@ -359,13 +210,6 @@ class ContactDetails extends RevisionableContentEntityBase implements ContactDet
     $fields['changed'] = BaseFieldDefinition::create('changed')
       ->setLabel(t('Changed'))
       ->setDescription(t('The time that the entity was last edited.'));
-
-    $fields['revision_translation_affected'] = BaseFieldDefinition::create('boolean')
-      ->setLabel(t('Revision translation affected'))
-      ->setDescription(t('Indicates if the last edit of a translation belongs to current revision.'))
-      ->setReadOnly(TRUE)
-      ->setRevisionable(TRUE)
-      ->setTranslatable(TRUE);
 
     return $fields;
   }

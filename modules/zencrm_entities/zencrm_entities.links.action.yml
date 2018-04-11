@@ -24,3 +24,8 @@ entity.person.add_form:
   title: 'Add Person'
   appears_on:
     - entity.person.collection
+entity.contact_details.add_form:
+  route_name: entity.contact_details.add_form
+  title: 'Add Contact details'
+  appears_on:
+    - entity.contact_details.collection

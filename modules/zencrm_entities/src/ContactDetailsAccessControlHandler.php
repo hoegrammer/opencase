@@ -8,7 +8,7 @@ use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\Access\AccessResult;
 
 /**
- * Access controller for the Contact Details entity.
+ * Access controller for the Contact details entity.
  *
  * @see \Drupal\zencrm_entities\Entity\ContactDetails.
  */
