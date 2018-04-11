@@ -31,11 +31,11 @@ use Drupal\Core\Config\Entity\ConfigEntityBundleBase;
  *     "uuid" = "uuid"
  *   },
  *   links = {
- *     "canonical" = "/admin/structure/hat_type/{hat_type}",
- *     "add-form" = "/admin/structure/hat_type/add",
- *     "edit-form" = "/admin/structure/hat_type/{hat_type}/edit",
- *     "delete-form" = "/admin/structure/hat_type/{hat_type}/delete",
- *     "collection" = "/admin/structure/hat_type"
+ *     "canonical" = "/zencrm/hat_type/{hat_type}",
+ *     "add-form" = "/zencrm/hat_type/add",
+ *     "edit-form" = "/zencrm/hat_type/{hat_type}/edit",
+ *     "delete-form" = "/zencrm/hat_type/{hat_type}/delete",
+ *     "collection" = "/zencrm/hat_type"
  *   }
  * )
  */
