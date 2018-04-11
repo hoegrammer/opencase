@@ -5,3 +5,11 @@ zencrm.hat.create:
     _title: 'Add New Hat'
   requirements:
     _permission: 'access content'
+
+zencrm.contact_details.create:
+  path: '/zencrm/contact_details/add/{person_id}'
+  defaults:
+    _controller: '\Drupal\zencrm\Controller\ContactDetailsController::createContactDetailsForPerson'
+    _title: 'Add New Contact Details'
+  requirements:
+    _permission: 'access content'

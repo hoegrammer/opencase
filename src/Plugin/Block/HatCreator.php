@@ -31,7 +31,7 @@ class HatCreator extends BlockBase {
         ->loadByProperties(['type' => $id, 'person' => $person_id]);
       if (!reset($hats)) {
         $label = $type['label'];
-        $markup .= "<p><a class='use-ajax' data-dialog-type='modal' href='/zencrm/hat/add/$id/$person_id?destination=/zencrm/person/$person_id'>Create $label Hat</a></p>";
+        $markup .= "<p><a class='use-ajax' data-dialog-type='modal' href='/zencrm/hat/add/$id/$person_id?destination=/zencrm/person/$person_id'>Add a $label Hat</a></p>";
       }
     }
     return [
