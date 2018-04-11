@@ -3,7 +3,6 @@
 namespace Drupal\zencrm_entities\Entity;
 
 use Drupal\Core\Entity\ContentEntityInterface;
-use Drupal\Core\Entity\RevisionLogInterface;
 use Drupal\Core\Entity\EntityChangedInterface;
 use Drupal\user\EntityOwnerInterface;
 
@@ -12,9 +11,28 @@ use Drupal\user\EntityOwnerInterface;
  *
  * @ingroup zencrm_entities
  */
-interface PersonInterface extends ContentEntityInterface, RevisionLogInterface, EntityChangedInterface, EntityOwnerInterface {
+interface PersonInterface extends ContentEntityInterface, EntityChangedInterface, EntityOwnerInterface {
 
   // Add get/set methods for your configuration properties here.
+
+  /**
+   * Gets the Person name.
+   *
+   * @return string
+   *   Name of the Person.
+   */
+  public function getName();
+
+  /**
+   * Sets the Person name.
+   *
+   * @param string $name
+   *   The Person name.
+   *
+   * @return \Drupal\zencrm_entities\Entity\PersonInterface
+   *   The called Person entity.
+   */
+  public function setName($name);
 
   /**
    * Gets the Person creation timestamp.
@@ -55,43 +73,5 @@ interface PersonInterface extends ContentEntityInterface, RevisionLogInterface, 
    *   The called Person entity.
    */
   public function setPublished($published);
-
-  /**
-   * Gets the Person revision creation timestamp.
-   *
-   * @return int
-   *   The UNIX timestamp of when this revision was created.
-   */
-  public function getRevisionCreationTime();
-
-  /**
-   * Sets the Person revision creation timestamp.
-   *
-   * @param int $timestamp
-   *   The UNIX timestamp of when this revision was created.
-   *
-   * @return \Drupal\zencrm_entities\Entity\PersonInterface
-   *   The called Person entity.
-   */
-  public function setRevisionCreationTime($timestamp);
-
-  /**
-   * Gets the Person revision author.
-   *
-   * @return \Drupal\user\UserInterface
-   *   The user entity for the revision author.
-   */
-  public function getRevisionUser();
-
-  /**
-   * Sets the Person revision author.
-   *
-   * @param int $uid
-   *   The user ID of the revision author.
-   *
-   * @return \Drupal\zencrm_entities\Entity\PersonInterface
-   *   The called Person entity.
-   */
-  public function setRevisionUserId($uid);
 
 }

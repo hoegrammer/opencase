@@ -75,3 +75,25 @@ entity.contact_details.delete_form:
   title: Delete
   weight: 10
 
+# Person routing definition
+person.settings_tab:
+  route_name: person.settings
+  title: 'Settings'
+  base_route: person.settings
+
+entity.person.canonical:
+  route_name: entity.person.canonical
+  base_route: entity.person.canonical
+  title: 'View'
+
+entity.person.edit_form:
+  route_name: entity.person.edit_form
+  base_route: entity.person.canonical
+  title: 'Edit'
+
+entity.person.delete_form:
+  route_name:  entity.person.delete_form
+  base_route:  entity.person.canonical
+  title: Delete
+  weight: 10
+

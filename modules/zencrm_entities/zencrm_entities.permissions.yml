@@ -88,3 +88,22 @@ revert all contact details revisions:
 delete all contact details revisions:
   title: 'Delete all revisions'
   description: 'Role requires permission to <em>view Contact Details revisions</em> and <em>delete rights</em> for contact details entities in question or <em>administer contact details entities</em>.'
+add person entities:
+  title: 'Create new Person entities'
+
+administer person entities:
+  title: 'Administer Person entities'
+  description: 'Allow to access the administration form to configure Person entities.'
+  restrict access: true
+
+delete person entities:
+  title: 'Delete Person entities'
+
+edit person entities:
+  title: 'Edit Person entities'
+
+view published person entities:
+  title: 'View published Person entities'
+
+view unpublished person entities:
+  title: 'View unpublished Person entities'
