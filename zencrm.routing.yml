@@ -1,7 +1,7 @@
-zencrm.profile.create:
-  path: '/zencrm/profile/add/{type}/{person_id}'
+zencrm.hat.create:
+  path: '/zencrm/hat/add/{type}/{person_id}'
   defaults:
-    _controller: '\Drupal\zencrm\Controller\ProfileController::createProfileForPerson'
-    _title: 'Add New Profile'
+    _controller: '\Drupal\zencrm\Controller\HatController::createHatForPerson'
+    _title: 'Add New Hat'
   requirements:
     _permission: 'access content'

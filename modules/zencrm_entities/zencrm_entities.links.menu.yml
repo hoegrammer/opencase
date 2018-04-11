@@ -13,24 +13,6 @@ person.admin.structure.settings:
   route_name: person.settings
   parent: system.admin_structure
 
-# Profile menu items definition
-entity.profile.collection:
-  title: 'Profile list'
-  route_name: entity.profile.collection
-  description: 'List Profile entities'
-  parent: system.admin_structure
-  weight: 100
-
-
-# Profile type menu items definition
-entity.profile_type.collection:
-  title: 'Profile type'
-  route_name: entity.profile_type.collection
-  description: 'List Profile type (bundles)'
-  parent: system.admin_structure
-  weight: 99
-
-
 # Contact Details menu items definition
 entity.contact_details.collection:
   title: 'Contact Details list'
@@ -72,3 +54,21 @@ contact_details.admin.structure.settings:
   description: 'Configure Contact details entities'
   route_name: contact_details.settings
   parent: system.admin_structure
+
+# Hat menu items definition
+entity.hat.collection:
+  title: 'Hat list'
+  route_name: entity.hat.collection
+  description: 'List Hat entities'
+  parent: system.admin_structure
+  weight: 100
+
+
+# Hat type menu items definition
+entity.hat_type.collection:
+  title: 'Hat type'
+  route_name: entity.hat_type.collection
+  description: 'List Hat type (bundles)'
+  parent: system.admin_structure
+  weight: 99
+

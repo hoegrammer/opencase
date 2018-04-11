@@ -28,36 +28,6 @@ revert all person revisions:
 delete all person revisions:
   title: 'Delete all revisions'
   description: 'Role requires permission to <em>view Person revisions</em> and <em>delete rights</em> for person entities in question or <em>administer person entities</em>.'
-add profile entities:
-  title: 'Create new Profile entities'
-
-administer profile entities:
-  title: 'Administer Profile entities'
-  description: 'Allow to access the administration form to configure Profile entities.'
-  restrict access: true
-
-delete profile entities:
-  title: 'Delete Profile entities'
-
-edit profile entities:
-  title: 'Edit Profile entities'
-
-view published profile entities:
-  title: 'View published Profile entities'
-
-view unpublished profile entities:
-  title: 'View unpublished Profile entities'
-
-view all profile revisions:
-  title: 'View all Profile revisions'
-
-revert all profile revisions:
-  title: 'Revert all Profile revisions'
-  description: 'Role requires permission <em>view Profile revisions</em> and <em>edit rights</em> for profile entities in question or <em>administer profile entities</em>.'
-
-delete all profile revisions:
-  title: 'Delete all revisions'
-  description: 'Role requires permission to <em>view Profile revisions</em> and <em>delete rights</em> for profile entities in question or <em>administer profile entities</em>.'
 add contact details entities:
   title: 'Create new Contact Details entities'
 
@@ -126,3 +96,23 @@ view published contact details entities:
 
 view unpublished contact details entities:
   title: 'View unpublished Contact details entities'
+
+add hat entities:
+  title: 'Create new Hat entities'
+
+administer hat entities:
+  title: 'Administer Hat entities'
+  description: 'Allow to access the administration form to configure Hat entities.'
+  restrict access: true
+
+delete hat entities:
+  title: 'Delete Hat entities'
+
+edit hat entities:
+  title: 'Edit Hat entities'
+
+view published hat entities:
+  title: 'View published Hat entities'
+
+view unpublished hat entities:
+  title: 'View unpublished Hat entities'

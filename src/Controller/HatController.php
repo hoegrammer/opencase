@@ -5,9 +5,9 @@ namespace Drupal\zencrm\Controller;
 use Drupal\Core\Controller\ControllerBase;
 
 /**
- * Class ProfileController.
+ * Class HatController.
  */
-class ProfileController extends ControllerBase {
+class HatController extends ControllerBase {
 
   /**
    * Hello.
@@ -15,18 +15,18 @@ class ProfileController extends ControllerBase {
    * @return string
    *   Return Hello string.
    */
-  public function createProfileForPerson($type, $person_id) {
+  public function createHatForPerson($type, $person_id) {
     $values = array(
       'type' => $type,
       'person' =>  $person_id
     );
 
     $node = \Drupal::entityTypeManager()
-      ->getStorage('profile')
+      ->getStorage('hat')
       ->create($values);
 
     $form = \Drupal::entityTypeManager()
-      ->getFormObject('profile', 'default')
+      ->getFormObject('hat', 'default')
       ->setEntity($node);
     return \Drupal::formBuilder()->getForm($form);
   }

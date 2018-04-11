@@ -29,9 +29,9 @@ function zencrm_entities_person_presave($entity) {
 /**
  * Implements hook_ENTITY_TYPE_presave().
  * Computes the name field from the full name of the referenced person
- * plus the profile type.
+ * plus the hat type.
  */
-function zencrm_entities_profile_presave($entity) {
+function zencrm_entities_hat_presave($entity) {
   $person_id =  $entity->person->first()->getValue()['target_id'];
   $person = \Drupal\zencrm_entities\Entity\Person::load($person_id);
   $full_name = $person->full_name->getString();
@@ -64,15 +64,15 @@ function zencrm_entities_theme() {
   $theme['zencrm_entities'] = [
     'render element' => 'children',
   ];
-  $theme['profile'] = [
+  $theme['hat'] = [
     'render element' => 'elements',
-    'file' => 'profile.page.inc',
-    'template' => 'profile',
+    'file' => 'hat.page.inc',
+    'template' => 'hat',
   ];
-  $theme['profile_content_add_list'] = [
+  $theme['hat_content_add_list'] = [
     'render element' => 'content',
     'variables' => ['content' => NULL],
-    'file' => 'profile.page.inc',
+    'file' => 'hat.page.inc',
   ];
   return $theme;
 }
@@ -80,15 +80,15 @@ function zencrm_entities_theme() {
 /**
 * Implements hook_theme_suggestions_HOOK().
 */
-function zencrm_entities_theme_suggestions_profile(array $variables) {
+function zencrm_entities_theme_suggestions_hat(array $variables) {
   $suggestions = [];
-  $entity = $variables['elements']['#profile'];
+  $entity = $variables['elements']['#hat'];
   $sanitized_view_mode = strtr($variables['elements']['#view_mode'], '.', '_');
 
-  $suggestions[] = 'profile__' . $sanitized_view_mode;
-  $suggestions[] = 'profile__' . $entity->bundle();
-  $suggestions[] = 'profile__' . $entity->bundle() . '__' . $sanitized_view_mode;
-  $suggestions[] = 'profile__' . $entity->id();
-  $suggestions[] = 'profile__' . $entity->id() . '__' . $sanitized_view_mode;
+  $suggestions[] = 'hat__' . $sanitized_view_mode;
+  $suggestions[] = 'hat__' . $entity->bundle();
+  $suggestions[] = 'hat__' . $entity->bundle() . '__' . $sanitized_view_mode;
+  $suggestions[] = 'hat__' . $entity->id();
+  $suggestions[] = 'hat__' . $entity->id() . '__' . $sanitized_view_mode;
   return $suggestions;
 }

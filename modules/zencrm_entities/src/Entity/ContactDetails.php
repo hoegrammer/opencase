@@ -192,7 +192,7 @@ class ContactDetails extends ContentEntityBase implements ContactDetailsInterfac
     // Person field is always set from the context so no form or display required.
     $fields['person'] = BaseFieldDefinition::create('entity_reference')
       ->setLabel(t('Person'))
-      ->setDescription(t('The person this profile is of.'))
+      ->setDescription(t('The person this set of contact details is for.'))
       ->setSetting('target_type', 'person')
       ->setRequired(TRUE);
 
