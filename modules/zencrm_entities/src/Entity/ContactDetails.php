@@ -44,11 +44,11 @@ use Drupal\user\UserInterface;
  *     "status" = "status",
  *   },
  *   links = {
- *     "canonical" = "/admin/structure/contact_details/{contact_details}",
- *     "add-form" = "/admin/structure/contact_details/add",
- *     "edit-form" = "/admin/structure/contact_details/{contact_details}/edit",
- *     "delete-form" = "/admin/structure/contact_details/{contact_details}/delete",
- *     "collection" = "/admin/structure/contact_details",
+ *     "canonical" = "/zencrm/contact_details/{contact_details}",
+ *     "add-form" = "/zencrm/contact_details/add",
+ *     "edit-form" = "/zencrm/contact_details/{contact_details}/edit",
+ *     "delete-form" = "/zencrm/contact_details/{contact_details}/delete",
+ *     "collection" = "/zencrm/contact_details",
  *   },
  *   field_ui_base_route = "contact_details.settings"
  * )
