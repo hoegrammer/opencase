@@ -49,12 +49,12 @@ use Drupal\user\UserInterface;
  *     "status" = "status",
  *   },
  *   links = {
- *     "canonical" = "/admin/structure/hat/{hat}",
- *     "add-page" = "/admin/structure/hat/add",
- *     "add-form" = "/admin/structure/hat/add/{hat_type}",
- *     "edit-form" = "/admin/structure/hat/{hat}/edit",
- *     "delete-form" = "/admin/structure/hat/{hat}/delete",
- *     "collection" = "/admin/structure/hat",
+ *     "canonical" = "/zencrm/hat/{hat}",
+ *     "add-page" = "/zencrm/hat/add",
+ *     "add-form" = "/zencrm/hat/add/{hat_type}",
+ *     "edit-form" = "/zencrm/hat/{hat}/edit",
+ *     "delete-form" = "/zencrm/hat/{hat}/delete",
+ *     "collection" = "/zencrm/hat",
  *   },
  *   bundle_entity_type = "hat_type",
  *   field_ui_base_route = "entity.hat_type.edit_form"
