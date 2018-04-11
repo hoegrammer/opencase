@@ -1,8 +1,0 @@
-langcode: en
-status: true
-dependencies: {  }
-name: 'Contact Details Types'
-vid: contact_details_types
-description: 'E.g. "Home", "Business"'
-hierarchy: 0
-weight: 0

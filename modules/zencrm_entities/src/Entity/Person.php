@@ -151,7 +151,6 @@ class Person extends ContentEntityBase implements PersonInterface {
     $fields['user_id'] = BaseFieldDefinition::create('entity_reference')
       ->setLabel(t('Authored by'))
       ->setDescription(t('The user ID of author of the Person entity.'))
-      ->setRevisionable(TRUE)
       ->setSetting('target_type', 'user')
       ->setSetting('handler', 'default')
     #  ->setDisplayOptions('view', [
@@ -180,7 +179,6 @@ class Person extends ContentEntityBase implements PersonInterface {
     $fields['first_name'] = BaseFieldDefinition::create('string')
       ->setLabel(t('First Name'))
       ->setDescription(t('First Name.'))
-      ->setRevisionable(TRUE)
       ->setSettings([
         'max_length' => 50,
         'text_processing' => 0,
