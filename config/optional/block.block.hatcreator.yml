@@ -1,5 +1,5 @@
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - system
@@ -9,7 +9,7 @@ dependencies:
 id: hatcreator
 theme: bartik
 region: sidebar_second
-weight: -8
+weight: -6
 provider: null
 plugin: hat_creator
 settings:

@@ -6,7 +6,7 @@ dependencies:
   module:
     - zencrm_entities
 id: this_person_s_hats
-label: 'This Person''s Hats'
+label: Hats
 module: views
 description: ''
 tag: ''
@@ -286,10 +286,9 @@ display:
           plugin_id: custom
       filters: {  }
       sorts: {  }
-      title: 'This Person''s Hats'
+      title: Hats
       header: {  }
-      footer: {  }
-      empty:
+      footer:
         entity_block:
           id: entity_block
           table: views
@@ -301,8 +300,9 @@ display:
           tokenize: true
           target: hatcreator
           view_mode: default
-          bypass_access: false
+          bypass_access: true
           plugin_id: entity
+      empty: {  }
       relationships: {  }
       arguments:
         person:

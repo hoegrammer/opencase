@@ -4,7 +4,7 @@ dependencies:
   module:
     - zencrm_entities
 id: this_person_s_contact_details
-label: 'This Person''s Contact Details'
+label: 'Contact Details'
 module: views
 description: ''
 tag: ''
@@ -224,7 +224,7 @@ display:
           plugin_id: custom
       filters: {  }
       sorts: {  }
-      title: 'This Person''s Contact Details'
+      title: 'Contact Details'
       header: {  }
       footer:
         area_text_custom:
@@ -234,7 +234,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          empty: false
+          empty: true
           tokenize: true
           content: '<div class="content"><p><a class=''use-ajax'' data-dialog-type=''modal'' href=''/zencrm/contact_details/add/{{ raw_arguments.person }}?destination=/zencrm/person/{{ raw_arguments.person }}''>Add a set of contact details</a></p></div>'
           plugin_id: text_custom
