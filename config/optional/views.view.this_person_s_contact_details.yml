@@ -234,7 +234,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          empty: true
+          empty: false
           tokenize: true
           content: '<div class="content"><p><a class=''use-ajax'' data-dialog-type=''modal'' href=''/zencrm/contact_details/add/{{ raw_arguments.person }}?destination=/zencrm/person/{{ raw_arguments.person }}''>Add a set of contact details</a></p></div>'
           plugin_id: text_custom
@@ -294,6 +294,7 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
+      block_hide_empty: true
     cache_metadata:
       max-age: -1
       contexts:
