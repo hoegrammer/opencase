@@ -1,0 +1,25 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+    - zencrm
+  theme:
+    - bartik
+id: hatcreator
+theme: bartik
+region: content
+weight: 0
+provider: null
+plugin: hat_creator
+settings:
+  id: hat_creator
+  label: 'Hat creator'
+  provider: zencrm
+  label_display: visible
+visibility:
+  request_path:
+    id: request_path
+    pages: '/zencrm/person/*'
+    negate: false
+    context_mapping: {  }
