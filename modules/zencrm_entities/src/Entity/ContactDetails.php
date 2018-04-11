@@ -37,7 +37,7 @@ use Drupal\user\UserInterface;
  *   admin_permission = "administer contact details entities",
  *   entity_keys = {
  *     "id" = "id",
- *     "label" = "name",
+ *     "label" = "type",
  *     "uuid" = "uuid",
  *     "uid" = "user_id",
  *     "langcode" = "langcode",
@@ -150,58 +150,154 @@ class ContactDetails extends ContentEntityBase implements ContactDetailsInterfac
 
     $fields['user_id'] = BaseFieldDefinition::create('entity_reference')
       ->setLabel(t('Authored by'))
-      ->setDescription(t('The user ID of author of the Contact details entity.'))
-      ->setRevisionable(TRUE)
+      ->setDescription(t('The user ID of author of the Contact Details entity.'))
       ->setSetting('target_type', 'user')
       ->setSetting('handler', 'default')
-      ->setTranslatable(TRUE)
-      ->setDisplayOptions('view', [
+     # ->setDisplayOptions('view', [
+     #   'label' => 'inline',
+     #   'type' => 'author',
+     #   'weight' => 100,
+     # ])
+     # ->setDisplayOptions('form', [
+     #   'type' => 'entity_reference_autocomplete',
+     #   'weight' => 100,
+     #   'settings' => [
+     #     'match_operator' => 'CONTAINS',
+     #     'size' => '60',
+     #     'autocomplete_type' => 'tags',
+     #     'placeholder' => '',
+     #   ],
+     # ])
+      ->setTranslatable(TRUE);
+
+
+    // Type field is used in entity reference fields etc
+    // so it is not exposed to user configuration. 
+    $fields['type'] = BaseFieldDefinition::create('string')
+      ->setLabel(t('Type'))
+      ->setDescription(t('E.g. Home, Business, Temporary'))
+      ->setDisplayOptions('form', [
         'label' => 'hidden',
-        'type' => 'author',
+        'type' => 'text',
         'weight' => 0,
       ])
-      ->setDisplayOptions('form', [
-        'type' => 'entity_reference_autocomplete',
-        'weight' => 5,
-        'settings' => [
-          'match_operator' => 'CONTAINS',
-          'size' => '60',
-          'autocomplete_type' => 'tags',
-          'placeholder' => '',
-        ],
-      ])
-      ->setDisplayConfigurable('form', TRUE)
-      ->setDisplayConfigurable('view', TRUE);
-
-    $fields['name'] = BaseFieldDefinition::create('string')
-      ->setLabel(t('Name'))
-      ->setDescription(t('The name of the Contact details entity.'))
-      ->setSettings([
-        'max_length' => 50,
-        'text_processing' => 0,
-      ])
-      ->setDefaultValue('')
-      ->setDisplayOptions('view', [
-        'label' => 'above',
+      ->setDisplayOptions('view', array(
+        'label' => 'hidden',
         'type' => 'string',
-        'weight' => -4,
-      ])
-      ->setDisplayOptions('form', [
-        'type' => 'string_textfield',
-        'weight' => -4,
-      ])
-      ->setDisplayConfigurable('form', TRUE)
-      ->setDisplayConfigurable('view', TRUE)
+        'weight' => 0,
+      ))
       ->setRequired(TRUE);
 
+
+    // Person field is always set from the context so no form or display required.
+    $fields['person'] = BaseFieldDefinition::create('entity_reference')
+      ->setLabel(t('Person'))
+      ->setDescription(t('The person this profile is of.'))
+      ->setSetting('target_type', 'person')
+      ->setRequired(TRUE);
+
+    // Type field is used for mailings, 
+    // so it is not exposed to user configuration. 
+    $fields['email'] = BaseFieldDefinition::create('string')
+      ->setLabel(t('Email Address'))
+      ->setSettings(array(
+        'default_value' => '',
+        'max_length' => 30,
+        'text_processing' => 0,
+      ))
+      ->setDisplayOptions('view', array(
+        'label' => 'hidden',
+        'type' => 'string',
+        'weight' => 0,
+      ))
+      ->setDisplayOptions('form', array(
+        'type' => 'string_textfield',
+        'weight' => 0,
+      ));
+
+    $fields['phone'] = BaseFieldDefinition::create('string')
+      ->setLabel(t('Main Phone Number'))
+      ->setDisplayConfigurable('view', TRUE)
+      ->setDisplayConfigurable('form', TRUE)
+      ->setSettings(array(
+        'default_value' => '',
+        'max_length' => 20,
+        'text_processing' => 0,
+      ))
+      ->setDisplayOptions('view', array(
+        'label' => 'above',
+        'type' => 'string',
+        'weight' => 2,
+      ))
+      ->setDisplayOptions('form', array(
+        'type' => 'string_textfield',
+        'weight' => 2,
+      ));
+
+    $fields['phone2'] = BaseFieldDefinition::create('string')
+      ->setLabel(t('Alternative Phone Number'))
+      ->setSettings(array(
+        'default_value' => '',
+        'max_length' => 20,
+        'text_processing' => 0,
+      ))
+      ->setDisplayConfigurable('view', TRUE)
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayOptions('view', array(
+        'label' => 'above',
+        'type' => 'string',
+        'weight' => 3,
+      ))
+      ->setDisplayOptions('form', array(
+        'type' => 'string_textfield',
+        'weight' => 3,
+      ));
+
+    $fields['postal_address'] = BaseFieldDefinition::create('string_long')
+      ->setLabel(t('Postal Address'))
+      ->setDescription(t('Full address, apart from post code.'))
+      ->setDisplayConfigurable('view', TRUE)
+      ->setDisplayConfigurable('form', TRUE)
+      ->setSettings(array(
+        'default_value' => '',
+        'max_length' => 255,
+        'text_processing' => 0,
+      ))
+      ->setDisplayOptions('view', array(
+        'label' => 'above',
+        'type' => 'text',
+        'weight' => 5,
+      ))
+      ->setDisplayOptions('form', array(
+        'type' => 'string_textarea',
+        'weight' => 5,
+      ));
+
+    $fields['post_code'] = BaseFieldDefinition::create('string')
+      ->setLabel(t('Post Code'))
+      ->setSettings(array(
+        'default_value' => '',
+        'max_length' => 10,
+        'text_processing' => 0,
+      ))
+      ->setDisplayOptions('view', array(
+        'label' => 'above',
+        'type' => 'string',
+        'weight' => 6,
+      ))
+      ->setDisplayOptions('form', array(
+        'type' => 'string_textfield',
+        'weight' => 6,
+      ));
+
     $fields['status'] = BaseFieldDefinition::create('boolean')
-      ->setLabel(t('Publishing status'))
-      ->setDescription(t('A boolean indicating whether the Contact details is published.'))
-      ->setDefaultValue(TRUE)
-      ->setDisplayOptions('form', [
-        'type' => 'boolean_checkbox',
-        'weight' => -3,
-      ]);
+      ->setLabel(t('Enabled'))
+      ->setDescription(t('If this is ticked then this set of contact details is active.'))
+   #   ->setDisplayOptions('form', [
+   #     'type' => 'boolean_checkbox',
+   #     'weight' => -3,
+   #   ])
+      ->setDefaultValue(TRUE);
 
     $fields['created'] = BaseFieldDefinition::create('created')
       ->setLabel(t('Created'))
