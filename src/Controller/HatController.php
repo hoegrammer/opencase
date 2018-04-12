@@ -40,7 +40,6 @@ class HatController extends ControllerBase {
    * @return form for editing a hat
    */
   public function editHatForPerson($person_id, $hat_id) {
-    error_log("hjhjhjhj");
 
     $hat = \Drupal::entityTypeManager()
       ->getStorage('hat')
