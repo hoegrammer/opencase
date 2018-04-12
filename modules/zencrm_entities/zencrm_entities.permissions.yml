@@ -116,3 +116,22 @@ view published hat entities:
 
 view unpublished hat entities:
   title: 'View unpublished Hat entities'
+add case entity entities:
+  title: 'Create new Case entity entities'
+
+administer case entity entities:
+  title: 'Administer Case entity entities'
+  description: 'Allow to access the administration form to configure Case entity entities.'
+  restrict access: true
+
+delete case entity entities:
+  title: 'Delete Case entity entities'
+
+edit case entity entities:
+  title: 'Edit Case entity entities'
+
+view published case entity entities:
+  title: 'View published Case entity entities'
+
+view unpublished case entity entities:
+  title: 'View unpublished Case entity entities'

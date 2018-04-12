@@ -104,3 +104,21 @@ entity.hat.delete_form:
   title: Delete
   weight: 10
 
+# Case entity routing definition
+
+entity.case_entity.canonical:
+  route_name: entity.case_entity.canonical
+  base_route: entity.case_entity.canonical
+  title: 'View'
+
+entity.case_entity.edit_form:
+  route_name: entity.case_entity.edit_form
+  base_route: entity.case_entity.canonical
+  title: 'Edit'
+
+entity.case_entity.delete_form:
+  route_name:  entity.case_entity.delete_form
+  base_route:  entity.case_entity.canonical
+  title: Delete
+  weight: 10
+

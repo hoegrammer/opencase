@@ -1,0 +1,12 @@
+zencrm_entities.case_entity_type.*:
+  type: config_entity
+  label: 'Case entity type config'
+  mapping:
+    id:
+      type: string
+      label: 'ID'
+    label:
+      type: label
+      label: 'Label'
+    uuid:
+      type: string

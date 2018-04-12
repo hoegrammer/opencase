@@ -72,3 +72,21 @@ entity.hat_type.collection:
   parent: system.admin_structure
   weight: 99
 
+
+# Case entity menu items definition
+entity.case_entity.collection:
+  title: 'Case entity list'
+  route_name: entity.case_entity.collection
+  description: 'List Case entity entities'
+  parent: system.admin_structure
+  weight: 100
+
+
+# Case entity type menu items definition
+entity.case_entity_type.collection:
+  title: 'Case entity type'
+  route_name: entity.case_entity_type.collection
+  description: 'List Case entity type (bundles)'
+  parent: system.admin_structure
+  weight: 99
+
