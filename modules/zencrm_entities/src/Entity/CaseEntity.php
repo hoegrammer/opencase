@@ -49,12 +49,12 @@ use Drupal\user\UserInterface;
  *     "status" = "status",
  *   },
  *   links = {
- *     "canonical" = "/admin/structure/case_entity/{case_entity}",
- *     "add-page" = "/admin/structure/case_entity/add",
+ *     "canonical" = "/zencrm/case/{case_entity}",
+ *     "add-page" = "/zencrm/case/add",
  *     "add-form" = "/zencrm/case/add/{case_entity_type}",
- *     "edit-form" = "/admin/structure/case_entity/{case_entity}/edit",
- *     "delete-form" = "/admin/structure/case_entity/{case_entity}/delete",
- *     "collection" = "/admin/structure/case_entity",
+ *     "edit-form" = "/zencrm/case/{case_entity}/edit",
+ *     "delete-form" = "/zencrm/case/{case_entity}/delete",
+ *     "collection" = "/zencrm/case",
  *   },
  *   bundle_entity_type = "case_entity_type",
  *   field_ui_base_route = "entity.case_entity_type.edit_form"
