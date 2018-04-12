@@ -9,6 +9,7 @@ use Drupal\Core\Block\BlockBase;
  * If the person has no contact details it advises to create them.
  * Hats cannot be created without contact details.
  * If they have contact details but no hats, it advises to create a hat.
+ * Otherwise display the case view for each hat, and links to create new cases.
  *
  * @Block(
  *  id = "person_panel",
@@ -24,6 +25,7 @@ class PersonPanel extends BlockBase {
     $person_id = \Drupal::routeMatch()->getParameter('person')->id();
     $markup = "";    
     $person = \Drupal::entityTypeManager()->getStorage('person')->load($person_id);
+        
 
     // If the person has no contact details, suggest they create some
     $link_to_add = "/zencrm/contact_details/$person_id/add?destination=/zencrm/person/$person_id";
@@ -47,6 +49,12 @@ class PersonPanel extends BlockBase {
         $plugin_manager = \Drupal::service('plugin.manager.block');
         $block = $plugin_manager->createInstance('hat_creator', array());
         $markup .= render($block->build());
+      } else {
+        
+        // they have hats, so display the case view for each hat.
+        foreach($hats as $hat) {
+          $markup .= $this->show_cases_for_hat($hat); 
+        }
       }
     }
 
@@ -54,8 +62,16 @@ class PersonPanel extends BlockBase {
       '#cache' => [
          'max-age' => 0,
        ],
-      '#markup' => "<div>$markup</div>"
+      '#markup' => "<div id = 'zencrm_personpanel'>$markup</div>"
     ];
 
+  }
+
+  private function show_cases_for_hat($hat) {
+    $markup = '';
+    $markup .= "<p class='zencrm_hat_name'>" . $hat->name->getString() . "</p>";
+    $markup .= drupal_render(views_embed_view('this_hat_s_cases', 'block_1', $hat->id()));
+    error_log(print_r(views_embed_view('this_hat_s_cases', 'block_1', $hat->id()), true));
+    return $markup;
   }
 }

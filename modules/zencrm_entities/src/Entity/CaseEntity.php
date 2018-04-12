@@ -51,7 +51,7 @@ use Drupal\user\UserInterface;
  *   links = {
  *     "canonical" = "/admin/structure/case_entity/{case_entity}",
  *     "add-page" = "/admin/structure/case_entity/add",
- *     "add-form" = "/admin/structure/case_entity/add/{case_entity_type}",
+ *     "add-form" = "/zencrm/case/add/{case_entity_type}",
  *     "edit-form" = "/admin/structure/case_entity/{case_entity}/edit",
  *     "delete-form" = "/admin/structure/case_entity/{case_entity}/delete",
  *     "collection" = "/admin/structure/case_entity",
