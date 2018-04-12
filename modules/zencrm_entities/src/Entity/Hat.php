@@ -180,6 +180,27 @@ class Hat extends ContentEntityBase implements HatInterface {
       ->setDescription(t('The person this hat is of.'))
       ->setSetting('target_type', 'person');
 
+    $fields['contact_details'] = BaseFieldDefinition::create('entity_reference')
+      ->setLabel(t('Contact Details'))
+      ->setDescription(t('The contact details to be used when communicating with this person in this capacity.'))
+      ->setSetting('target_type', 'contact_details')
+      ->setSetting('handler', 'views')
+      ->setSetting('handler_settings', ['view' => [
+        'view_name' => 'this_person_s_contact_details',
+        'display_name' => 'entity_reference_1'
+      ]])
+      ->setDisplayOptions('view', [
+        'label' => 'inline',
+        'weight' => 0,
+        'settings' => ['link' => 'false']
+      ])
+      ->setDisplayOptions('form', [
+        'type' => 'options_buttons',
+        'weight' => 0,
+      ])
+      ->setRequired(TRUE)
+      ->setTranslatable(TRUE);
+
     // This field is computed in a presave hook, and used for entity reference
     // options when selecting a person for involvement in a case etc.
     $fields['name'] = BaseFieldDefinition::create('string')
