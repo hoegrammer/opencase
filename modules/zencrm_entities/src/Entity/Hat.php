@@ -52,7 +52,7 @@ use Drupal\user\UserInterface;
  *     "canonical" = "/zencrm/hat/{hat}",
  *     "add-page" = "/zencrm/hat/add",
  *     "add-form" = "/zencrm/hat/add/{hat_type}",
- *     "edit-form" = "/zencrm/hat/{hat}/edit",
+ *     "edit-form" = "/zencrm/hat/{person}/{hat}/edit",
  *     "delete-form" = "/zencrm/hat/{hat}/delete",
  *     "collection" = "/zencrm/hat",
  *   },
