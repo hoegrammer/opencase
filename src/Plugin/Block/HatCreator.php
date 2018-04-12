@@ -38,7 +38,7 @@ class HatCreator extends BlockBase {
       '#cache' => [
          'max-age' => 0,
        ],
-      '#markup' => "<div>$markup</div>"
+      '#markup' => "<div class='zencrm_creation_links'>$markup</div>"
     ];
 
   }
