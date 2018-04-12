@@ -21,3 +21,12 @@ zencrm.contact_details.create:
     _title: 'Add New Contact Details'
   requirements:
     _permission: 'access content'
+
+zencrm.case.create:
+  path: '/zencrm/case/{hat_id}/add/{case_type_id}'
+  defaults:
+    _controller: '\Drupal\zencrm\Controller\CaseController::createCaseForHat'
+    _title: 'Add New Case'
+  requirements:
+    _permission: 'access content'
+
