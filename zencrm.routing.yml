@@ -1,5 +1,5 @@
 zencrm.hat.create:
-  path: '/zencrm/hat/add/{type}/{person_id}'
+  path: '/zencrm/hat/{person_id}/add/{hat_type_id}'
   defaults:
     _controller: '\Drupal\zencrm\Controller\HatController::createHatForPerson'
     _title: 'Add New Hat'

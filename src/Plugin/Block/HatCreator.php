@@ -25,13 +25,13 @@ class HatCreator extends BlockBase {
 
     // Only offer hat creation on hats they don't already have.
     $hat_types = \Drupal::service('entity_type.bundle.info')->getBundleInfo('hat');
-    foreach($hat_types as $id => $type) {
+    foreach($hat_types as $hat_type_id => $type) {
       $hats = \Drupal::entityTypeManager()
         ->getStorage('hat')
-        ->loadByProperties(['type' => $id, 'person' => $person_id]);
+        ->loadByProperties(['type' => $hat_type_id, 'person' => $person_id]);
       if (!reset($hats)) {
         $label = $type['label'];
-        $markup .= "<p><a class='use-ajax' data-dialog-type='modal' href='/zencrm/hat/add/$id/$person_id?destination=/zencrm/person/$person_id'>Add a $label Hat</a></p>";
+        $markup .= "<p><a class='use-ajax' data-dialog-type='modal' href='/zencrm/hat/$person_id/add/$hat_type_id?destination=/zencrm/person/$person_id'>Add a $label Hat</a></p>";
       }
     }
     return [

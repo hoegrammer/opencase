@@ -15,9 +15,9 @@ class HatController extends ControllerBase {
    * @return string
    *   Return Hello string.
    */
-  public function createHatForPerson($type, $person_id) {
+  public function createHatForPerson($person_id, $hat_type_id) {
     $values = array(
-      'type' => $type,
+      'type' => $hat_type_id,
       'person' =>  $person_id
     );
 
