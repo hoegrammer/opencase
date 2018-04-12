@@ -6,6 +6,14 @@ zencrm.hat.create:
   requirements:
     _permission: 'access content'
 
+zencrm.hat.edit:
+  path: '/zencrm/hat/{person_id}/{hat_id}/edit'
+  defaults:
+    _controller: '\Drupal\zencrm\Controller\HatController::editHatForPerson'
+    _title: 'Edit Hat'
+  requirements:
+    _permission: 'access content'
+
 zencrm.contact_details.create:
   path: '/zencrm/contact_details/{person_id}/add'
   defaults:
