@@ -54,7 +54,7 @@ class PersonPanel extends BlockBase {
         // they have hats, so display the case view for each hat.
         foreach($hats as $hat) {
           $markup .= $this->showCases($hat); 
-          $markup .= $this->showCaseCreationLinks($hat);
+          $markup .= $this->showCaseCreationLinks($hat, $person_id);
         }
       }
     }
@@ -77,12 +77,12 @@ class PersonPanel extends BlockBase {
   }
 
   // Provides links to create different types of cases, passing in the hat id.
-  private function showCaseCreationLinks($hat) {
+  private function showCaseCreationLinks($hat, $person_id) {
     $hat_id = $hat->id();
     $case_types = \Drupal::service('entity_type.bundle.info')->getBundleInfo('case_entity');
     foreach($case_types as $case_type_id => $type) {
       $label = $type['label'];
-      $markup .= "<p><a class='use-ajax' data-dialog-type='modal' href='/zencrm/case/$hat_id/add/$case_type_id?destination=/zencrm/hat/$hat_id'>Add a $label Case</a></p>";
+      $markup .= "<p><a class='use-ajax' data-dialog-type='modal' href='/zencrm/case/$hat_id/add/$case_type_id?destination=/zencrm/person/$person_id'>Add a $label Case</a></p>";
     }
     return "<div class='zencrm_creationlinks'>$markup</div>";
   }

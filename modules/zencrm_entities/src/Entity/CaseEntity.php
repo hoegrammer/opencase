@@ -161,24 +161,22 @@ class CaseEntity extends ContentEntityBase implements CaseEntityInterface {
       ->setRevisionable(TRUE)
       ->setSetting('target_type', 'user')
       ->setSetting('handler', 'default')
-      ->setTranslatable(TRUE)
-      ->setDisplayOptions('view', [
-        'label' => 'hidden',
-        'type' => 'author',
-        'weight' => 0,
-      ])
-      ->setDisplayOptions('form', [
-        'type' => 'entity_reference_autocomplete',
-        'weight' => 5,
-        'settings' => [
-          'match_operator' => 'CONTAINS',
-          'size' => '60',
-          'autocomplete_type' => 'tags',
-          'placeholder' => '',
-        ],
-      ])
-      ->setDisplayConfigurable('form', TRUE)
-      ->setDisplayConfigurable('view', TRUE);
+     # ->setDisplayOptions('view', [
+     #   'label' => 'hidden',
+     #   'type' => 'author',
+     #   'weight' => 0,
+     # ])
+     # ->setDisplayOptions('form', [
+     #   'type' => 'entity_reference_autocomplete',
+     #   'weight' => 5,
+     #   'settings' => [
+     #     'match_operator' => 'CONTAINS',
+     #     'size' => '60',
+     #     'autocomplete_type' => 'tags',
+     #     'placeholder' => '',
+     #   ],
+     # ])
+      ->setTranslatable(TRUE);
 
     $fields['name'] = BaseFieldDefinition::create('string')
       ->setLabel(t('Name'))
@@ -197,8 +195,6 @@ class CaseEntity extends ContentEntityBase implements CaseEntityInterface {
         'type' => 'string_textfield',
         'weight' => -4,
       ])
-      ->setDisplayConfigurable('form', TRUE)
-      ->setDisplayConfigurable('view', TRUE)
       ->setRequired(TRUE);
 
 
@@ -229,11 +225,11 @@ class CaseEntity extends ContentEntityBase implements CaseEntityInterface {
     $fields['status'] = BaseFieldDefinition::create('boolean')
       ->setLabel(t('Publishing status'))
       ->setDescription(t('A boolean indicating whether the Case entity is published.'))
-      ->setDefaultValue(TRUE)
-      ->setDisplayOptions('form', [
-        'type' => 'boolean_checkbox',
-        'weight' => -3,
-      ]);
+#      ->setDisplayOptions('form', [
+#        'type' => 'boolean_checkbox',
+#        'weight' => -3,
+#      ])
+      ->setDefaultValue(TRUE);
 
     $fields['created'] = BaseFieldDefinition::create('created')
       ->setLabel(t('Created'))
