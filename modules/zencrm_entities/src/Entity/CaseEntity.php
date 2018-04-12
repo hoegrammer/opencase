@@ -201,6 +201,31 @@ class CaseEntity extends ContentEntityBase implements CaseEntityInterface {
       ->setDisplayConfigurable('view', TRUE)
       ->setRequired(TRUE);
 
+
+    $fields['hats_involved'] = BaseFieldDefinition::create('entity_reference')
+      ->setLabel(t('Involved Parties'))
+      ->setDescription(t('People involved in this case, in their various capacities'))
+      ->setSetting('target_type', 'hat')
+      ->setSetting('handler', 'default')
+      ->setTranslatable(TRUE)
+      ->setCardinality(-1)
+      ->setDisplayOptions('view', [
+        'label' => 'above',
+        'type' => 'author',
+        'weight' => 0,
+      ])
+      ->setDisplayOptions('form', [
+        'type' => 'entity_reference_autocomplete',
+        'weight' => 5,
+        'settings' => [
+          'match_operator' => 'CONTAINS',
+          'size' => '60',
+          'autocomplete_type' => 'tags',
+          'placeholder' => '',
+        ],
+      ])
+      ->setRequired(TRUE);
+
     $fields['status'] = BaseFieldDefinition::create('boolean')
       ->setLabel(t('Publishing status'))
       ->setDescription(t('A boolean indicating whether the Case entity is published.'))
