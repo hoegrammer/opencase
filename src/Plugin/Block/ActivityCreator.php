@@ -26,7 +26,7 @@ class ActivityCreator extends BlockBase {
     $activity_types = \Drupal::service('entity_type.bundle.info')->getBundleInfo('activity');
     foreach($activity_types as $activity_type_id => $type) {
       $label = $type['label'];
-      $markup .= "<p><a class='use-ajax' data-dialog-type='modal' href='/zencrm/activity/$case_id/add/$activity_type_id?destination=/zencrm/case/$case_id'>Add a $label Activity</a></p>";
+      $markup .= "<p><a class='use-ajax' data-dialog-type='modal' href='/zencrm/activity/$case_id/add/$activity_type_id?destination=/zencrm/case/$case_id'>Add a $label</a></p>";
     }
     return [
       '#cache' => [
