@@ -35,7 +35,7 @@ class CaseDetails extends BlockBase {
   }
     
   private function renderEditLink($case_id) {
-    return "<p class = 'zencrm_edit_link'><a href='/zencrm/case/$case_id'>Edit</a></p>";  
+    return "<p class = 'zencrm_edit_link'><a class='use-ajax' data-dialog-type='modal' href='/zencrm/case/$case_id/edit?destination=/zencrm/case/$case_id'>Edit</a></p>";
   }
 
   private function renderEntity($case) {
@@ -49,7 +49,6 @@ class CaseDetails extends BlockBase {
     $hats_involved = $case->hats_involved->referencedEntities();
     foreach($hats_involved as $hat) {
       $person_id = $hat->person->first()->getValue()['target_id'];
-      error_log($person_id);
       $markup .= "<p><a href='/zencrm/person/$person_id'>" . $hat->name->getString() . "</a></p>";
     }
     return "<div class='zencrm_links'>$markup</div>";
