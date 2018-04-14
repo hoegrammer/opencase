@@ -179,15 +179,15 @@ class CaseEntity extends ContentEntityBase implements CaseEntityInterface {
       ->setTranslatable(TRUE);
 
     $fields['name'] = BaseFieldDefinition::create('string')
-      ->setLabel(t('Name'))
-      ->setDescription(t('The name of the Case entity entity.'))
+      ->setLabel(t('Title'))
+      ->setDescription(t('A name for this case'))
       ->setSettings([
         'max_length' => 50,
         'text_processing' => 0,
       ])
       ->setDefaultValue('')
       ->setDisplayOptions('view', [
-        'label' => 'above',
+        'label' => 'hidden',
         'type' => 'string',
         'weight' => -4,
       ])
