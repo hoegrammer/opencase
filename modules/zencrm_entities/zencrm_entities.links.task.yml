@@ -122,3 +122,21 @@ entity.case_entity.delete_form:
   title: Delete
   weight: 10
 
+# Activity routing definition
+
+entity.activity.canonical:
+  route_name: entity.activity.canonical
+  base_route: entity.activity.canonical
+  title: 'View'
+
+entity.activity.edit_form:
+  route_name: entity.activity.edit_form
+  base_route: entity.activity.canonical
+  title: 'Edit'
+
+entity.activity.delete_form:
+  route_name:  entity.activity.delete_form
+  base_route:  entity.activity.canonical
+  title: Delete
+  weight: 10
+

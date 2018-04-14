@@ -81,6 +81,16 @@ function zencrm_entities_theme() {
     'variables' => ['content' => NULL],
     'file' => 'case_entity.page.inc',
   ];
+  $theme['activity'] = [
+    'render element' => 'elements',
+    'file' => 'activity.page.inc',
+    'template' => 'activity',
+  ];
+  $theme['activity_content_add_list'] = [
+    'render element' => 'content',
+    'variables' => ['content' => NULL],
+    'file' => 'activity.page.inc',
+  ];
   return $theme;
 }
 
@@ -113,5 +123,21 @@ function zencrm_entities_theme_suggestions_case_entity(array $variables) {
   $suggestions[] = 'case_entity__' . $entity->bundle() . '__' . $sanitized_view_mode;
   $suggestions[] = 'case_entity__' . $entity->id();
   $suggestions[] = 'case_entity__' . $entity->id() . '__' . $sanitized_view_mode;
+  return $suggestions;
+}
+
+/**
+* Implements hook_theme_suggestions_HOOK().
+*/
+function zencrm_entities_theme_suggestions_activity(array $variables) {
+  $suggestions = [];
+  $entity = $variables['elements']['#activity'];
+  $sanitized_view_mode = strtr($variables['elements']['#view_mode'], '.', '_');
+
+  $suggestions[] = 'activity__' . $sanitized_view_mode;
+  $suggestions[] = 'activity__' . $entity->bundle();
+  $suggestions[] = 'activity__' . $entity->bundle() . '__' . $sanitized_view_mode;
+  $suggestions[] = 'activity__' . $entity->id();
+  $suggestions[] = 'activity__' . $entity->id() . '__' . $sanitized_view_mode;
   return $suggestions;
 }

@@ -41,3 +41,14 @@ entity.case_entity_type.add_form:
   appears_on:
     - entity.case_entity_type.collection
 
+entity.activity.add_form:
+  route_name: entity.activity.add_page
+  title: 'Add Activity'
+  appears_on:
+    - entity.activity.collection
+entity.activity_type.add_form:
+  route_name: entity.activity_type.add_form
+  title: 'Add Activity type'
+  appears_on:
+    - entity.activity_type.collection
+

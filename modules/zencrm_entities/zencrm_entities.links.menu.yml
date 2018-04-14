@@ -90,3 +90,21 @@ entity.case_entity_type.collection:
   parent: system.admin_structure
   weight: 99
 
+
+# Activity menu items definition
+entity.activity.collection:
+  title: 'Activity list'
+  route_name: entity.activity.collection
+  description: 'List Activity entities'
+  parent: system.admin_structure
+  weight: 100
+
+
+# Activity type menu items definition
+entity.activity_type.collection:
+  title: 'Activity type'
+  route_name: entity.activity_type.collection
+  description: 'List Activity type (bundles)'
+  parent: system.admin_structure
+  weight: 99
+
