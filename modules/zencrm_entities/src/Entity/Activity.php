@@ -42,7 +42,7 @@ use Drupal\user\UserInterface;
  *   entity_keys = {
  *     "id" = "id",
  *     "bundle" = "type",
- *     "label" = "name",
+ *     "label" = "subject",
  *     "uuid" = "uuid",
  *     "uid" = "user_id",
  *     "langcode" = "langcode",
@@ -187,9 +187,9 @@ class Activity extends ContentEntityBase implements ActivityInterface {
       ->setDescription(t('The case this activity belongs to.'))
       ->setSetting('target_type', 'case_entity');
 
-    $fields['name'] = BaseFieldDefinition::create('string')
-      ->setLabel(t('Name'))
-      ->setDescription(t('The name of the Activity.'))
+    $fields['subject'] = BaseFieldDefinition::create('string')
+      ->setLabel(t('Subject'))
+      ->setDescription(t('The purpose of the Activity.'))
       ->setSettings([
         'max_length' => 50,
         'text_processing' => 0,
@@ -204,8 +204,6 @@ class Activity extends ContentEntityBase implements ActivityInterface {
         'type' => 'string_textfield',
         'weight' => -4,
       ])
-      ->setDisplayConfigurable('form', TRUE)
-      ->setDisplayConfigurable('view', TRUE)
       ->setRequired(TRUE);
 
     $fields['status'] = BaseFieldDefinition::create('boolean')
