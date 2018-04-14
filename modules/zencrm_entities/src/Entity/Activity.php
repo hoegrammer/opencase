@@ -180,6 +180,13 @@ class Activity extends ContentEntityBase implements ActivityInterface {
 #      ->setDisplayConfigurable('view', TRUE);
       ->setTranslatable(TRUE);
 
+    // This field is always implied from the context,
+    // so has no form or view display.
+    $fields['case'] = BaseFieldDefinition::create('entity_reference')
+      ->setLabel(t('Case'))
+      ->setDescription(t('The case this activity belongs to.'))
+      ->setSetting('target_type', 'case_entity');
+
     $fields['name'] = BaseFieldDefinition::create('string')
       ->setLabel(t('Name'))
       ->setDescription(t('The name of the Activity entity.'))
