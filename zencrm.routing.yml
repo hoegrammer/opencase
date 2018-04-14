@@ -30,3 +30,11 @@ zencrm.case.create:
   requirements:
     _permission: 'access content'
 
+zencrm.activity.create:
+  path: '/zencrm/activity/{case_id}/add/{activity_type_id}'
+  defaults:
+    _controller: '\Drupal\zencrm\Controller\ActivityController::createActivityForCase'
+    _title: 'Add New Activity'
+  requirements:
+    _permission: 'access content'
+
