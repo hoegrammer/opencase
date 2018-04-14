@@ -204,11 +204,11 @@ class Activity extends ContentEntityBase implements ActivityInterface {
     $fields['status'] = BaseFieldDefinition::create('boolean')
       ->setLabel(t('Publishing status'))
       ->setDescription(t('A boolean indicating whether the Activity is published.'))
-      ->setDefaultValue(TRUE)
-      ->setDisplayOptions('form', [
-        'type' => 'boolean_checkbox',
-        'weight' => -3,
-      ]);
+    #  ->setDisplayOptions('form', [
+    #    'type' => 'boolean_checkbox',
+    #    'weight' => -3,
+    #  ])
+      ->setDefaultValue(TRUE);
 
     $fields['created'] = BaseFieldDefinition::create('created')
       ->setLabel(t('Created'))
