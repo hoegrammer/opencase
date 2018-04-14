@@ -26,7 +26,7 @@ class InvolvedParties extends BlockBase {
     $hats_involved = $case->hats_involved->referencedEntities();
     foreach($hats_involved as $hat) {
       $person_id = $hat->person->first()->getValue()['target_id'];
-      $markup .= "<p><a href='/zencrm/person/$person_id?backto=case&backtoid=$case_id'>" . $hat->name->getString() . "</a></p>";
+      $markup .= "<p><a href='/zencrm/person/$person_id'>" . $hat->name->getString() . "</a></p>";
     }
     return [
       '#cache' => [
