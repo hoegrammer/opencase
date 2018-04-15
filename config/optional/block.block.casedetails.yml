@@ -1,0 +1,25 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+    - zencrm
+  theme:
+    - bartik
+id: casedetails
+theme: bartik
+region: sidebar_second
+weight: 0
+provider: null
+plugin: case_details
+settings:
+  id: case_details
+  label: 'Case Details'
+  provider: zencrm
+  label_display: visible
+visibility:
+  request_path:
+    id: request_path
+    pages: '/zencrm/case/*'
+    negate: false
+    context_mapping: {  }
