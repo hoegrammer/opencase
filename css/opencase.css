@@ -1,0 +1,64 @@
+/* this part is for the wider theme and will be removed */
+a.site-branding__logo img {
+  max-width: 100px;
+}
+
+/* Module-specific from here. */
+div.region.region-primary-menu {
+  display:none;
+}
+
+.field--name-contact-details a {
+  border-bottom: none;
+}
+
+.region-sidebar-second .view-content li, .region-sidebar-second  .views-row {
+    border-bottom: 1px solid lightgrey;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.sidebar .region-sidebar-second h2 {
+  font-size: 1.6em;
+  text-align: center;
+  border-bottom: 1px solid grey;
+}
+
+.sidebar .views-field.views-field-type, .field--name-type{
+    padding-bottom: 12px;
+    font-size: 1.4em;
+    text-align: center;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.sidebar .field__label, .sidebar .field--type-entity-reference .field__label {
+    font-size: 1em;
+    font-weight: bold;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.sidebar .views-element-container .field {
+    padding-bottom: 15px;
+}
+
+.sidebar .views-element-container .field .field__item {
+  font-size: 1.1em;
+}
+
+.region-sidebar-second .view-content li, .region-sidebar-second .views-row {
+    border-bottom: 10px solid #e6e6d3;
+    padding-bottom: 20px;
+    padding-top: 10px;
+  padding-right: 10px;
+  padding-left: 10px;
+    background: #eeeedb;
+}
+
+.region-sidebar-second .views-element-container.block {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.zencrm_creationlinks {
+  padding: 10px 10px 10px 20px;
+}

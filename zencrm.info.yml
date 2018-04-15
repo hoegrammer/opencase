@@ -6,3 +6,5 @@ package: 'Zen CRM'
 dependencies:
   - zencrm_entities
   - zencrm_search
+libraries:
+  - zencrm/opencase-lib

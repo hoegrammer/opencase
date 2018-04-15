@@ -33,3 +33,7 @@ function zencrm_theme() {
     ],
   ];
 }
+
+function zencrm_page_attachments(array &$page) {
+  $page['#attached']['library'][] = 'zencrm/opencase-lib';
+}

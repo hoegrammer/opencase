@@ -190,7 +190,7 @@ class Hat extends ContentEntityBase implements HatInterface {
         'display_name' => 'entity_reference_1'
       ]])
       ->setDisplayOptions('view', [
-        'label' => 'inline',
+        'label' => 'above',
         'weight' => 0,
         'settings' => ['link' => 'false']
       ])
