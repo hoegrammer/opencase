@@ -26,6 +26,10 @@ div.region.region-primary-menu {
   border-bottom: none;
 }
 
+.sidebar .field--type-entity-reference {
+    margin: 1em 0 0 0;
+}
+
 .region-sidebar-second .view-content li, .region-sidebar-second .views-row, .region-sidebar-second .zencrm_inner_sidebar_block {
     border-bottom: 10px solid #e6e6d3;
     padding-bottom: 20px;
@@ -65,11 +69,11 @@ div.region.region-primary-menu {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-.sidebar .views-element-container .field {
+.sidebar .views-element-container .field, .sidebar .zencrm_inner_sidebar_block .field {
     padding-bottom: 15px;
 }
 
-.sidebar .views-element-container .field .field__item {
+.sidebar .views-element-container .field .field__item, .sidebar .zencrm_inner_sidebar_block .field__item {
   font-size: 1.1em;
 }
 

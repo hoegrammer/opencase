@@ -181,7 +181,7 @@ class Hat extends ContentEntityBase implements HatInterface {
       ->setSetting('target_type', 'person');
 
     $fields['contact_details'] = BaseFieldDefinition::create('entity_reference')
-      ->setLabel(t('Contact Details'))
+      ->setLabel(t('Contact Details to use for this Hat'))
       ->setDescription(t('The contact details to be used when communicating with this person in this capacity.'))
       ->setSetting('target_type', 'contact_details')
       ->setSetting('handler', 'views')
@@ -191,7 +191,7 @@ class Hat extends ContentEntityBase implements HatInterface {
       ]])
       ->setDisplayOptions('view', [
         'label' => 'above',
-        'weight' => 0,
+        'weight' => 100,
         'settings' => ['link' => 'false']
       ])
       ->setDisplayOptions('form', [

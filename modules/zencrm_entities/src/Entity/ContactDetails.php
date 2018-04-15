@@ -206,7 +206,7 @@ class ContactDetails extends ContentEntityBase implements ContactDetailsInterfac
         'text_processing' => 0,
       ))
       ->setDisplayOptions('view', array(
-        'label' => 'hidden',
+        'label' => 'above',
         'type' => 'string',
         'weight' => 0,
       ))
