@@ -4,6 +4,11 @@ a.site-branding__logo img {
 }
 
 /* Module-specific from here. */
+
+#content .zencrm_case_details {
+  display: none; /* don't show case as main content - it's shown in sidebar */
+}
+
 div.region.region-primary-menu {
   display:none;
 }
