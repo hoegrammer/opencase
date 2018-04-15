@@ -2,6 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - block.block.linkforcreatinganewperson
     - search_api.index.person_index
   module:
     - search_api
@@ -183,7 +184,31 @@ display:
       title: 'Person Search'
       header: {  }
       footer: {  }
-      empty: {  }
+      empty:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content: 'No results.'
+          plugin_id: text_custom
+        entity_block:
+          id: entity_block
+          table: views
+          field: entity_block
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: true
+          target: linkforcreatinganewperson
+          view_mode: default
+          bypass_access: true
+          plugin_id: entity
       relationships: {  }
       arguments: {  }
       display_extenders: {  }
