@@ -81,7 +81,7 @@ div.region.region-primary-menu {
     background: #eeeedb;
 }
 
-.region-sidebar-second .views-element-container.block {
+.region-sidebar-second .views-element-container.block, #block-casedetails {
   padding-right: 10px;
   padding-left: 10px;
 }
