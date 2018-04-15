@@ -35,23 +35,26 @@ class CaseDetails extends BlockBase {
   }
     
   private function renderEditLink($case_id) {
-    return "<p class = 'zencrm_edit_link'><a class='use-ajax' data-dialog-type='modal' href='/zencrm/case/$case_id/edit?destination=/zencrm/case/$case_id'>Edit</a></p>";
+    return "<p class = 'zencrm_editlink'><a class='use-ajax' data-dialog-type='modal' href='/zencrm/case/$case_id/edit?destination=/zencrm/case/$case_id'>Edit</a></p>";
   }
 
   private function renderEntity($case) {
     $view_builder = \Drupal::entityTypeManager()->getViewBuilder('case_entity');
     $build = $view_builder->view($case, 'default');
-    return render($build);
+    $markup = render($build);
+    return "<div class='zencrm_inner_sidebar_block'>$markup</div>";
   }
   
   private function renderInvolvedParties($case) {
-    $markup = "<h3>Involved Parties</h3>";
+    $markup = "<p class='zencrm_title'>Involved Parties</p>";
     $hats_involved = $case->hats_involved->referencedEntities();
+    $links_markup = "";
     foreach($hats_involved as $hat) {
       $person_id = $hat->person->first()->getValue()['target_id'];
-      $markup .= "<p><a href='/zencrm/person/$person_id'>" . $hat->name->getString() . "</a></p>";
+      $links_markup .= "<p><a href='/zencrm/person/$person_id'>" . $hat->name->getString() . "</a></p>";
     }
-    return "<div class='zencrm_links'>$markup</div>";
+    $markup .= "<div class='zencrm_links'>$links_markup</div>";
+    return "<div class='zencrm_inner_sidebar_block'>$markup</div>";
   }
 
 }

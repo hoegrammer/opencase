@@ -32,7 +32,7 @@ class ActivityCreator extends BlockBase {
       '#cache' => [
          'max-age' => 0,
        ],
-      '#markup' => "<div class='zencrm_creation_links'>$markup</div>"
+      '#markup' => "<div class='zencrm_creationlinks'>$markup</div>"
     ];
 
   }

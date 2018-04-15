@@ -12,10 +12,19 @@ div.region.region-primary-menu {
   border-bottom: none;
 }
 
-.region-sidebar-second .view-content li, .region-sidebar-second  .views-row {
-    border-bottom: 1px solid lightgrey;
+.region-sidebar-second .view-content li, .region-sidebar-second .views-row, .region-sidebar-second .zencrm_inner_sidebar_block {
+    border-bottom: 10px solid #e6e6d3;
     padding-bottom: 20px;
-    padding-top: 20px;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    background: #eeeedb;
+    border: 1px solid lightgrey;
+    margin-bottom: 10px;
+}
+
+.region-sidebar-second .view-content li  .zencrm_editlink , .region-sidebar-second .views-row .zencrm_editlink, .region-sidebar-second .zencrm_inner_sidebar_block .zencrm_editlink{
+    margin-top: -20px;
 }
 
 .sidebar .region-sidebar-second h2 {
@@ -24,14 +33,19 @@ div.region.region-primary-menu {
   border-bottom: 1px solid grey;
 }
 
-.sidebar .views-field.views-field-type, .field--name-type{
+.sidebar .views-field.views-field-type, .field--name-type, .zencrm_inner_sidebar_block .zencrm_title {
     padding-bottom: 12px;
     font-size: 1.4em;
     text-align: center;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-.sidebar .field__label, .sidebar .field--type-entity-reference .field__label {
+.zencrm_inner_sidebar_block .zencrm_title {
+   font-size: 1.2em;
+    padding-bottom: 5px;
+}
+ 
+.sidebar .field__label, .sidebar .field--type-entity-reference .field__label,  .form-item   label {
     font-size: 1em;
     font-weight: bold;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -46,7 +60,6 @@ div.region.region-primary-menu {
 }
 
 .region-sidebar-second .view-content li, .region-sidebar-second .views-row {
-    border-bottom: 10px solid #e6e6d3;
     padding-bottom: 20px;
     padding-top: 10px;
   padding-right: 10px;
@@ -61,4 +74,35 @@ div.region.region-primary-menu {
 
 .zencrm_creationlinks {
   padding: 10px 10px 10px 20px;
+    font-size: 1.2em;
+  
+}
+
+.sidebar .zencrm_links {
+  font-size: 1.2em;  
+}
+
+.sidebar .zencrm_links p, .sidebar .zencrm_creationlinks p {
+  margin-bottom: 0.5em;
+}
+
+.zencrm_creationlinks p {
+    margin-bottom: 0.5em;
+}
+
+.sidebar .zencrm_creationlinks {
+    padding: 5px;
+    font-size: 1.3em;
+
+}
+
+.sidebar .zencrm_editlink {
+    font-size: 1.2em;
+    text-align: right;
+}
+
+#block-hatcreator {
+    padding: 0;
+    border: none;
+    margin: 0;
 }

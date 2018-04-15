@@ -225,7 +225,7 @@ class CaseEntity extends ContentEntityBase implements CaseEntityInterface {
       ->setLabel(t('Created'))
       ->setDescription(t('The time that the entity was created.'))
       ->setDisplayOptions('view', [
-        'label' => 'inline',
+        'label' => 'above',
         'type' => 'string',
         'weight' => 0,
       ]);
