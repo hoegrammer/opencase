@@ -5,6 +5,15 @@ a.site-branding__logo img {
 
 /* Module-specific from here. */
 
+.ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons {
+    min-width: 550px;
+    border: 20px solid rgba(0, 0, 0, 0.51);
+}
+
+.tabledrag-toggle-weight-wrapper {
+  display: none;
+}
+
 #content .zencrm_case_details {
   display: none; /* don't show case as main content - it's shown in sidebar */
 }
@@ -38,7 +47,7 @@ div.region.region-primary-menu {
   border-bottom: 1px solid grey;
 }
 
-.sidebar .views-field.views-field-type, .field--name-type, .zencrm_inner_sidebar_block .zencrm_title {
+.sidebar .views-field.views-field-type, .sidebar .field--name-type, .zencrm_inner_sidebar_block .zencrm_title {
     padding-bottom: 12px;
     font-size: 1.4em;
     text-align: center;
