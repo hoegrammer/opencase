@@ -1,17 +1,17 @@
-# Zen CRM
+# OpenCase
 A simple, case-management-focused CRM for small altruistic organisations.
 
 ## Current Status
-**April 2018** the very beginning. Hardly exists at all.
+**15 April 2018** A demo site, with basic functionality is available at demo.opencase.org.uk. 
 
 ## The Plan
-Zen CRM will be available as:
+OpenCase will be available as:
 * A Drupal module, on drupal.org 
 * A Drupal install profile / distribution
 * A hosted service
 
 ## Find out more
-* More details, including user stories, can be found in the [Zen CRM Gitbook](https://hoegrammer.gitbooks.io/zen-crm/content/)
+* More details, including user stories, can be found in the [OpenCase Gitbook](https://hoegrammer.gitbooks.io/zen-crm/content/)
 
 
 
