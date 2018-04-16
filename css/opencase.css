@@ -41,10 +41,6 @@ div.region.region-primary-menu {
     margin-bottom: 10px;
 }
 
-.region-sidebar-second .view-content li  .zencrm_editlink , .region-sidebar-second .views-row .zencrm_editlink, .region-sidebar-second .zencrm_inner_sidebar_block .zencrm_editlink{
-    margin-top: -20px;
-}
-
 .sidebar .region-sidebar-second h2 {
   font-size: 1.6em;
   text-align: center;
