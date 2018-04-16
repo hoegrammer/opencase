@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - zencrm_entities
+id: hat.field_availability
+field_name: field_availability
+entity_type: hat
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

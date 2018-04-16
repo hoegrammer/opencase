@@ -1,0 +1,38 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.hat.volunteer.field_availability
+    - field.field.hat.volunteer.field_date_started
+    - field.field.hat.volunteer.field_team
+    - zencrm_entities.hat_type.volunteer
+  module:
+    - datetime
+id: hat.volunteer.default
+targetEntityType: hat
+bundle: volunteer
+mode: default
+content:
+  field_availability:
+    weight: 6
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_date_started:
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_team:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden: {  }

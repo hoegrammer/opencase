@@ -1,0 +1,26 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - zencrm_entities.case_entity_type.volunteer_recruitment
+id: case_entity.volunteer_recruitment.default
+targetEntityType: case_entity
+bundle: volunteer_recruitment
+mode: default
+content:
+  name:
+    label: above
+    type: string
+    weight: -4
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  user_id:
+    label: hidden
+    type: author
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

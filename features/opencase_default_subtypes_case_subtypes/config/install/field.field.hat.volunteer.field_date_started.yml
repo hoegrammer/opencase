@@ -1,0 +1,23 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.hat.field_date_started
+    - zencrm_entities.hat_type.volunteer
+  module:
+    - datetime
+id: hat.volunteer.field_date_started
+field_name: field_date_started
+entity_type: hat
+bundle: volunteer
+label: 'Date Started'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    default_date_type: now
+    default_date: now
+default_value_callback: ''
+settings: {  }
+field_type: datetime

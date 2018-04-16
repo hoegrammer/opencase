@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.hat.field_country
+    - zencrm_entities.hat_type.client
+id: hat.client.field_country
+field_name: field_country
+entity_type: hat
+bundle: client
+label: 'Country of Origin'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

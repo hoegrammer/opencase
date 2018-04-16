@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.hat.field_availability
+    - zencrm_entities.hat_type.volunteer
+id: hat.volunteer.field_availability
+field_name: field_availability
+entity_type: hat
+bundle: volunteer
+label: Availability
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

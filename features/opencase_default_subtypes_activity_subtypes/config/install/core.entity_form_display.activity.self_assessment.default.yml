@@ -1,0 +1,32 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.activity.self_assessment.field_how_is_your_housing_situat
+    - field.field.activity.self_assessment.field_how_is_your_mental_health_
+    - field.field.activity.self_assessment.field_how_is_your_physical_healt
+    - zencrm_entities.activity_type.self_assessment
+id: activity.self_assessment.default
+targetEntityType: activity
+bundle: self_assessment
+mode: default
+content:
+  field_how_is_your_housing_situat:
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  field_how_is_your_mental_health_:
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  field_how_is_your_physical_healt:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+hidden: {  }

@@ -1,0 +1,29 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.hat.client.field_country
+    - field.field.hat.client.field_language
+    - zencrm_entities.hat_type.client
+id: hat.client.default
+targetEntityType: hat
+bundle: client
+mode: default
+content:
+  field_country:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_language:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden: {  }

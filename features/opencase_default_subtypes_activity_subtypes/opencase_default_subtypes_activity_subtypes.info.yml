@@ -1,0 +1,12 @@
+name: 'Activity Subtypes'
+type: module
+core: 8.x
+dependencies:
+  - block
+  - field
+  - file
+  - options
+  - system
+  - views
+  - zencrm_entities
+package: 'OpenCase Default Subtypes'

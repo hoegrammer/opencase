@@ -1,0 +1,35 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - zencrm_entities
+id: activity.field_how_is_your_housing_situat
+field_name: field_how_is_your_housing_situat
+entity_type: activity
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: Excellent
+      label: Excellent
+    -
+      value: Good
+      label: Good
+    -
+      value: OK
+      label: OK
+    -
+      value: Bad
+      label: Bad
+    -
+      value: Terrible
+      label: Terrible
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

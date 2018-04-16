@@ -1,0 +1,11 @@
+name: 'Hat Subtypes'
+type: module
+core: 8.x
+dependencies:
+  - block
+  - datetime
+  - field
+  - system
+  - views
+  - zencrm_entities
+package: 'OpenCase Default Subtypes'
