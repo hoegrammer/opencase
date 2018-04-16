@@ -5,6 +5,19 @@ a.site-branding__logo img {
 
 /* Module-specific from here. */
 
+.ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
+    width: 100%;
+}
+
+button.button--primary.js-form-submit.form-submit.ui-button.ui-corner-all.ui-widget {
+  margin-left: 73%;
+}
+
+button.button.button--danger.ui-button.ui-corner-all.ui-widget {
+    float: left;
+    color: red;
+}
+
 .ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons {
     min-width: 550px;
     border: 20px solid rgba(0, 0, 0, 0.51);
