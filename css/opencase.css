@@ -3,6 +3,23 @@ a.site-branding__logo img {
   max-width: 100px;
 }
 
+/* a hack to show different links in sidebar - temporary */
+.zencrm_creationlinks.authorised_only {
+   display: none;
+}
+
+.user-logged-in .zencrm_creationlinks.authorised_only {
+  display: block;
+}
+
+.zencrm_creationlinks.anonymous_only {
+   display: block;
+}
+
+.user-logged-in .zencrm_creationlinks.anonymous_only {
+  display: none;
+}
+
 /* Module-specific from here. */
 
 .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {

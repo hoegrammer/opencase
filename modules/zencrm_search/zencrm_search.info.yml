@@ -3,6 +3,7 @@ type: module
 description: 'Provides search functionality for Zen CRM'
 core: 8.x
 package: 'Zen CRM'
+version: 0.1.1
 dependencies:
   - zencrm_entities
   - search_api

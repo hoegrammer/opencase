@@ -1,0 +1,9 @@
+name: anonymous
+type: module
+core: 8.x
+dependencies:
+  - block
+  - system
+  - user
+  - views
+package: 'OpenCase User Config'

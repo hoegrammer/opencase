@@ -4,5 +4,5 @@ description: 'Zen CRM Entities'
 core: 8.x
 package: 'Zen CRM'
 mtime: 1522776761
-version: null
+version: 0.1.1
 php: 5.5.9
