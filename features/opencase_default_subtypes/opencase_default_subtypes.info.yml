@@ -1,4 +1,4 @@
-name: 'Hat Subtypes'
+name: 'Default Subtypes'
 type: module
 core: 8.x
 dependencies:
@@ -8,4 +8,4 @@ dependencies:
   - system
   - views
   - zencrm_entities
-package: 'OpenCase Default Subtypes'
+package: 'OpenCase'

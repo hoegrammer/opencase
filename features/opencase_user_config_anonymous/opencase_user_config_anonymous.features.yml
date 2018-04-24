@@ -1,6 +1,0 @@
-bundle: opencase_user_config
-excluded:
-  - block.block.views_block__single_case_with_activities_block_1
-  - block.block.views_block__this_person_s_contact_details_block_1
-  - block.block.views_block__this_person_s_hats_block_1
-required: true

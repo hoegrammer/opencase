@@ -1,4 +1,4 @@
-name: anonymous
+name: default_user_config
 type: module
 core: 8.x
 dependencies:
@@ -6,4 +6,4 @@ dependencies:
   - system
   - user
   - views
-package: 'OpenCase User Config'
+package: 'OpenCase'

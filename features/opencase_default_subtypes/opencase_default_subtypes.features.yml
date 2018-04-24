@@ -1,4 +1,4 @@
-bundle: opencase_default_subtypes
+bundle: opencase
 excluded:
   - block.block.views_block__single_case_with_activities_block_1
   - block.block.views_block__this_person_s_contact_details_block_1
