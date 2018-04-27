@@ -1,7 +1,10 @@
 langcode: en
 status: true
 dependencies:
+  config:
+    - user.role.authenticated
   module:
+    - user
     - zencrm_entities
 id: single_case_with_activities
 label: 'Single Case with Activities'
@@ -19,8 +22,10 @@ display:
     position: 0
     display_options:
       access:
-        type: none
-        options: {  }
+        type: role
+        options:
+          role:
+            authenticated: authenticated
       cache:
         type: tag
         options: {  }
@@ -463,6 +468,7 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
+        - user.roles
       tags: {  }
   block_1:
     display_plugin: block
@@ -478,4 +484,5 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
+        - user.roles
       tags: {  }

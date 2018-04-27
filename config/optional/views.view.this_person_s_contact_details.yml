@@ -1,7 +1,10 @@
 langcode: en
 status: true
 dependencies:
+  config:
+    - user.role.authenticated
   module:
+    - user
     - zencrm_entities
 id: this_person_s_contact_details
 label: 'Contact Details'
@@ -19,8 +22,10 @@ display:
     position: 0
     display_options:
       access:
-        type: none
-        options: {  }
+        type: role
+        options:
+          role:
+            authenticated: authenticated
       cache:
         type: tag
         options: {  }
@@ -290,6 +295,7 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
+        - user.roles
       tags: {  }
   block_1:
     display_plugin: block
@@ -305,6 +311,7 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
+        - user.roles
       tags: {  }
   entity_reference_1:
     display_plugin: entity_reference
@@ -561,4 +568,5 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
+        - user.roles
       tags: {  }

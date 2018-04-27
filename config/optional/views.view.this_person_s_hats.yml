@@ -3,7 +3,9 @@ status: true
 dependencies:
   config:
     - block.block.hatcreator
+    - user.role.authenticated
   module:
+    - user
     - zencrm_entities
 id: this_person_s_hats
 label: Hats
@@ -21,8 +23,10 @@ display:
     position: 0
     display_options:
       access:
-        type: none
-        options: {  }
+        type: role
+        options:
+          role:
+            authenticated: authenticated
       cache:
         type: tag
         options: {  }
@@ -357,6 +361,7 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
+        - user.roles
       tags:
         - 'config:core.entity_view_display.hat.client.default'
         - 'config:core.entity_view_display.hat.volunteer.default'
@@ -382,6 +387,7 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
+        - user.roles
       tags:
         - 'config:core.entity_view_display.hat.client.default'
         - 'config:core.entity_view_display.hat.volunteer.default'
