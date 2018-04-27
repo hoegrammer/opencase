@@ -23,7 +23,7 @@ use Drupal\Core\Config\Entity\ConfigEntityBundleBase;
  *     },
  *   },
  *   config_prefix = "case_entity_type",
- *   admin_permission = "administer site configuration",
+ *   admin_permission = "administer case types",
  *   bundle_of = "case_entity",
  *   entity_keys = {
  *     "id" = "id",

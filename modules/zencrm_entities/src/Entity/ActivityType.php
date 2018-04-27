@@ -23,7 +23,7 @@ use Drupal\Core\Config\Entity\ConfigEntityBundleBase;
  *     },
  *   },
  *   config_prefix = "activity_type",
- *   admin_permission = "administer site configuration",
+ *   admin_permission = "administer activity types",
  *   bundle_of = "activity",
  *   entity_keys = {
  *     "id" = "id",

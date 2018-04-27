@@ -1,5 +1,11 @@
-add hat types:
-  title: 'Add Hat Types'
+administer hat types:
+  title: 'Administer Hat Types'
+
+administer case types:
+  title: 'Administer Case Types'
+
+administer activity types:
+  title: 'Administer Activity Types'
 
 add person entities:
   title: 'Create new Person entities'
