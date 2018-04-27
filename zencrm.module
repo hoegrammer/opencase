@@ -38,15 +38,3 @@ function zencrm_page_attachments(array &$page) {
   $page['#attached']['library'][] = 'zencrm/opencase-lib';
 }
 
-/**
- * Implements hook_user_login().
- */
-function zencrm_user_login(\Drupal\user\UserInterface $account) {
-  // Default login destination to the dashboard.
-  $current_request = \Drupal::service('request_stack')->getCurrentRequest();
-  if (!$current_request->query->get('destination')) {
-    $current_request->query->set(
-      'destination', '/'
-    );
-  }
-}
