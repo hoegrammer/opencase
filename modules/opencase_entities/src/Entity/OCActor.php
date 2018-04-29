@@ -114,6 +114,12 @@ class OCActor extends RevisionableContentEntityBase implements OCActorInterface 
         $translation->setOwnerId(0);
       }
     }
+    
+    $name = $this->get('first_name') ->value . ' ';
+    if ($this->get('middle_names')->value) $name .= $this->get('middle_names')->value . ' ';
+    $name .= $this->get('last_name')->value;
+  
+    $this->setName($name);
 
     // If no revision author has been set explicitly, make the oc_actor owner the
     // revision author.
