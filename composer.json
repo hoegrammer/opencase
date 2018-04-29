@@ -1,0 +1,14 @@
+{
+  "name": "drupal/opencase",
+  "type": "drupal-module",
+  "description": "Simple Case Management",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/opencase",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/opencase",
+    "source": "http://cgit.drupalcode.org/opencase"
+  },
+  "require": { }
+}

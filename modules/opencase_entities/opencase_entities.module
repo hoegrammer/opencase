@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * Contains opencase_entities.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function opencase_entities_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the opencase_entities module.
+    case 'help.page.opencase_entities':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Entities used in OpenCase') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function opencase_entities_theme() {
+  return [
+    'opencase_entities' => [
+      'render element' => 'children',
+    ],
+  ];
+}

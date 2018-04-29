@@ -1,0 +1,14 @@
+{
+  "name": "drupal/opencase_entities",
+  "type": "drupal-module",
+  "description": "Entities used in OpenCase",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/opencase_entities",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/opencase_entities",
+    "source": "http://cgit.drupalcode.org/opencase_entities"
+  },
+  "require": { }
+}

@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * Contains opencase.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function opencase_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the opencase module.
+    case 'help.page.opencase':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Simple Case Management') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function opencase_theme() {
+  return [
+    'opencase' => [
+      'render element' => 'children',
+    ],
+  ];
+}
