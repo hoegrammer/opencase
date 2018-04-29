@@ -115,9 +115,10 @@ class OCActor extends RevisionableContentEntityBase implements OCActorInterface 
       }
     }
     
-    $name = $this->get('first_name') ->value . ' ';
+    $name = $this->get('first_name')->value . ' ';
     if ($this->get('middle_names')->value) $name .= $this->get('middle_names')->value . ' ';
-    $name .= $this->get('last_name')->value;
+    $name .= $this->get('last_name')->value . ' ';
+    $name .= '(' . $this->bundle() . ')';
   
     $this->setName($name);
 
