@@ -1,5 +1,5 @@
 name: 'OpenCase Entities'
 type: module
-description: 'Entities used in OpenCase'
+description: 'Entity Types for OpenCase'
 core: 8.x
 package: 'OpenCase'

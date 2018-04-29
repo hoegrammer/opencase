@@ -16,7 +16,7 @@ function opencase_entities_help($route_name, RouteMatchInterface $route_match) {
     case 'help.page.opencase_entities':
       $output = '';
       $output .= '<h3>' . t('About') . '</h3>';
-      $output .= '<p>' . t('Entities used in OpenCase') . '</p>';
+      $output .= '<p>' . t('Entity Types for OpenCase') . '</p>';
       return $output;
 
     default:

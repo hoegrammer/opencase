@@ -1,7 +1,7 @@
 {
   "name": "drupal/opencase_entities",
   "type": "drupal-module",
-  "description": "Entities used in OpenCase",
+  "description": "Entity Types for OpenCase",
   "keywords": ["Drupal"],
   "license": "GPL-2.0+",
   "homepage": "https://www.drupal.org/project/opencase_entities",
