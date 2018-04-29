@@ -1,0 +1,54 @@
+
+# Actor menu items definition
+entity.oc_actor.collection:
+  title: 'Actor list'
+  route_name: entity.oc_actor.collection
+  description: 'List Actor entities'
+  parent: system.admin_structure
+  weight: 100
+
+
+# Actor type menu items definition
+entity.oc_actor_type.collection:
+  title: 'Actor type'
+  route_name: entity.oc_actor_type.collection
+  description: 'List Actor type (bundles)'
+  parent: system.admin_structure
+  weight: 99
+
+
+# Case menu items definition
+entity.oc_case.collection:
+  title: 'Case list'
+  route_name: entity.oc_case.collection
+  description: 'List Case entities'
+  parent: system.admin_structure
+  weight: 100
+
+
+# Case type menu items definition
+entity.oc_case_type.collection:
+  title: 'Case type'
+  route_name: entity.oc_case_type.collection
+  description: 'List Case type (bundles)'
+  parent: system.admin_structure
+  weight: 99
+
+
+# Activity menu items definition
+entity.oc_activity.collection:
+  title: 'Activity list'
+  route_name: entity.oc_activity.collection
+  description: 'List Activity entities'
+  parent: system.admin_structure
+  weight: 100
+
+
+# Activity type menu items definition
+entity.oc_activity_type.collection:
+  title: 'Activity type'
+  route_name: entity.oc_activity_type.collection
+  description: 'List Activity type (bundles)'
+  parent: system.admin_structure
+  weight: 99
+

@@ -27,9 +27,87 @@ function opencase_entities_help($route_name, RouteMatchInterface $route_match) {
  * Implements hook_theme().
  */
 function opencase_entities_theme() {
-  return [
-    'opencase_entities' => [
-      'render element' => 'children',
-    ],
+  $theme = [];
+  $theme['opencase_entities'] = [
+    'render element' => 'children',
   ];
+  $theme['oc_actor'] = [
+    'render element' => 'elements',
+    'file' => 'oc_actor.page.inc',
+    'template' => 'oc_actor',
+  ];
+  $theme['oc_actor_content_add_list'] = [
+    'render element' => 'content',
+    'variables' => ['content' => NULL],
+    'file' => 'oc_actor.page.inc',
+  ];
+  $theme['oc_case'] = [
+    'render element' => 'elements',
+    'file' => 'oc_case.page.inc',
+    'template' => 'oc_case',
+  ];
+  $theme['oc_case_content_add_list'] = [
+    'render element' => 'content',
+    'variables' => ['content' => NULL],
+    'file' => 'oc_case.page.inc',
+  ];
+  $theme['oc_activity'] = [
+    'render element' => 'elements',
+    'file' => 'oc_activity.page.inc',
+    'template' => 'oc_activity',
+  ];
+  $theme['oc_activity_content_add_list'] = [
+    'render element' => 'content',
+    'variables' => ['content' => NULL],
+    'file' => 'oc_activity.page.inc',
+  ];
+  return $theme;
+}
+
+/**
+* Implements hook_theme_suggestions_HOOK().
+*/
+function opencase_entities_theme_suggestions_oc_actor(array $variables) {
+  $suggestions = [];
+  $entity = $variables['elements']['#oc_actor'];
+  $sanitized_view_mode = strtr($variables['elements']['#view_mode'], '.', '_');
+
+  $suggestions[] = 'oc_actor__' . $sanitized_view_mode;
+  $suggestions[] = 'oc_actor__' . $entity->bundle();
+  $suggestions[] = 'oc_actor__' . $entity->bundle() . '__' . $sanitized_view_mode;
+  $suggestions[] = 'oc_actor__' . $entity->id();
+  $suggestions[] = 'oc_actor__' . $entity->id() . '__' . $sanitized_view_mode;
+  return $suggestions;
+}
+
+/**
+* Implements hook_theme_suggestions_HOOK().
+*/
+function opencase_entities_theme_suggestions_oc_case(array $variables) {
+  $suggestions = [];
+  $entity = $variables['elements']['#oc_case'];
+  $sanitized_view_mode = strtr($variables['elements']['#view_mode'], '.', '_');
+
+  $suggestions[] = 'oc_case__' . $sanitized_view_mode;
+  $suggestions[] = 'oc_case__' . $entity->bundle();
+  $suggestions[] = 'oc_case__' . $entity->bundle() . '__' . $sanitized_view_mode;
+  $suggestions[] = 'oc_case__' . $entity->id();
+  $suggestions[] = 'oc_case__' . $entity->id() . '__' . $sanitized_view_mode;
+  return $suggestions;
+}
+
+/**
+* Implements hook_theme_suggestions_HOOK().
+*/
+function opencase_entities_theme_suggestions_oc_activity(array $variables) {
+  $suggestions = [];
+  $entity = $variables['elements']['#oc_activity'];
+  $sanitized_view_mode = strtr($variables['elements']['#view_mode'], '.', '_');
+
+  $suggestions[] = 'oc_activity__' . $sanitized_view_mode;
+  $suggestions[] = 'oc_activity__' . $entity->bundle();
+  $suggestions[] = 'oc_activity__' . $entity->bundle() . '__' . $sanitized_view_mode;
+  $suggestions[] = 'oc_activity__' . $entity->id();
+  $suggestions[] = 'oc_activity__' . $entity->id() . '__' . $sanitized_view_mode;
+  return $suggestions;
 }

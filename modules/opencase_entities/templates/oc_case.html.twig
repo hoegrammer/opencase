@@ -1,0 +1,22 @@
+{#
+/**
+ * @file oc_case.html.twig
+ * Default theme implementation to present Case data.
+ *
+ * This template is used when viewing Case pages.
+ *
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ * - attributes: HTML attributes for the container element.
+ *
+ * @see template_preprocess_oc_case()
+ *
+ * @ingroup themeable
+ */
+#}
+<div{{ attributes.addClass('oc_case') }}>
+  {% if content %}
+    {{- content -}}
+  {% endif %}
+</div>

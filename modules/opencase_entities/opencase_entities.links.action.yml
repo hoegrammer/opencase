@@ -1,0 +1,33 @@
+entity.oc_actor.add_form:
+  route_name: entity.oc_actor.add_page
+  title: 'Add Actor'
+  appears_on:
+    - entity.oc_actor.collection
+entity.oc_actor_type.add_form:
+  route_name: entity.oc_actor_type.add_form
+  title: 'Add Actor type'
+  appears_on:
+    - entity.oc_actor_type.collection
+
+entity.oc_case.add_form:
+  route_name: entity.oc_case.add_page
+  title: 'Add Case'
+  appears_on:
+    - entity.oc_case.collection
+entity.oc_case_type.add_form:
+  route_name: entity.oc_case_type.add_form
+  title: 'Add Case type'
+  appears_on:
+    - entity.oc_case_type.collection
+
+entity.oc_activity.add_form:
+  route_name: entity.oc_activity.add_page
+  title: 'Add Activity'
+  appears_on:
+    - entity.oc_activity.collection
+entity.oc_activity_type.add_form:
+  route_name: entity.oc_activity_type.add_form
+  title: 'Add Activity type'
+  appears_on:
+    - entity.oc_activity_type.collection
+

@@ -1,0 +1,90 @@
+add actor entities:
+  title: 'Create new Actor entities'
+
+administer actor entities:
+  title: 'Administer Actor entities'
+  description: 'Allow to access the administration form to configure Actor entities.'
+  restrict access: true
+
+delete actor entities:
+  title: 'Delete Actor entities'
+
+edit actor entities:
+  title: 'Edit Actor entities'
+
+view published actor entities:
+  title: 'View published Actor entities'
+
+view unpublished actor entities:
+  title: 'View unpublished Actor entities'
+
+view all actor revisions:
+  title: 'View all Actor revisions'
+
+revert all actor revisions:
+  title: 'Revert all Actor revisions'
+  description: 'Role requires permission <em>view Actor revisions</em> and <em>edit rights</em> for actor entities in question or <em>administer actor entities</em>.'
+
+delete all actor revisions:
+  title: 'Delete all revisions'
+  description: 'Role requires permission to <em>view Actor revisions</em> and <em>delete rights</em> for actor entities in question or <em>administer actor entities</em>.'
+add case entities:
+  title: 'Create new Case entities'
+
+administer case entities:
+  title: 'Administer Case entities'
+  description: 'Allow to access the administration form to configure Case entities.'
+  restrict access: true
+
+delete case entities:
+  title: 'Delete Case entities'
+
+edit case entities:
+  title: 'Edit Case entities'
+
+view published case entities:
+  title: 'View published Case entities'
+
+view unpublished case entities:
+  title: 'View unpublished Case entities'
+
+view all case revisions:
+  title: 'View all Case revisions'
+
+revert all case revisions:
+  title: 'Revert all Case revisions'
+  description: 'Role requires permission <em>view Case revisions</em> and <em>edit rights</em> for case entities in question or <em>administer case entities</em>.'
+
+delete all case revisions:
+  title: 'Delete all revisions'
+  description: 'Role requires permission to <em>view Case revisions</em> and <em>delete rights</em> for case entities in question or <em>administer case entities</em>.'
+add activity entities:
+  title: 'Create new Activity entities'
+
+administer activity entities:
+  title: 'Administer Activity entities'
+  description: 'Allow to access the administration form to configure Activity entities.'
+  restrict access: true
+
+delete activity entities:
+  title: 'Delete Activity entities'
+
+edit activity entities:
+  title: 'Edit Activity entities'
+
+view published activity entities:
+  title: 'View published Activity entities'
+
+view unpublished activity entities:
+  title: 'View unpublished Activity entities'
+
+view all activity revisions:
+  title: 'View all Activity revisions'
+
+revert all activity revisions:
+  title: 'Revert all Activity revisions'
+  description: 'Role requires permission <em>view Activity revisions</em> and <em>edit rights</em> for activity entities in question or <em>administer activity entities</em>.'
+
+delete all activity revisions:
+  title: 'Delete all revisions'
+  description: 'Role requires permission to <em>view Activity revisions</em> and <em>delete rights</em> for activity entities in question or <em>administer activity entities</em>.'
