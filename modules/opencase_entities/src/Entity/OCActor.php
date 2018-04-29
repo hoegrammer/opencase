@@ -230,7 +230,35 @@ class OCActor extends RevisionableContentEntityBase implements OCActorInterface 
 
     $fields['name'] = BaseFieldDefinition::create('string')
       ->setLabel(t('Name'))
-      ->setDescription(t('The name of the Actor entity.'))
+      ->setSettings([
+        'max_length' => 100,
+        'text_processing' => 0,
+      ])
+      ->setRequired(TRUE);
+
+    $fields['first_name'] = BaseFieldDefinition::create('string')
+      ->setLabel(t('First Name'))
+      ->setDescription(t("The person's first name."))
+      ->setRevisionable(TRUE)
+      ->setSettings([
+        'max_length' => 20,
+        'text_processing' => 0,
+      ])
+      ->setDefaultValue('')
+      ->setDisplayOptions('view', [
+        'label' => 'above',
+        'type' => 'string',
+        'weight' => -4,
+      ])
+      ->setDisplayOptions('form', [
+        'type' => 'string_textfield',
+        'weight' => -4,
+      ])
+      ->setRequired(TRUE);
+
+    $fields['middle_names'] = BaseFieldDefinition::create('string')
+      ->setLabel(t('Middle Names'))
+      ->setDescription(t("The person's middle names, if any."))
       ->setRevisionable(TRUE)
       ->setSettings([
         'max_length' => 50,
@@ -246,8 +274,26 @@ class OCActor extends RevisionableContentEntityBase implements OCActorInterface 
         'type' => 'string_textfield',
         'weight' => -4,
       ])
-      ->setDisplayConfigurable('form', TRUE)
-      ->setDisplayConfigurable('view', TRUE)
+      ->setRequired(FALSE);
+
+    $fields['last_name'] = BaseFieldDefinition::create('string')
+      ->setLabel(t('Last Name'))
+      ->setDescription(t("The person's last name"))
+      ->setRevisionable(TRUE)
+      ->setSettings([
+        'max_length' => 20,
+        'text_processing' => 0,
+      ])
+      ->setDefaultValue('')
+      ->setDisplayOptions('view', [
+        'label' => 'above',
+        'type' => 'string',
+        'weight' => -4,
+      ])
+      ->setDisplayOptions('form', [
+        'type' => 'string_textfield',
+        'weight' => -4,
+      ])
       ->setRequired(TRUE);
 
     $fields['status'] = BaseFieldDefinition::create('boolean')
