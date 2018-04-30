@@ -72,6 +72,15 @@ use Drupal\user\UserInterface;
  */
 class OCCase extends RevisionableContentEntityBase implements OCCaseInterface {
 
+
+  /**
+   * When creating a case, it sets the first involved party to the actor
+   * id from the URL.
+   */
+  public static function defaultVal() {
+    return \Drupal::request()->query->get('actor_id');;
+  }
+
   use EntityChangedTrait;
 
   /**
@@ -250,6 +259,8 @@ class OCCase extends RevisionableContentEntityBase implements OCCaseInterface {
       ->setDisplayConfigurable('view', TRUE)
       ->setRequired(TRUE);
 
+    
+
     $fields['actors_involved'] = BaseFieldDefinition::create('entity_reference')
       ->setLabel(t('Involved Parties'))
       ->setDescription(t('People involved in this case, in their various capacities'))
@@ -267,6 +278,7 @@ class OCCase extends RevisionableContentEntityBase implements OCCaseInterface {
           'placeholder' => '',
         ],
       ])
+      ->setDefaultValueCallback('Drupal\opencase_entities\Entity\OCCase::defaultVal')
       ->setRequired(TRUE);
 
     $fields['status'] = BaseFieldDefinition::create('boolean')
@@ -296,5 +308,4 @@ class OCCase extends RevisionableContentEntityBase implements OCCaseInterface {
 
     return $fields;
   }
-
 }
