@@ -5,6 +5,7 @@ namespace Drupal\opencase\Plugin\Block;
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Link;
 use Drupal\Core\Url;
+use Drupal\opencase\Utils;
 
 /**
  * Provides a 'ContextualMenu' block.
@@ -48,7 +49,7 @@ class ContextualMenu extends BlockBase {
     $actor = \Drupal::routeMatch()->getParameter('oc_actor');
     $url = Url::fromRoute('view.cases.page_1', array('actor_id' => $actor->id()));
     $link = Link::fromTextAndUrl(t("Case List"), $url)->toString();
-    return "<div id='opencase_contextual_menu_nav'><p>$link</p></div>";
+    return "<div class='opencase_nav_links'><p>$link</p></div>";
   }
 
   /**
@@ -60,18 +61,8 @@ class ContextualMenu extends BlockBase {
     $actor_id = \Drupal::routeMatch()->getParameter('actor_id');
     $actor = \Drupal::entityTypeManager()->getStorage('oc_actor')->load($actor_id);
     $link = $actor->toLink()->toString();
-    $markup = "<div id='opencase_contextual_menu_nav'><p>$link</p></div>";
-    
-    $case_types = \Drupal::service('entity_type.bundle.info')->getBundleInfo('oc_case');
-    $add_links = '';
-    foreach($case_types as $case_type_id => $type) {
-      $label = $type['label'];
-      $url = Url::fromRoute('entity.oc_case.add_form', ['oc_case_type' => $case_type_id]);
-      $url->setOption('query', ['actor_id' => $actor_id]);
-      $link = Link::fromTextAndUrl(t("Add a $label case"), $url)->toString();
-      $add_links .= "<p>$link</p>";
-    }
-    $markup .= "<div id='opencase_contextual_menu_add'>$add_links</div>";
+    $markup = "<div class='opencase_nav_links'><p>$link</p></div>";
+    $markup .= Utils::generateAddLinks('oc_case', ['actor_id' => $actor_id]);
     return $markup; 
   }
 
