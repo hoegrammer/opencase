@@ -250,6 +250,25 @@ class OCActivity extends RevisionableContentEntityBase implements OCActivityInte
       ->setDisplayConfigurable('view', TRUE)
       ->setRequired(TRUE);
 
+    $fields['oc_case'] = BaseFieldDefinition::create('entity_reference')
+      ->setLabel(t('Case'))
+      ->setDescription(t('The case this activity belongs to.'))
+      ->setSetting('target_type', 'oc_case')
+      ->setSetting('handler', 'default')
+      ->setTranslatable(TRUE)
+      ->setCardinality(1)
+      ->setDisplayOptions('form', [
+        'type' => 'entity_reference_autocomplete',
+        'weight' => 5,
+        'settings' => [
+          'match_operator' => 'CONTAINS',
+          'size' => '60',
+          'autocomplete_type' => 'tags',
+          'placeholder' => '',
+        ],
+      ])
+      ->setRequired(TRUE);
+
     $fields['status'] = BaseFieldDefinition::create('boolean')
       ->setLabel(t('Publishing status'))
       ->setDescription(t('A boolean indicating whether the Activity is published.'))
