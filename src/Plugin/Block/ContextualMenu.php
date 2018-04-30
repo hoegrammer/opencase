@@ -36,6 +36,9 @@ class ContextualMenu extends BlockBase {
       case 'view.activities.page_1':
         $markup = $this->activityListPage();
         break;
+      case 'entity.oc_activity.canonical':
+        $markup = $this->activityPage();
+        break;
     }
 
     $build = [];
@@ -53,47 +56,83 @@ class ContextualMenu extends BlockBase {
    */
   private function actorPage() {
     $actor = \Drupal::routeMatch()->getParameter('oc_actor');
-    $url = Url::fromRoute('view.cases.page_1', array('actor_id' => $actor->id()));
-    $link = Link::fromTextAndUrl(t("Case List"), $url)->toString();
+    $link = $this->getCaseListLink($actor);
     return "<div class='opencase_nav_links'><p>$link</p></div>";
   }
 
   /**
    * Contextual menu for Case list page
-   *    - Link to the actor that the case list is for
    *    - Links to add cases of various types
    */
   private function caseListPage() {
     $actor_id = \Drupal::routeMatch()->getParameter('actor_id');
-    $actor = \Drupal::entityTypeManager()->getStorage('oc_actor')->load($actor_id);
-    $link = $actor->toLink()->toString();
-    $markup = "<div class='opencase_nav_links'><p>$link</p></div>";
-    $markup .= Utils::generateAddLinks('oc_case', ['actor_id' => $actor_id]);
+    $current_path =  \Drupal::service('path.current')->getPath();
+    $markup .= Utils::generateAddLinks('oc_case', ['actor_id' => $actor_id, 'destination' => $current_path]);
     return $markup; 
   }
 
   /**
    * Contextual menu for Case page
-   *    - Link to Activity list
+   *    - Link to case list if user has just come from there
+   *    - Link to Activity list for that case
    */
   private function casePage() {
+
+    $links = '';
+
+    // Ascertain if user has come from a case list and if so link back
+    // This is fragle code, it needs doing better.
+    $referer = \Drupal::request()->headers->get('referer');
+    $parts = parse_url($referer);
+    $path_parts= explode('/', $parts[path]);
+    if ($path_parts[4] == 'case_list') {
+      $actor = \Drupal::entityTypeManager()->getStorage('oc_actor')->load($path_parts[3]);
+      $link = $this->getCaseListLink($actor);  
+      $links .= "<p>$link</p>";
+    } 
+
     $case = \Drupal::routeMatch()->getParameter('oc_case');
-    $url = Url::fromRoute('view.activities.page_1', array('case_id' => $case->id()));
-    $link = Link::fromTextAndUrl(t("Activity List"), $url)->toString();
-    return "<div class='opencase_nav_links'><p>$link</p></div>";
+    $link = $this->getActivityListLink($case);
+    $links .= "<p>$link</p>";
+    return "<div class='opencase_nav_links'>$links</div>";
   }
 
   /**
    * Contextual menu for Activity list page
-   *     - Link to case
    *     - Links to add activities of various types
    */
   private function activityListPage() {
     $case_id = \Drupal::routeMatch()->getParameter('case_id');
-    $case = \Drupal::entityTypeManager()->getStorage('oc_case')->load($case_id);
-    $link = $case->toLink()->toString();
-    $markup = "<div class='opencase_nav_links'><p>$link</p></div>";
-    $markup .= Utils::generateAddLinks('oc_activity', ['case_id' => $case_id]);
+    $current_path =  \Drupal::service('path.current')->getPath();
+    $markup .= Utils::generateAddLinks('oc_activity', ['case_id' => $case_id, 'destination' => $current_path]);
     return $markup; 
+  }
+
+  /**
+   * Contextual menu for Activity page
+   *     - Links to the activity list for the case
+   */
+  private function activityPage() {
+    $activity = \Drupal::routeMatch()->getParameter('oc_activity');
+    $case = $activity->oc_case->entity;
+    $link = $this->getActivityListLink($case);
+    return "<div class='opencase_nav_links'><p>$link</p></div>";
+  }
+
+
+  /**
+   * Given an case entity, returns a link to the activity list 
+   */
+  private function getActivityListLink($case) {
+    $url = Url::fromRoute('view.activities.page_1', array('case_id' => $case->id()));
+    return Link::fromTextAndUrl(t("Activity List for " . $case->getName()), $url)->toString();
+  }
+
+  /**
+   * Given an case entity, returns a link to the activity list 
+   */
+  private function getCaseListLink($actor) {
+    $url = Url::fromRoute('view.cases.page_1', array('actor_id' => $actor->id()));
+    return Link::fromTextAndUrl(t("Case List for "  . $actor->getName()), $url)->toString();
   }
 }

@@ -277,6 +277,9 @@ class OCCase extends RevisionableContentEntityBase implements OCCaseInterface {
           'placeholder' => '',
         ],
       ])
+      ->setDisplayOptions('view', [
+        'label' => 'above',
+      ])
       ->setDefaultValueCallback('Drupal\opencase_entities\Entity\OCCase::defaultVal')
       ->setRequired(TRUE);
 
