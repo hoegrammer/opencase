@@ -30,6 +30,12 @@ class ContextualMenu extends BlockBase {
       case 'view.cases.page_1':
         $markup = $this->caseListPage();
         break;
+      case 'entity.oc_case.canonical':
+        $markup = $this->casePage();
+        break;
+      case 'view.activities.page_1':
+        $markup = $this->activityListPage();
+        break;
     }
 
     $build = [];
@@ -68,15 +74,26 @@ class ContextualMenu extends BlockBase {
 
   /**
    * Contextual menu for Case page
+   *    - Link to Activity list
    */
-  private function casePage($case_id) {
-
+  private function casePage() {
+    $case = \Drupal::routeMatch()->getParameter('oc_case');
+    $url = Url::fromRoute('view.activities.page_1', array('case_id' => $case->id()));
+    $link = Link::fromTextAndUrl(t("Activity List"), $url)->toString();
+    return "<div class='opencase_nav_links'><p>$link</p></div>";
   }
 
   /**
    * Contextual menu for Activity list page
+   *     - Link to case
+   *     - Links to add activities of various types
    */
-  private function activityListPage($case_id) {
-
+  private function activityListPage() {
+    $case_id = \Drupal::routeMatch()->getParameter('case_id');
+    $case = \Drupal::entityTypeManager()->getStorage('oc_case')->load($case_id);
+    $link = $case->toLink()->toString();
+    $markup = "<div class='opencase_nav_links'><p>$link</p></div>";
+    $markup .= Utils::generateAddLinks('oc_activity', ['case_id' => $case_id]);
+    return $markup; 
   }
 }

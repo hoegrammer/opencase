@@ -72,6 +72,7 @@ use Drupal\user\UserInterface;
  */
 class OCCase extends RevisionableContentEntityBase implements OCCaseInterface {
 
+  use EntityChangedTrait;
 
   /**
    * When creating a case, it sets the first involved party to the actor
@@ -80,8 +81,6 @@ class OCCase extends RevisionableContentEntityBase implements OCCaseInterface {
   public static function defaultVal() {
     return \Drupal::request()->query->get('actor_id');;
   }
-
-  use EntityChangedTrait;
 
   /**
    * {@inheritdoc}

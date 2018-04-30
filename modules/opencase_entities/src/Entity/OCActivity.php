@@ -75,6 +75,13 @@ class OCActivity extends RevisionableContentEntityBase implements OCActivityInte
   use EntityChangedTrait;
 
   /**
+   * When creating an activity, it sets the case id from the URL.
+   */
+  public static function defaultVal() {
+    return \Drupal::request()->query->get('case_id');;
+  }
+
+  /**
    * {@inheritdoc}
    */
   public static function preCreate(EntityStorageInterface $storage_controller, array &$values) {
@@ -267,6 +274,7 @@ class OCActivity extends RevisionableContentEntityBase implements OCActivityInte
           'placeholder' => '',
         ],
       ])
+      ->setDefaultValueCallback('Drupal\opencase_entities\Entity\OCActivity::defaultVal')
       ->setRequired(TRUE);
 
     $fields['status'] = BaseFieldDefinition::create('boolean')
