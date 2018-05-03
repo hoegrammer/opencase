@@ -246,7 +246,7 @@ class OCCase extends RevisionableContentEntityBase implements OCCaseInterface {
       ])
       ->setDefaultValue('')
       ->setDisplayOptions('view', [
-        'label' => 'above',
+        'label' => 'hidden',
         'type' => 'string',
         'weight' => -4,
       ])
@@ -254,8 +254,6 @@ class OCCase extends RevisionableContentEntityBase implements OCCaseInterface {
         'type' => 'string_textfield',
         'weight' => -4,
       ])
-      ->setDisplayConfigurable('form', TRUE)
-      ->setDisplayConfigurable('view', TRUE)
       ->setRequired(TRUE);
 
     
