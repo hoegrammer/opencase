@@ -76,27 +76,12 @@ class ContextualMenu extends BlockBase {
 
   /**
    * Contextual menu for Case page
-   *    - Link to case list if user has just come from there
    *    - Link to Activity list for that case
    */
   private function casePage() {
-
-    $links = [];
-
-    // Ascertain if user has come from a case list and if so link back
-    // This is fragle code, it needs doing better.
-    $referer = \Drupal::request()->headers->get('referer');
-    $parts = parse_url($referer);
-    $path_parts= explode('/', $parts[path]);
-    if ($path_parts[4] == 'case_list') {
-      $actor = \Drupal::entityTypeManager()->getStorage('oc_actor')->load($path_parts[3]);
-      $links[] = $this->getCaseListLink($actor);  
-    } 
-    
-    // Now get the link to the activity list for the case.
     $case = \Drupal::routeMatch()->getParameter('oc_case');
-    $links[] = $this->getActivityListLink($case);
-    return $this->asNavLinks($links); 
+    $link = $this->getActivityListLink($case);
+    return $this->asNavLinks([$link]); 
   }
 
   /**
@@ -107,7 +92,7 @@ class ContextualMenu extends BlockBase {
   private function activityListPage() {
     $case_id = \Drupal::routeMatch()->getParameter('case_id');
     $case = \Drupal::entityTypeManager()->getStorage('oc_case')->load($case_id);
-    $link = Link::fromTextAndUrl(t($case->getName() .": Details and Files"), $case->toUrl())->toString();
+    $link = Link::fromTextAndUrl(t($case->getName() .": Case Details and Files"), $case->toUrl())->toString();
     $markup = $this->asNavLinks([$link]);
     $current_path = \Drupal::service('path.current')->getPath();
     return $markup . Utils::generateAddLinks('oc_activity', "Add activity", ['case_id' => $case_id, 'destination' => $current_path]);
@@ -138,7 +123,7 @@ class ContextualMenu extends BlockBase {
    */
   private function getCaseListLink($actor) {
     $url = Url::fromRoute('view.cases.page_1', array('actor_id' => $actor->id()));
-    return Link::fromTextAndUrl(t("Case List for "  . $actor->getName()), $url)->toString();
+    return Link::fromTextAndUrl(t($actor->getName(). ": Cases"), $url)->toString();
   }
 
   /**

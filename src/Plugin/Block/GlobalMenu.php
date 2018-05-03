@@ -26,7 +26,6 @@ class GlobalMenu extends BlockBase {
     $markup .= Utils::generateAddLinks('oc_actor', 'Add new');
     $build['global_menu'] = [
       '#markup' => "<div id='opencase_global_menu'>$markup</div",
-      '#cache' => ['max-age' => 0]
     ];
     return $build;
   }

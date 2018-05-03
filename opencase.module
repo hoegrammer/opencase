@@ -8,6 +8,32 @@
 use Drupal\Core\Routing\RouteMatchInterface;
 
 /**
+ * Implements hook_preprocess_page_title
+ *  
+ * Modify the page title to include more information 
+ */
+function opencase_preprocess_page_title(&$variables) {
+  
+   $route_name = \Drupal::routeMatch()->getRouteName();
+    switch ($route_name) {
+      case 'entity.oc_case.canonical':
+        $case = \Drupal::routeMatch()->getParameter('oc_case');
+        $variables['title'] = $case->getName() . ": Case Details and Files";
+        break;
+      case 'view.cases.page_1':
+        $actor_id = \Drupal::routeMatch()->getParameter('actor_id');
+        $actor = \Drupal::entityTypeManager()->getStorage('oc_actor')->load($actor_id); 
+        $variables['title'] = $actor->getName() . ": Cases";
+        break;
+      case 'view.activities.page_1':
+        $case_id = \Drupal::routeMatch()->getParameter('case_id');
+        $case = \Drupal::entityTypeManager()->getStorage('oc_case')->load($case_id); 
+        $variables['title'] = $case->getName() . ": Activities";
+        break;
+    }
+}
+
+/**
  * Implements hook_help().
  */
 function opencase_help($route_name, RouteMatchInterface $route_match) {
