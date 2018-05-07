@@ -228,7 +228,7 @@ class OCCase extends RevisionableContentEntityBase implements OCCaseInterface {
       ->setDisplayOptions('view', [
         'label' => 'inline',
         'type' => 'author',
-        'weight' => -3,
+        'weight' => -4,
       ]);
     $fields['name'] = BaseFieldDefinition::create('string')
       ->setLabel(t('Name'))
@@ -242,11 +242,11 @@ class OCCase extends RevisionableContentEntityBase implements OCCaseInterface {
       ->setDisplayOptions('view', [
         'label' => 'hidden',
         'type' => 'string',
-        'weight' => -2,
+        'weight' => -3,
       ])
       ->setDisplayOptions('form', [
         'type' => 'string_textfield',
-        'weight' => -2,
+        'weight' => -3,
       ])
       ->setRequired(TRUE);
 
@@ -259,7 +259,7 @@ class OCCase extends RevisionableContentEntityBase implements OCCaseInterface {
       ->setCardinality(-1)
       ->setDisplayOptions('form', [
         'type' => 'entity_reference_autocomplete',
-        'weight' => -1,
+        'weight' => -2,
         'settings' => [
           'match_operator' => 'CONTAINS',
           'size' => '60',
@@ -269,11 +269,31 @@ class OCCase extends RevisionableContentEntityBase implements OCCaseInterface {
       ])
       ->setDisplayOptions('view', [
         'label' => 'above',
-        'weight' => -1
+        'weight' => -2
       ])
       ->setDefaultValueCallback('Drupal\opencase_entities\Entity\OCCase::defaultVal')
       ->setRequired(TRUE);
 
+    $fields['files'] = BaseFieldDefinition::create('file')
+      ->setLabel(t('Files'))
+      ->setDescription(t('Files attached to this case'))
+      ->setSetting('file_directory', '[date:custom:Y]-[date:custom:m]')
+      ->setSetting('handler', 'default:file')
+      ->setSetting('file_extensions', 'txt jpg jpeg gif rtf xls xlsx doc swf png pdf docx csv')
+      ->setSetting('description_field', 'true')
+      ->setCardinality(-1)
+      ->setDisplayOptions('form', [
+        'type' => 'file_generic',
+        'weight' => -1,
+        'settings' => [
+          'progress_indicator' => 'throbber',
+        ],
+      ])
+      ->setDisplayOptions('view', [
+        'label' => 'above',
+        'weight' => -1,
+        'settings' => ['use_description_as_link_text' => 'true']
+      ]);
 
     $fields['created'] = BaseFieldDefinition::create('created')
       ->setLabel(t('Created'))
