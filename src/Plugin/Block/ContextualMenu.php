@@ -10,8 +10,11 @@ use Drupal\opencase\Utils;
 /**
  * Provides a 'ContextualMenu' block.
  *
+ * Displays contextual links on certain pages. 
+ * The block is forbidden by hook_block_access on other pages, so if more are added they need adding there too.
+ *
  * @Block(
- *  id = "contextual_menu",
+ *  id = "opencase_contextual_menu",
  *  admin_label = @Translation("OpenCase Contextual Menu"),
  * )
  */

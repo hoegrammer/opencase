@@ -7,6 +7,33 @@
 
 use Drupal\Core\Routing\RouteMatchInterface;
 
+
+/**
+ * Implements hook_block_access
+ *
+ * Forbids the opencase_contextual_menu block on pages where it has no content.
+ * (Without this, it was displaying an empty sidebar)
+ */
+function opencase_block_access(\Drupal\block\Entity\Block $block, $operation, \Drupal\Core\Session\AccountInterface $account) {
+  if ($operation == 'view' && $block->getPluginId() == 'opencase_contextual_menu') {
+    $route_name = \Drupal::routeMatch()->getRouteName();
+    $routes_where_it_should_be_shown = [
+      'entity.oc_actor.canonical',
+      'view.cases.page_1',
+      'entity.oc_case.canonical',
+      'view.activities.page_1',
+      'entity.oc_activity.canonical'
+    ];
+    error_log(!in_array($route_name, $routes_where_it_should_be_shown));
+    return \Drupal\Core\Access\AccessResult::forbiddenIf(!in_array($route_name, $routes_where_it_should_be_shown))
+      ->addCacheableDependency($block);
+  }
+
+  // No opinion.
+  return \Drupal\Core\Access\AccessResult::neutral();
+}
+
+
 /**
  * Implements hook_page_attachments
  *
