@@ -7,6 +7,18 @@
 
 use Drupal\Core\Routing\RouteMatchInterface;
 
+
+/**
+ * Implements hook_link_alter
+ *
+ * Makes menu items that are external links open in new tab.
+ */
+function opencase_link_alter(&$variables) {
+  if ($variables['url']->isExternal()) {
+    $variables['options']['attributes'] = ['target' => '_blank'];
+  }
+}
+
 /**
  * Implements hook_preprocess_page_title
  *  
