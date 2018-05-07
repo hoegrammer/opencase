@@ -211,31 +211,25 @@ class OCCase extends RevisionableContentEntityBase implements OCCaseInterface {
   public static function baseFieldDefinitions(EntityTypeInterface $entity_type) {
     $fields = parent::baseFieldDefinitions($entity_type);
 
+    // not currently used. Will add form and view settings when ready
+    $fields['status'] = BaseFieldDefinition::create('boolean')
+      ->setLabel(t('Publishing status'))
+      ->setDescription(t('A boolean indicating whether the Case is published.'))
+      ->setRevisionable(TRUE)
+      ->setDefaultValue(TRUE);
+
     $fields['user_id'] = BaseFieldDefinition::create('entity_reference')
-      ->setLabel(t('Authored by'))
+      ->setLabel(t('Entered by'))
       ->setDescription(t('The user ID of author of the Case entity.'))
       ->setRevisionable(TRUE)
       ->setSetting('target_type', 'user')
       ->setSetting('handler', 'default')
       ->setTranslatable(TRUE)
       ->setDisplayOptions('view', [
-        'label' => 'hidden',
+        'label' => 'inline',
         'type' => 'author',
-        'weight' => 0,
-      ])
-      ->setDisplayOptions('form', [
-        'type' => 'entity_reference_autocomplete',
-        'weight' => 5,
-        'settings' => [
-          'match_operator' => 'CONTAINS',
-          'size' => '60',
-          'autocomplete_type' => 'tags',
-          'placeholder' => '',
-        ],
-      ])
-      ->setDisplayConfigurable('form', TRUE)
-      ->setDisplayConfigurable('view', TRUE);
-
+        'weight' => -3,
+      ]);
     $fields['name'] = BaseFieldDefinition::create('string')
       ->setLabel(t('Name'))
       ->setDescription(t('The name of the Case entity.'))
@@ -248,15 +242,13 @@ class OCCase extends RevisionableContentEntityBase implements OCCaseInterface {
       ->setDisplayOptions('view', [
         'label' => 'hidden',
         'type' => 'string',
-        'weight' => -4,
+        'weight' => -2,
       ])
       ->setDisplayOptions('form', [
         'type' => 'string_textfield',
-        'weight' => -4,
+        'weight' => -2,
       ])
       ->setRequired(TRUE);
-
-    
 
     $fields['actors_involved'] = BaseFieldDefinition::create('entity_reference')
       ->setLabel(t('Involved Parties'))
@@ -267,7 +259,7 @@ class OCCase extends RevisionableContentEntityBase implements OCCaseInterface {
       ->setCardinality(-1)
       ->setDisplayOptions('form', [
         'type' => 'entity_reference_autocomplete',
-        'weight' => 5,
+        'weight' => -1,
         'settings' => [
           'match_operator' => 'CONTAINS',
           'size' => '60',
@@ -277,19 +269,11 @@ class OCCase extends RevisionableContentEntityBase implements OCCaseInterface {
       ])
       ->setDisplayOptions('view', [
         'label' => 'above',
+        'weight' => -1
       ])
       ->setDefaultValueCallback('Drupal\opencase_entities\Entity\OCCase::defaultVal')
       ->setRequired(TRUE);
 
-    $fields['status'] = BaseFieldDefinition::create('boolean')
-      ->setLabel(t('Publishing status'))
-      ->setDescription(t('A boolean indicating whether the Case is published.'))
-      ->setRevisionable(TRUE)
-      ->setDefaultValue(TRUE)
-      ->setDisplayOptions('form', [
-        'type' => 'boolean_checkbox',
-        'weight' => -3,
-      ]);
 
     $fields['created'] = BaseFieldDefinition::create('created')
       ->setLabel(t('Created'))
