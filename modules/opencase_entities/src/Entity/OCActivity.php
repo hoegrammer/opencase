@@ -227,12 +227,11 @@ class OCActivity extends RevisionableContentEntityBase implements OCActivityInte
       ->setDisplayOptions('view', [
         'label' => 'inline',
         'type' => 'author',
-        'weight' => -3,
+        'weight' => -4,
       ]);
 
     $fields['name'] = BaseFieldDefinition::create('string')
-      ->setLabel(t('Name'))
-      ->setDescription(t('The name of the Activity entity.'))
+      ->setLabel(t('Subject'))
       ->setRevisionable(TRUE)
       ->setSettings([
         'max_length' => 50,
@@ -240,13 +239,13 @@ class OCActivity extends RevisionableContentEntityBase implements OCActivityInte
       ])
       ->setDefaultValue('')
       ->setDisplayOptions('view', [
-        'label' => 'above',
+        'label' => 'hidden',
         'type' => 'string',
-        'weight' => -2,
+        'weight' => -3,
       ])
       ->setDisplayOptions('form', [
         'type' => 'string_textfield',
-        'weight' => -2,
+        'weight' => -3,
       ])
       ->setRequired(TRUE);
 
@@ -257,22 +256,31 @@ class OCActivity extends RevisionableContentEntityBase implements OCActivityInte
       ->setSetting('handler', 'default')
       ->setTranslatable(TRUE)
       ->setCardinality(1)
-      ->setDisplayOptions('form', [
-        'type' => 'entity_reference_autocomplete',
-        'weight' => -1,
-        'settings' => [
-          'match_operator' => 'CONTAINS',
-          'size' => '60',
-          'autocomplete_type' => 'tags',
-          'placeholder' => '',
-        ],
-      ])
-      ->setDisplayOptions('form', [
+      ->setDisplayOptions('view', [
         'label' => 'above',
-        'weight' => -1
+        'weight' => -2
       ])
       ->setDefaultValueCallback('Drupal\opencase_entities\Entity\OCActivity::defaultVal')
       ->setRequired(TRUE);
+
+    $fields['description'] = BaseFieldDefinition::create('string_long')
+      ->setLabel(t('Description'))
+      ->setRevisionable(TRUE)
+      ->setSettings([
+        'max_length' => 50,
+        'text_processing' => 0,
+      ])
+      ->setDefaultValue('')
+      ->setDisplayOptions('view', [
+        'label' => 'above',
+        'type' => 'basic_string',
+        'weight' => -1,
+      ])
+      ->setDisplayOptions('form', [
+        'type' => 'string_textarea',
+        'weight' => -1,
+      ])
+      ->setRequired(FALSE);
 
     $fields['created'] = BaseFieldDefinition::create('created')
       ->setLabel(t('Created'))
