@@ -7,6 +7,15 @@
 
 use Drupal\Core\Routing\RouteMatchInterface;
 
+/**
+ * Implements hook_page_attachments
+ *
+ * Add the opencase library to every page
+ */
+function opencase_page_attachments(array &$page) {
+  $page['#attached']['library'][] = 'opencase/opencase-lib';
+}
+
 
 /**
  * Implements hook_link_alter

@@ -1,0 +1,7 @@
+opencase-lib:
+  version: 1.x
+  css:
+    theme:
+      css/opencase.css: {}
+  js: 
+    js/opencase.js: {}
