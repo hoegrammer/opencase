@@ -298,6 +298,96 @@ class OCActor extends RevisionableContentEntityBase implements OCActorInterface 
       ])
       ->setRequired(TRUE);
 
+    // Contact details.
+    // so it is not exposed to user configuration. 
+    $fields['email'] = BaseFieldDefinition::create('string')
+      ->setLabel(t('Email Address'))
+      ->setSettings(array(
+        'default_value' => '',
+        'max_length' => 30,
+        'text_processing' => 0,
+      ))
+      ->setDisplayOptions('view', array(
+        'label' => 'above',
+        'type' => 'string',
+        'weight' => 0,
+      ))
+      ->setDisplayOptions('form', array(
+        'type' => 'string_textfield',
+        'weight' => 0,
+      ));
+    $fields['phone'] = BaseFieldDefinition::create('string')
+      ->setLabel(t('Main Phone Number'))
+      ->setDisplayConfigurable('view', TRUE)
+      ->setDisplayConfigurable('form', TRUE)
+      ->setSettings(array(
+        'default_value' => '',
+        'max_length' => 20,
+        'text_processing' => 0,
+      ))
+      ->setDisplayOptions('view', array(
+        'label' => 'above',
+        'type' => 'string',
+        'weight' => 2,
+      ))
+      ->setDisplayOptions('form', array(
+        'type' => 'string_textfield',
+        'weight' => 2,
+      ));
+    $fields['phone2'] = BaseFieldDefinition::create('string')
+      ->setLabel(t('Alternative Phone Number'))
+      ->setSettings(array(
+        'default_value' => '',
+        'max_length' => 20,
+        'text_processing' => 0,
+      ))
+      ->setDisplayConfigurable('view', TRUE)
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayOptions('view', array(
+        'label' => 'above',
+        'type' => 'string',
+        'weight' => 3,
+      ))
+      ->setDisplayOptions('form', array(
+        'type' => 'string_textfield',
+        'weight' => 3,
+      ));
+    $fields['postal_address'] = BaseFieldDefinition::create('string_long')
+      ->setLabel(t('Postal Address'))
+      ->setDescription(t('Full address, apart from post code.'))
+      ->setDisplayConfigurable('view', TRUE)
+      ->setDisplayConfigurable('form', TRUE)
+      ->setSettings(array(
+        'default_value' => '',
+        'max_length' => 255,
+        'text_processing' => 0,
+      ))
+      ->setDisplayOptions('view', array(
+        'label' => 'above',
+        'type' => 'text',
+        'weight' => 5,
+      ))
+      ->setDisplayOptions('form', array(
+        'type' => 'string_textarea',
+        'weight' => 5,
+      ));
+    $fields['post_code'] = BaseFieldDefinition::create('string')
+      ->setLabel(t('Post Code'))
+      ->setSettings(array(
+        'default_value' => '',
+        'max_length' => 10,
+        'text_processing' => 0,
+      ))
+      ->setDisplayOptions('view', array(
+        'label' => 'above',
+        'type' => 'string',
+        'weight' => 6,
+      ))
+      ->setDisplayOptions('form', array(
+        'type' => 'string_textfield',
+        'weight' => 6,
+      ));
+
     $fields['created'] = BaseFieldDefinition::create('created')
       ->setLabel(t('Created'))
       ->setDescription(t('The time that the entity was created.'));

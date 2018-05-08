@@ -33,7 +33,8 @@ delete all client revisions:
   description: 'Role requires permission to <em>view Client revisions</em> and <em>delete rights</em> for client entities in question or <em>administer client entities</em>.'
 
 view volunteer involvement in cases:
-  title: 'View Volunteer Involvement in Cases (see their name, but nothing else)'
+  title: 'View names of Volunteers involved in Cases'
+  description: 'This role can be given to a user who does not have permission to view volunteers, so that they can see the names of volunteers involved in the cases that they can see.'
 
 add volunteer entities:
   title: 'Create new Volunteer entities'
