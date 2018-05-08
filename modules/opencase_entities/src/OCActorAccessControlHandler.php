@@ -54,8 +54,7 @@ class OCActorAccessControlHandler extends EntityAccessControlHandler {
    * {@inheritdoc}
    */
   protected function checkCreateAccess(AccountInterface $account, array $context, $entity_bundle = NULL) {
-    $bundle = $entity->bundle();
-    return AccessResult::allowedIfHasPermission($account, "add $bundle entities");
+    return AccessResult::allowedIfHasPermission($account, "add $entity_bundle entities");
   }
 
 }
