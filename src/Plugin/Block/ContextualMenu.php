@@ -92,8 +92,10 @@ class ContextualMenu extends BlockBase {
    */
   private function casePage() {
     $case = \Drupal::routeMatch()->getParameter('oc_case');
-    $link = $this->getActivityListLink($case);
-    return $this->asNavLinks([$link]); 
+    $actor_id = \Drupal::request()->query->get('actor_id');
+    $actor = \Drupal::entityTypeManager()->getStorage('oc_actor')->load($actor_id);
+    $links = [$this->getCaseListLink($actor), $this->getActivityListLink($case)];
+    return $this->asNavLinks($links); 
   }
 
   /**
@@ -115,15 +117,18 @@ class ContextualMenu extends BlockBase {
   private function activityListPage() {
     $case_id = \Drupal::routeMatch()->getParameter('case_id');
     $case = \Drupal::entityTypeManager()->getStorage('oc_case')->load($case_id);
-    $link = Link::fromTextAndUrl(t($case->getName() .": Case Details and Files"), $case->toUrl())->toString();
+    $url =  $case->toUrl('canonical', $this->getOptions());
+    $link = Link::fromTextAndUrl(t($case->getName() .": Case Details and Files"), $url)->toString();
     $markup = $this->asNavLinks([$link]);
     $current_path = \Drupal::service('path.current')->getPath();
-    return $markup . Utils::generateAddLinks('oc_activity', "Add activity", ['case_id' => $case_id, 'destination' => $current_path]);
+    $actor_id = \Drupal::request()->query->get('actor_id');
+    $query =  ['case_id' => $case_id, 'actor_id' => $actor_id, 'destination' => $current_path . "?actor_id=$actor_id"];
+    return $markup . Utils::generateAddLinks('oc_activity', "Add activity", $query);
   }
 
   /**
    * Contextual menu for Activity page
-   *     - Links to the activity list for the case
+   *     - Link to the activity list for the case
    */
   private function activityPage() {
     $activity = \Drupal::routeMatch()->getParameter('oc_activity');
@@ -135,7 +140,7 @@ class ContextualMenu extends BlockBase {
 
   /**
    * Contextual menu for Add-New-Activity page
-   *     - Links to the activity list for the case
+   *     - Link to the activity list for the case
    */
   private function activityAddPage() {
     $case_id = \Drupal::request()->query->get('case_id');
@@ -149,7 +154,7 @@ class ContextualMenu extends BlockBase {
    * Given an case entity, returns a link to the activity list 
    */
   private function getActivityListLink($case) {
-    $url = Url::fromRoute('view.activities.page_1', array('case_id' => $case->id()));
+    $url = Url::fromRoute('view.activities.page_1', array('case_id' => $case->id()), $this->getOptions());
     return Link::fromTextAndUrl(t($case->getName() .": Activities"), $url)->toString();
   }
 
@@ -157,7 +162,7 @@ class ContextualMenu extends BlockBase {
    * Given an actor entity, returns a link to their case list 
    */
   private function getCaseListLink($actor) {
-    $url = Url::fromRoute('view.cases.page_1', array('actor_id' => $actor->id()));
+    $url = Url::fromRoute('view.cases.page_1', ['actor_id' => $actor->id()]);
     return Link::fromTextAndUrl(t($actor->getName(). ": Cases"), $url)->toString();
   }
 
@@ -172,4 +177,17 @@ class ContextualMenu extends BlockBase {
     $title = t("Go to:");
     return "<div class='opencase_nav_links'><h1>$title</h1>$markup</div>";
   }
+
+  /**
+   * Gets the actor_id from the query parameter, if any, to pass through to next page.
+   */ 
+  private function getOptions() {
+    $options = [];
+    $actor_id = \Drupal::request()->query->get('actor_id');
+    if ($actor_id) {
+      $options = ['query' => ['actor_id' => $actor_id]];
+    }
+    return $options;
+  }
+
 }
