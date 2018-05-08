@@ -74,25 +74,29 @@ class ContextualMenu extends BlockBase {
 
   /**
    * Contextual menu for Case list page
-   *    - Link to person record whose case list this is
+   *    - Link to actor whose case list this is
    *    - Links to add cases of various types
+   *    - Store the actor id in the session, so that the user experiences
+   * a hierachy actor->case->activities which they can navigate
    */
   private function caseListPage() {
     $actor_id = \Drupal::routeMatch()->getParameter('actor_id');
+    \Drupal::service('user.private_tempstore')->get('opencase')->set('actor_id', $actor_id);
     $link = \Drupal::entityTypeManager()->getStorage('oc_actor')->load($actor_id)->toLink()->toString();
     $markup = $this->asNavLinks([$link]);
     $current_path =  \Drupal::service('path.current')->getPath();
-    $markup .= Utils::generateAddLinks('oc_case', "Add new case", ['actor_id' => $actor_id, 'destination' => $current_path]);
+    $markup .= Utils::generateAddLinks('oc_case', "Add new case", ['actor_id' => $actor_id,  'destination' => $current_path]);
     return $markup; 
   }
 
   /**
    * Contextual menu for Case page
+   *    - Link to case list for the actor that is stored in the session
    *    - Link to Activity list for that case
    */
   private function casePage() {
     $case = \Drupal::routeMatch()->getParameter('oc_case');
-    $actor_id = \Drupal::request()->query->get('actor_id');
+    $actor_id = \Drupal::service('user.private_tempstore')->get('opencase')->get('actor_id');
     $actor = \Drupal::entityTypeManager()->getStorage('oc_actor')->load($actor_id);
     $links = [$this->getCaseListLink($actor), $this->getActivityListLink($case)];
     return $this->asNavLinks($links); 
@@ -100,10 +104,10 @@ class ContextualMenu extends BlockBase {
 
   /**
    * Contextual menu for Add-New-Case page
-   *    - Link to Case list for the actor
+   *    - Link to Case list for the actor that is stored in the session
    */
   private function caseAddPage() {
-    $actor_id = \Drupal::request()->query->get('actor_id');
+    $actor_id = \Drupal::service('user.private_tempstore')->get('opencase')->get('actor_id');
     $actor = \Drupal::entityTypeManager()->getStorage('oc_actor')->load($actor_id);
     $link = $this->getCaseListLink($actor);
     return $this->asNavLinks([$link]);
@@ -117,12 +121,11 @@ class ContextualMenu extends BlockBase {
   private function activityListPage() {
     $case_id = \Drupal::routeMatch()->getParameter('case_id');
     $case = \Drupal::entityTypeManager()->getStorage('oc_case')->load($case_id);
-    $url =  $case->toUrl('canonical', $this->getOptions());
+    $url =  $case->toUrl();
     $link = Link::fromTextAndUrl(t($case->getName() .": Case Details and Files"), $url)->toString();
     $markup = $this->asNavLinks([$link]);
     $current_path = \Drupal::service('path.current')->getPath();
-    $actor_id = \Drupal::request()->query->get('actor_id');
-    $query =  ['case_id' => $case_id, 'actor_id' => $actor_id, 'destination' => $current_path . "?actor_id=$actor_id"];
+    $query =  ['case_id' => $case_id];
     return $markup . Utils::generateAddLinks('oc_activity', "Add activity", $query);
   }
 
@@ -154,7 +157,7 @@ class ContextualMenu extends BlockBase {
    * Given an case entity, returns a link to the activity list 
    */
   private function getActivityListLink($case) {
-    $url = Url::fromRoute('view.activities.page_1', array('case_id' => $case->id()), $this->getOptions());
+    $url = Url::fromRoute('view.activities.page_1', ['case_id' => $case->id()]);
     return Link::fromTextAndUrl(t($case->getName() .": Activities"), $url)->toString();
   }
 
@@ -176,18 +179,6 @@ class ContextualMenu extends BlockBase {
     }
     $title = t("Go to:");
     return "<div class='opencase_nav_links'><h1>$title</h1>$markup</div>";
-  }
-
-  /**
-   * Gets the actor_id from the query parameter, if any, to pass through to next page.
-   */ 
-  private function getOptions() {
-    $options = [];
-    $actor_id = \Drupal::request()->query->get('actor_id');
-    if ($actor_id) {
-      $options = ['query' => ['actor_id' => $actor_id]];
-    }
-    return $options;
   }
 
 }
