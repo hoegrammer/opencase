@@ -16,21 +16,34 @@ class OCActorAccessControlHandler extends EntityAccessControlHandler {
 
   /**
    * {@inheritdoc}
+   * Permissions are assigned by bundle.
+   * 
    */
   protected function checkAccess(EntityInterface $entity, $operation, AccountInterface $account) {
     /** @var \Drupal\opencase_entities\Entity\OCActorInterface $entity */
+    $bundle = $entity->bundle();
+    $route_name = \Drupal::routeMatch()->getRouteName();
+    $case_routes = ['entity.oc_case.canonical', 'entity.oc_case.edit_form', 'view.cases.page_1'];
+    $is_case_context = in_array($route_name, $case_routes);
+
     switch ($operation) {
       case 'view':
         if (!$entity->isPublished()) {
-          return AccessResult::allowedIfHasPermission($account, 'view unpublished actor entities');
+          return AccessResult::allowedIfallowedIf(
+            $account->hasPermission("view unpublished $bundle entities")
+            or ($is_case_context && $account->hasPermission("view unpublished $bundle entities"))
+          );
         }
-        return AccessResult::allowedIfHasPermission($account, 'view published actor entities');
+        return AccessResult::allowedIf(
+          $account->hasPermission("view published $bundle entities")
+          or ($is_case_context && $account->hasPermission("view $bundle involvement in cases"))
+        );
 
-      case 'update':
-        return AccessResult::allowedIfHasPermission($account, 'edit actor entities');
+      case "update":
+        return AccessResult::allowedIfHasPermission($account, "edit $bundle entities");
 
-      case 'delete':
-        return AccessResult::allowedIfHasPermission($account, 'delete actor entities');
+      case "delete":
+        return AccessResult::allowedIfHasPermission($account, "delete $bundle entities");
     }
 
     // Unknown operation, no opinion.
@@ -41,7 +54,8 @@ class OCActorAccessControlHandler extends EntityAccessControlHandler {
    * {@inheritdoc}
    */
   protected function checkCreateAccess(AccountInterface $account, array $context, $entity_bundle = NULL) {
-    return AccessResult::allowedIfHasPermission($account, 'add actor entities');
+    $bundle = $entity->bundle();
+    return AccessResult::allowedIfHasPermission($account, "add $bundle entities");
   }
 
 }

@@ -1,33 +1,66 @@
-add actor entities:
-  title: 'Create new Actor entities'
-
 administer actor entities:
   title: 'Administer Actor entities'
   description: 'Allow to access the administration form to configure Actor entities.'
   restrict access: true
 
-delete actor entities:
-  title: 'Delete Actor entities'
+view client involvement in cases:
+  title: 'View Client Involvement in Cases (see their name, but nothing else)'
 
-edit actor entities:
-  title: 'Edit Actor entities'
+add client entities:
+  title: 'Create new Client entities'
 
-view published actor entities:
-  title: 'View published Actor entities'
+delete client entities:
+  title: 'Delete Client entities'
 
-view unpublished actor entities:
-  title: 'View unpublished Actor entities'
+edit client entities:
+  title: 'Edit Client entities'
 
-view all actor revisions:
-  title: 'View all Actor revisions'
+view published client entities:
+  title: 'View published Client entities'
 
-revert all actor revisions:
-  title: 'Revert all Actor revisions'
-  description: 'Role requires permission <em>view Actor revisions</em> and <em>edit rights</em> for actor entities in question or <em>administer actor entities</em>.'
+view unpublished client entities:
+  title: 'View unpublished Client entities'
 
-delete all actor revisions:
-  title: 'Delete all revisions'
-  description: 'Role requires permission to <em>view Actor revisions</em> and <em>delete rights</em> for actor entities in question or <em>administer actor entities</em>.'
+view all client revisions:
+  title: 'View all Client revisions'
+
+revert all client revisions:
+  title: 'Revert all Client revisions'
+  description: 'Role requires permission <em>view Client revisions</em> and <em>edit rights</em> for client entities in question or <em>administer client entities</em>.'
+
+delete all client revisions:
+  title: 'Delete all Client revisions'
+  description: 'Role requires permission to <em>view Client revisions</em> and <em>delete rights</em> for client entities in question or <em>administer client entities</em>.'
+
+view volunteer involvement in cases:
+  title: 'View Volunteer Involvement in Cases (see their name, but nothing else)'
+
+add volunteer entities:
+  title: 'Create new Volunteer entities'
+
+delete volunteer entities:
+  title: 'Delete Volunteer entities'
+
+edit volunteer entities:
+  title: 'Edit Volunteer entities'
+
+view published volunteer entities:
+  title: 'View published Volunteer entities'
+
+view unpublished volunteer entities:
+  title: 'View unpublished Volunteer entities'
+
+view all volunteer revisions:
+  title: 'View all Volunteer revisions'
+
+revert all volunteer revisions:
+  title: 'Revert all Volunteer revisions'
+  description: 'Role requires permission <em>view Volunteer revisions</em> and <em>edit rights</em> for volunteer entities in question or <em>administer volunteer entities</em>.'
+
+delete all volunteer revisions:
+  title: 'Delete all Volunteer revisions'
+  description: 'Role requires permission to <em>view Volunteer revisions</em> and <em>delete rights</em> for volunteer entities in question or <em>administer volunteer entities</em>.'
+
 add case entities:
   title: 'Create new Case entities'
 
