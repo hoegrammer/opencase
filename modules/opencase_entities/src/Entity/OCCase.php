@@ -231,8 +231,8 @@ class OCCase extends RevisionableContentEntityBase implements OCCaseInterface {
         'weight' => -4,
       ]);
     $fields['name'] = BaseFieldDefinition::create('string')
-      ->setLabel(t('Name'))
-      ->setDescription(t('The name of the Case entity.'))
+      ->setLabel(t('Case Title'))
+      ->setDescription(t('A short phrase summing up what this case is about.'))
       ->setRevisionable(TRUE)
       ->setSettings([
         'max_length' => 50,
@@ -252,7 +252,7 @@ class OCCase extends RevisionableContentEntityBase implements OCCaseInterface {
 
     $fields['actors_involved'] = BaseFieldDefinition::create('entity_reference')
       ->setLabel(t('Involved Parties'))
-      ->setDescription(t('People involved in this case, in their various capacities'))
+      ->setDescription(t('People involved in this case. To add one, start typing their name.'))
       ->setSetting('target_type', 'oc_actor')
       ->setSetting('handler', 'default')
       ->setTranslatable(TRUE)
