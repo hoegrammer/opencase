@@ -79,7 +79,7 @@ class OCCase extends RevisionableContentEntityBase implements OCCaseInterface {
    * id from the URL.
    */
   public static function defaultVal() {
-    return \Drupal::request()->query->get('actor_id');;
+    return \Drupal::request()->query->get('actor_id');
   }
 
   /**

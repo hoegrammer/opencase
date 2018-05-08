@@ -28,19 +28,28 @@ class ContextualMenu extends BlockBase {
     $route_name = \Drupal::routeMatch()->getRouteName();
     switch ($route_name) {
       case 'entity.oc_actor.canonical':
+      case 'entity.oc_actor.edit_form':
         $markup = $this->actorPage();
         break;
       case 'view.cases.page_1':
         $markup = $this->caseListPage();
         break;
       case 'entity.oc_case.canonical':
+      case 'entity.oc_case.edit_form':
         $markup = $this->casePage();
+        break;
+      case 'entity.oc_case.add_form':
+        $markup = $this->caseAddPage();
         break;
       case 'view.activities.page_1':
         $markup = $this->activityListPage();
         break;
       case 'entity.oc_activity.canonical':
+      case 'entity.oc_activity.edit_form':
         $markup = $this->activityPage();
+        break;
+      case 'entity.oc_activity.add_form':
+        $markup = $this->activityAddPage();
         break;
     }
 
@@ -88,6 +97,17 @@ class ContextualMenu extends BlockBase {
   }
 
   /**
+   * Contextual menu for Add-New-Case page
+   *    - Link to Case list for the actor
+   */
+  private function caseAddPage() {
+    $actor_id = \Drupal::request()->query->get('actor_id');
+    $actor = \Drupal::entityTypeManager()->getStorage('oc_actor')->load($actor_id);
+    $link = $this->getCaseListLink($actor);
+    return $this->asNavLinks([$link]);
+  }
+
+  /**
    * Contextual menu for Activity list page
    *     - Link to the case that the activity list is for
    *     - Links to add activities of various types
@@ -108,6 +128,18 @@ class ContextualMenu extends BlockBase {
   private function activityPage() {
     $activity = \Drupal::routeMatch()->getParameter('oc_activity');
     $case = $activity->oc_case->entity;
+    $link = $this->getActivityListLink($case);
+    return $this->asNavLinks([$link]);
+  }
+
+
+  /**
+   * Contextual menu for Add-New-Activity page
+   *     - Links to the activity list for the case
+   */
+  private function activityAddPage() {
+    $case_id = \Drupal::request()->query->get('case_id');
+    $case = \Drupal::entityTypeManager()->getStorage('oc_case')->load($case_id);
     $link = $this->getActivityListLink($case);
     return $this->asNavLinks([$link]);
   }

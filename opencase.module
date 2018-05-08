@@ -19,12 +19,17 @@ function opencase_block_access(\Drupal\block\Entity\Block $block, $operation, \D
     $route_name = \Drupal::routeMatch()->getRouteName();
     $routes_where_it_should_be_shown = [
       'entity.oc_actor.canonical',
+      'entity.oc_actor.edit_form',
+      'entity.oc_actor.add_form',
       'view.cases.page_1',
       'entity.oc_case.canonical',
+      'entity.oc_case.edit_form',
+      'entity.oc_case.add_form',
       'view.activities.page_1',
-      'entity.oc_activity.canonical'
+      'entity.oc_activity.canonical',
+      'entity.oc_activity.edit_form',
+      'entity.oc_activity.add_form'
     ];
-    error_log(!in_array($route_name, $routes_where_it_should_be_shown));
     return \Drupal\Core\Access\AccessResult::forbiddenIf(!in_array($route_name, $routes_where_it_should_be_shown))
       ->addCacheableDependency($block);
   }
