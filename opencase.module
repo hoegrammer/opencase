@@ -20,7 +20,6 @@ function opencase_block_access(\Drupal\block\Entity\Block $block, $operation, \D
     $routes_where_it_should_be_shown = [
       'entity.oc_actor.canonical',
       'entity.oc_actor.edit_form',
-      'entity.oc_actor.add_form',
       'view.cases.page_1',
       'entity.oc_case.canonical',
       'entity.oc_case.edit_form',

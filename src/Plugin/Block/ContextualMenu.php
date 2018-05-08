@@ -125,8 +125,7 @@ class ContextualMenu extends BlockBase {
     $link = Link::fromTextAndUrl(t($case->getName() .": Case Details and Files"), $url)->toString();
     $markup = $this->asNavLinks([$link]);
     $current_path = \Drupal::service('path.current')->getPath();
-    $query =  ['case_id' => $case_id];
-    return $markup . Utils::generateAddLinks('oc_activity', "Add activity", $query);
+    return $markup . Utils::generateAddLinks('oc_activity', "Add activity", ['case_id' => $case_id, 'destination' => $current_path]);
   }
 
   /**
