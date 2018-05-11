@@ -3,9 +3,6 @@ administer actor entities:
   description: 'Allow to access the administration form to configure Actor entities.'
   restrict access: true
 
-view client involvement in cases:
-  title: 'View Client Involvement in Cases (see their name, but nothing else)'
-
 add client entities:
   title: 'Create new Client entities'
 
@@ -34,7 +31,7 @@ delete all client revisions:
 
 view volunteer involvement in cases:
   title: 'View names of Volunteers involved in Cases'
-  description: 'This role can be given to a user who does not have permission to view volunteers, so that they can see the names of volunteers involved in the cases that they can see.'
+  description: "When viewing a case record, they can see the names of the volunteers involved, but cannot click through to volunteer's details."
 
 add volunteer entities:
   title: 'Create new Volunteer entities'
