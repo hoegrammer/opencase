@@ -29,7 +29,7 @@ class OCActorAccessControlHandler extends EntityAccessControlHandler {
     switch ($operation) {
       case 'view':
         if (!$entity->isPublished()) {
-          return AccessResult::allowedIfallowedIf(
+          return AccessResult::allowedIf(
             $account->hasPermission("view unpublished $bundle entities")
             or ($is_case_context && $account->hasPermission("view unpublished $bundle entities"))
           );
