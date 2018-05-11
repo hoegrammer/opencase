@@ -364,7 +364,7 @@ class OCActor extends RevisionableContentEntityBase implements OCActorInterface 
       ))
       ->setDisplayOptions('view', array(
         'label' => 'above',
-        'type' => 'text',
+        'type' => 'basic_string',
         'weight' => 5,
       ))
       ->setDisplayOptions('form', array(

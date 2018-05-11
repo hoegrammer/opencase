@@ -3,3 +3,8 @@
 #edit-submit-actor-search{
   display: none;
 }
+
+/* Remove the revision message box. Temporary until can place it properly */
+#edit-revision-log-message-wrapper{
+  display: none;
+}
