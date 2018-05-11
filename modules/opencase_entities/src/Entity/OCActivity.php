@@ -256,10 +256,6 @@ class OCActivity extends RevisionableContentEntityBase implements OCActivityInte
       ->setSetting('handler', 'default')
       ->setTranslatable(TRUE)
       ->setCardinality(1)
-      ->setDisplayOptions('view', [
-        'label' => 'above',
-        'weight' => -2
-      ])
       ->setDefaultValueCallback('Drupal\opencase_entities\Entity\OCActivity::defaultVal')
       ->setRequired(TRUE);
 
@@ -281,6 +277,23 @@ class OCActivity extends RevisionableContentEntityBase implements OCActivityInte
         'weight' => -1,
       ])
       ->setRequired(FALSE);
+
+    $fields['time_taken'] = BaseFieldDefinition::create('integer')
+      ->setLabel(t('Time taken'))
+      ->setRevisionable(TRUE)
+      ->setSettings([
+        'suffix' => 'minutes',
+      ])
+      ->setDefaultValue('')
+      ->setDisplayOptions('view', [
+        'label' => 'above',
+        'type' => 'number',
+        'weight' => -3,
+      ])
+      ->setDisplayOptions('form', [
+        'type' => 'number',
+        'weight' => -3,
+      ]);
 
     $fields['created'] = BaseFieldDefinition::create('created')
       ->setLabel(t('Created'))
