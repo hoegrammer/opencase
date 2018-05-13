@@ -1,9 +1,0 @@
-name: default_user_config
-type: module
-core: 8.x
-dependencies:
-  - block
-  - system
-  - user
-  - views
-package: 'OpenCase'
