@@ -12,6 +12,6 @@ OpenCase will be available as:
 
 ## Find out more
 * More details, including user stories for future development, can be found in the [OpenCase Gitbook](https://hoegrammer.gitbooks.io/zen-crm/content/)
-* Use the feedback form on the demo site to contact the developer.
+* Raise an issue to contact the developer. 
 
 
