@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.oc_activity.field_date_attended
+    - opencase_entities.oc_activity_type.volunteer_training_session
+  module:
+    - datetime
+id: oc_activity.volunteer_training_session.field_date_attended
+field_name: field_date_attended
+entity_type: oc_activity
+bundle: volunteer_training_session
+label: 'Date attended'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

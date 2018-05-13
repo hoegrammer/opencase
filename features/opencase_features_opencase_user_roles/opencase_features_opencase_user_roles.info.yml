@@ -1,0 +1,4 @@
+name: 'Opencase User Roles'
+type: module
+core: 8.x
+package: 'OpenCase Features'

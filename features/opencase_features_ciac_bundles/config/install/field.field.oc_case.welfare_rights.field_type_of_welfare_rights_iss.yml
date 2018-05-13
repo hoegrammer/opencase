@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.oc_case.field_type_of_welfare_rights_iss
+    - opencase_entities.oc_case_type.welfare_rights
+  module:
+    - options
+id: oc_case.welfare_rights.field_type_of_welfare_rights_iss
+field_name: field_type_of_welfare_rights_iss
+entity_type: oc_case
+bundle: welfare_rights
+label: 'Type of welfare rights issue'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

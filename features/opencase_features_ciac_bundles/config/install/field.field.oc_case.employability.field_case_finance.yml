@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.oc_case.field_case_finance
+    - opencase_entities.oc_case_type.employability
+  module:
+    - options
+id: oc_case.employability.field_case_finance
+field_name: field_case_finance
+entity_type: oc_case
+bundle: employability
+label: 'Case finance'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

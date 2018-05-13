@@ -1,0 +1,49 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.oc_case.accommodation.field_case_finance
+    - field.field.oc_case.accommodation.field_fee_calculation
+    - field.field.oc_case.accommodation.field_fee_or_equivalent_cost
+    - field.field.oc_case.accommodation.field_outcome
+    - field.field.oc_case.accommodation.field_type_of_acco
+    - opencase_entities.oc_case_type.accommodation
+  module:
+    - file
+id: oc_case.accommodation.default
+targetEntityType: oc_case
+bundle: accommodation
+mode: default
+content:
+  field_case_finance:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_fee_calculation:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_fee_or_equivalent_cost:
+    weight: 2
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_outcome:
+    weight: 26
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_type_of_acco:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+hidden: {  }

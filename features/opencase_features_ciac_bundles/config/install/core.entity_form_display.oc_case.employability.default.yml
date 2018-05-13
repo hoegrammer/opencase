@@ -1,0 +1,57 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.oc_case.employability.field_case_finance
+    - field.field.oc_case.employability.field_fee_calculation
+    - field.field.oc_case.employability.field_fee_or_equivalent_cost
+    - field.field.oc_case.employability.field_gave_list_of_agencies
+    - field.field.oc_case.employability.field_outcome
+    - field.field.oc_case.employability.field_type_of_employability_help
+    - opencase_entities.oc_case_type.employability
+  module:
+    - file
+id: oc_case.employability.default
+targetEntityType: oc_case
+bundle: employability
+mode: default
+content:
+  field_case_finance:
+    weight: 28
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_fee_calculation:
+    weight: 30
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_fee_or_equivalent_cost:
+    weight: 29
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_gave_list_of_agencies:
+    weight: 27
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_outcome:
+    weight: 31
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_type_of_employability_help:
+    weight: 26
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+hidden: {  }

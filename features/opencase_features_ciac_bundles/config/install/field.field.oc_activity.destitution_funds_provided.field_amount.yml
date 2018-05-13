@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.oc_activity.field_amount
+    - opencase_entities.oc_activity_type.destitution_funds_provided
+id: oc_activity.destitution_funds_provided.field_amount
+field_name: field_amount
+entity_type: oc_activity
+bundle: destitution_funds_provided
+label: Amount
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: £
+  suffix: ''
+field_type: decimal

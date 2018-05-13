@@ -1,0 +1,32 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - opencase_entities
+    - options
+id: oc_actor.field_income
+field_name: field_income
+entity_type: oc_actor
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 'Asylum support'
+      label: 'Asylum support'
+    -
+      value: 'Welfare benefits'
+      label: 'Welfare benefits'
+    -
+      value: Working
+      label: Working
+    -
+      value: 'No legal income'
+      label: 'No legal income'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

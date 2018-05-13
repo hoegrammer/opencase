@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - file
+    - opencase_entities
+id: oc_actor.field_confidentiality_form
+field_name: field_confidentiality_form
+entity_type: oc_actor
+type: file
+settings:
+  display_field: false
+  display_default: false
+  uri_scheme: private
+  target_type: file
+module: file
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

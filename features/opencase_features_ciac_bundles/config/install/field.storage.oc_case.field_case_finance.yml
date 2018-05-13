@@ -1,0 +1,26 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - opencase_entities
+    - options
+id: oc_case.field_case_finance
+field_name: field_case_finance
+entity_type: oc_case
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: Paid
+      label: Paid
+    -
+      value: 'Pro bono'
+      label: 'Pro bono'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

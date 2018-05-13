@@ -1,0 +1,59 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.oc_case.asylum_support.field_case_finance
+    - field.field.oc_case.asylum_support.field_fee_calculation
+    - field.field.oc_case.asylum_support.field_fee_or_equivalent_cost
+    - field.field.oc_case.asylum_support.field_outcome
+    - field.field.oc_case.asylum_support.field_type_of_as
+    - opencase_entities.oc_case_type.asylum_support
+  module:
+    - file
+    - options
+    - user
+id: oc_case.asylum_support.default
+targetEntityType: oc_case
+bundle: asylum_support
+mode: default
+content:
+  field_case_finance:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_fee_calculation:
+    weight: 3
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_fee_or_equivalent_cost:
+    weight: 2
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_decimal
+    region: content
+  field_outcome:
+    weight: 4
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_type_of_as:
+    weight: 0
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+hidden: {  }

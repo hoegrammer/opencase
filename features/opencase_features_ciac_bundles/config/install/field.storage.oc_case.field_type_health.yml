@@ -1,0 +1,32 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - opencase_entities
+    - options
+id: oc_case.field_type_health
+field_name: field_type_health
+entity_type: oc_case
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: HC1
+      label: HC1
+    -
+      value: GP
+      label: GP
+    -
+      value: Dentist
+      label: Dentist
+    -
+      value: Other
+      label: Other
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.oc_case.field_gave_list_of_agencies
+    - opencase_entities.oc_case_type.employability
+id: oc_case.employability.field_gave_list_of_agencies
+field_name: field_gave_list_of_agencies
+entity_type: oc_case
+bundle: employability
+label: 'Gave list of agencies'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean
