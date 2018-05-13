@@ -23,7 +23,7 @@ class OCActorAccessControlHandler extends EntityAccessControlHandler {
     /** @var \Drupal\opencase_entities\Entity\OCActorInterface $entity */
     $bundle = $entity->bundle();
     $route_name = \Drupal::routeMatch()->getRouteName();
-    $case_routes = ['entity.oc_case.canonical', 'entity.oc_case.edit_form', 'view.cases.page_1'];
+    $case_routes = ['entity.oc_case.canonical', 'entity.oc_case.edit_form', 'view.cases.page_1', 'entity.oc_case.add_form'];
     $is_case_context = in_array($route_name, $case_routes);
 
     switch ($operation) {
