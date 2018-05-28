@@ -281,6 +281,7 @@ class OCCase extends RevisionableContentEntityBase implements OCCaseInterface {
       ->setSetting('handler', 'default:file')
       ->setSetting('file_extensions', 'txt jpg jpeg gif rtf xls xlsx doc swf png pdf docx csv')
       ->setSetting('description_field', 'true')
+      ->setSetting('uri_scheme', 'private')
       ->setCardinality(-1)
       ->setDisplayOptions('form', [
         'type' => 'file_generic',
