@@ -111,3 +111,41 @@ function opencase_theme() {
     ],
   ];
 }
+
+function opencase_form_oc_case_type_add_form_alter(&$form, $form_state) {
+  opencase_configure_actor_types($form);
+}
+
+function opencase_form_oc_case_type_edit_form_alter(&$form, $form_state) {
+  opencase_configure_actor_types($form);
+  $machine_name = $form['id']['#default_value'];
+  
+  if ($machine_name) {
+    $conf_name = 'opencase.case_type.actor_types.'.$machine_name;
+    $form['actor_types']['#default_value'] = (array)\Drupal::config($conf_name)->get('actor_types');
+  }
+}
+
+function opencase_configure_actor_types(&$form) {
+  $actor_types = \Drupal::service('entity_type.bundle.info')->getBundleInfo('oc_actor');
+  $options = array();
+  foreach($actor_types as $machine_name => $info) {
+    $options[$machine_name] = $info['label'];
+  }
+  $form['actor_types'] = array(
+    '#title' => t('Actor types'),
+    '#description' => t('Types of people that can be involved in this kind of case.'),
+    '#type' => 'checkboxes',
+    '#options' => $options
+  );
+  $form['actions']['submit']['#submit'][] = 'opencase_configure_actor_types_submit';
+}
+
+function opencase_configure_actor_types_submit($form, $form_state) {
+  $machine_name = $form['id']['#default_value'] ? $form['id']['#default_value'] : $form_state->getValue('id');
+  $conf_name = 'opencase.case_type.actor_types.'.$machine_name;
+  \Drupal::configFactory()
+    ->getEditable($conf_name)
+    ->set('actor_types', $form_state->getValue('actor_types'))
+    ->save();
+}
