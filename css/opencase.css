@@ -8,3 +8,8 @@
 #edit-revision-log-message-wrapper{
   display: none;
 }
+
+/* Same for revision checkbox. */
+.js-form-item.form-item.js-form-type-checkbox.form-type-checkbox.js-form-item-new-revision.form-item-new-revision {
+  display: none;
+}
