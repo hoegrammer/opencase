@@ -14,14 +14,14 @@ class EntityTypeRelations {
     $base_field_override = \Drupal\Core\Field\Entity\BaseFieldOverride::load("$childEntityType.$childBundle.$field");
     $allowedBundles = array();
     if ($base_field_override) { 
-      $actor_types =  $base_field_override->getSettings()['handler_settings']['target_bundles'];
-      // example of the $actor_types array: ['client' => 'client', 'volunteer' => 0]
-      foreach($actor_types as $machine_name => $value) {
+      $targetBundleConfig =  $base_field_override->getSettings()['handler_settings']['target_bundles'];
+      // example of $targetBudleConfig: ['client' => 'client', 'volunteer' => 0]
+      foreach($targetBundleConfig as $machine_name => $value) {
         if ($value) {
           $allowedBundles[] = $machine_name;        
         }
       }
-    }
+    } 
     return $allowedBundles; // NB. this is an array of machine names only, indexed numerically.
   }
 

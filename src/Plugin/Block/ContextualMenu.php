@@ -128,7 +128,7 @@ class ContextualMenu extends BlockBase {
     $link = Link::fromTextAndUrl(t($case->getName() .": Case Details and Files"), $url)->toString();
     $markup = $this->asNavLinks([$link]);
     $current_path = \Drupal::service('path.current')->getPath();
-    return $markup . $this->generateAddLinks('oc_activity', "Add activity", ['case_id' => $case_id, 'destination' => $current_path]);
+    return $markup . $this->generateLinksForAddingNewActivities($case, "Add activity", ['case_id' => $case_id, 'destination' => $current_path]);
   }
 
   /**
@@ -193,6 +193,23 @@ class ContextualMenu extends BlockBase {
     $markup = "<h1>$title: </h1>";
     foreach($allowedChildBundles as $machine_name => $label) {
       $url = \Drupal\Core\Url::fromRoute("entity.oc_case.add_form", ['oc_case_type' => $machine_name]);
+      $url->setOption('query', $query);
+      $link = \Drupal\Core\Link::fromTextAndUrl($label, $url)->toString();
+      $markup .= "<p>$link</p>";
+    }
+    return "<div class='opencase_add_links'>$markup</div>";
+  }
+
+  /**
+   * returns html markup.
+   */
+  private function generateLinksForAddingNewActivities($case, $title, $query = []) {
+    $case_type = $case->bundle();
+    $allowedChildBundles = EntityTypeRelations::getAllowedChildBundles('oc_case', $case_type);
+    $title = t($title); 
+    $markup = "<h1>$title: </h1>";
+    foreach($allowedChildBundles as $machine_name => $label) {
+      $url = \Drupal\Core\Url::fromRoute("entity.oc_activity.add_form", ['oc_activity_type' => $machine_name]);
       $url->setOption('query', $query);
       $link = \Drupal\Core\Link::fromTextAndUrl($label, $url)->toString();
       $markup .= "<p>$link</p>";

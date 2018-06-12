@@ -118,7 +118,16 @@ function opencase_theme() {
  */
 function opencase_form_oc_case_type_add_form_alter(&$form, $form_state) {
   $widget = new EntityTypeRelationsWidget();
-  $widget->setup($form);
+  $widget->setup_for_case_type($form);
+}
+
+
+/**
+ * Implements hook_form_ID_alter
+ */
+function opencase_form_oc_activity_type_add_form_alter(&$form, $form_state) {
+  $widget = new EntityTypeRelationsWidget();
+  $widget->setup_for_activity_type($form);
 }
 
 /**
@@ -126,7 +135,16 @@ function opencase_form_oc_case_type_add_form_alter(&$form, $form_state) {
  */
 function opencase_form_oc_case_type_edit_form_alter(&$form, $form_state) {
   $widget = new EntityTypeRelationsWidget();
-  $widget->setup($form);
-  $widget->populate($form);
+  $widget->setup_for_case_type($form);
+  $widget->populate($form, 'oc_case');
+}
+
+/**
+ * Implements hook_form_ID_alter
+ */
+function opencase_form_oc_activity_type_edit_form_alter(&$form, $form_state) {
+  $widget = new EntityTypeRelationsWidget();
+  $widget->setup_for_activity_type($form);
+  $widget->populate($form, 'oc_activity');
 }
 

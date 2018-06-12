@@ -78,7 +78,7 @@ class OCActivity extends RevisionableContentEntityBase implements OCActivityInte
    * When creating an activity, it sets the case id from the URL.
    */
   public static function defaultVal() {
-    return \Drupal::request()->query->get('case_id');;
+    return array(\Drupal::request()->query->get('case_id'));
   }
 
   /**
