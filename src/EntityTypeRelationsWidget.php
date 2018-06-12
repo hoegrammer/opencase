@@ -39,17 +39,8 @@ class EntityTypeRelationsWidget {
    */ 
   public function populate(&$form) {
     $case_type_machine_name = $form['id']['#default_value'];
-    $base_field_override = \Drupal\Core\Field\Entity\BaseFieldOverride::load("oc_case.$case_type_machine_name.actors_involved");
-    if ($base_field_override) { 
-      $form['actor_types']['#default_value'] = array();
-      $actor_types =  $base_field_override->getSettings()['handler_settings']['target_bundles'];
-      // example of the $actor_types array: ['client' => 'client', 'volunteer' => 0]
-      foreach($actor_types as $machine_name => $value) {
-        if ($value) {
-          $form['actor_types']['#default_value'][] = $machine_name;        
-        }
-      }
-    }
+    $allowedParentBundles = EntityTypeRelations::getAllowedParentBundles('oc_case', $case_type_machine_name); 
+    $form['actor_types']['#default_value'] = $allowedParentBundles;
   }
   
   /**

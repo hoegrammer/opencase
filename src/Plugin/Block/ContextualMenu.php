@@ -2,6 +2,7 @@
 
 namespace Drupal\opencase\Plugin\Block;
 
+use Drupal\opencase\EntityTypeRelations;
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Link;
 use Drupal\Core\Url;
@@ -81,10 +82,13 @@ class ContextualMenu extends BlockBase {
   private function caseListPage() {
     $actor_id = \Drupal::routeMatch()->getParameter('actor_id');
     \Drupal::service('user.private_tempstore')->get('opencase')->set('actor_id', $actor_id);
-    $link = \Drupal::entityTypeManager()->getStorage('oc_actor')->load($actor_id)->toLink()->toString();
+    $actor = \Drupal::entityTypeManager()->getStorage('oc_actor')->load($actor_id);
+    $link = $actor->toLink()->toString();
     $markup = $this->asNavLinks([$link]);
     $current_path =  \Drupal::service('path.current')->getPath();
-    $markup .= $this->generateAddLinks('oc_case', "Add new case", ['actor_id' => $actor_id,  'destination' => $current_path]);
+    $title = "Add new case";
+    $query = ['actor_id' => $actor_id,  'destination' => $current_path];
+    $markup .= $this->generateLinksForAddingNewCases($actor, $title, $query);
     return $markup; 
   }
 
@@ -180,22 +184,15 @@ class ContextualMenu extends BlockBase {
   }
 
   /**
-   * Generates a set of links for adding different types of a base entity
-   *
-   * $baseEntityType the type of entity to generate the links for (it will generate one for each bundle of the base type)
-   * $title the title to be placed above the set of links)
-   * $query optionally append a query string to the links (key => value format
-   *
    * returns html markup.
    */
-  public static function generateAddLinks($baseEntityType, $title, $query = []) {
-    
-    $bundles = \Drupal::service('entity_type.bundle.info')->getBundleInfo($baseEntityType);
+  private function generateLinksForAddingNewCases($actor, $title, $query = []) {
+    $actor_type = $actor->bundle();
+    $allowedChildBundles = EntityTypeRelations::getAllowedChildBundles('oc_actor', $actor_type);
     $title = t($title); 
     $markup = "<h1>$title: </h1>";
-    foreach($bundles as $bundle_id => $bundle) {
-      $label = t($bundle['label']);
-      $url = \Drupal\Core\Url::fromRoute("entity.$baseEntityType.add_form", [$baseEntityType . '_type' => $bundle_id]);
+    foreach($allowedChildBundles as $machine_name => $label) {
+      $url = \Drupal\Core\Url::fromRoute("entity.oc_case.add_form", ['oc_case_type' => $machine_name]);
       $url->setOption('query', $query);
       $link = \Drupal\Core\Link::fromTextAndUrl($label, $url)->toString();
       $markup .= "<p>$link</p>";
