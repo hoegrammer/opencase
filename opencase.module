@@ -127,8 +127,6 @@ function opencase_form_oc_case_type_add_form_alter(&$form, $form_state) {
 function opencase_form_oc_case_type_edit_form_alter(&$form, $form_state) {
   $widget = new EntityTypeRelationsWidget();
   $widget->setup($form);
-  $case_type_machine_name = $form['id']['#default_value'];
-  $base_field_override = \Drupal\Core\Field\Entity\BaseFieldOverride::load("oc_case.$case_type_machine_name.actors_involved");
-  if ($base_field_override) $widget->populate($form, $base_field_override);
+  $widget->populate($form);
 }
 
