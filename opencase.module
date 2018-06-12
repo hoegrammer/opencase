@@ -118,11 +118,22 @@ function opencase_form_oc_case_type_add_form_alter(&$form, $form_state) {
 
 function opencase_form_oc_case_type_edit_form_alter(&$form, $form_state) {
   opencase_configure_actor_types($form);
-  $machine_name = $form['id']['#default_value'];
-  
-  if ($machine_name) {
-    $conf_name = 'opencase.case_type.actor_types.'.$machine_name;
-    $form['actor_types']['#default_value'] = (array)\Drupal::config($conf_name)->get('actor_types');
+  $form['actor_types']['#default_value'] = array();
+  $case_type_machine_name = $form['id']['#default_value'];
+  $base_field_override = \Drupal\Core\Field\Entity\BaseFieldOverride::load("oc_case.$case_type_machine_name.actors_involved");
+  if ($base_field_override) opencase_load_default_actor_types($form, $base_field_override);
+}
+
+// Take the base field override configuration, 
+// extract list of actor types that are allowed for the case type
+// and put these into the default values for the checkboxes
+function opencase_load_default_actor_types(&$form, $base_field_override) {
+  $actor_types =  $base_field_override->getSettings()['handler_settings']['target_bundles'];
+  // example of the $actor_types array: ['client' => 'client', 'volunteer' => 0]
+  foreach($actor_types as $machine_name => $value) {
+    if ($value) {
+      $form['actor_types']['#default_value'][] = $machine_name;        
+    }
   }
 }
 
@@ -142,10 +153,13 @@ function opencase_configure_actor_types(&$form) {
 }
 
 function opencase_configure_actor_types_submit($form, $form_state) {
-  $machine_name = $form['id']['#default_value'] ? $form['id']['#default_value'] : $form_state->getValue('id');
-  $conf_name = 'opencase.case_type.actor_types.'.$machine_name;
-  \Drupal::configFactory()
-    ->getEditable($conf_name)
-    ->set('actor_types', $form_state->getValue('actor_types'))
-    ->save();
+  $case_type_machine_name = $form['id']['#default_value'] ? $form['id']['#default_value'] : $form_state->getValue('id');
+  $base_field_override = \Drupal\Core\Field\Entity\BaseFieldOverride::load("oc_case.$case_type_machine_name.actors_involved");
+  if (!$base_field_override) {
+    $entity_fields = \Drupal::service('entity_field.manager')->getBaseFieldDefinitions('oc_case');
+    $field_definition = $entity_fields['actors_involved'];
+    $base_field_override = \Drupal\Core\field\Entity\BaseFieldOverride::createFromBaseFieldDefinition($field_definition, $case_type_machine_name);
+  }
+  $base_field_override->setSetting('handler_settings', ['target_bundles' => $form_state->getValue('actor_types')]);
+  $base_field_override->save();
 }
