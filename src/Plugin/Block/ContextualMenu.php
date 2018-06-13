@@ -188,7 +188,7 @@ class ContextualMenu extends BlockBase {
    */
   private function generateLinksForAddingNewCases($actor, $title, $query = []) {
     $actor_type = $actor->bundle();
-    $allowedChildBundles = EntityTypeRelations::getAllowedChildBundles('oc_actor', $actor_type);
+    $allowedChildBundles = EntityTypeRelations::getAllowedCaseTypesForActorType($actor_type);
     $title = t($title); 
     $markup = "<h1>$title: </h1>";
     foreach($allowedChildBundles as $machine_name => $label) {
