@@ -8,5 +8,8 @@ opencase_entities.oc_case_type.*:
     label:
       type: label
       label: 'Label'
+    allowedActivityTypes:
+      type: sequence
+      label: 'Allowed Activity Types'
     uuid:
       type: string

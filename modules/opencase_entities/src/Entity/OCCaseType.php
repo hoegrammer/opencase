@@ -55,4 +55,10 @@ class OCCaseType extends ConfigEntityBundleBase implements OCCaseTypeInterface {
    */
   protected $label;
 
+  /**
+   * Activity types that can be attached to this type of case.
+   *
+   * @var array
+   */
+  protected $allowedActivityTypes;
 }

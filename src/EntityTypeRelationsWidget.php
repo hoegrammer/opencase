@@ -25,6 +25,17 @@ class EntityTypeRelationsWidget {
       '#type' => 'checkboxes',
       '#options' => $options
     );
+    $activity_types = \Drupal::service('entity_type.bundle.info')->getBundleInfo('oc_activity');
+    $options = array();
+    foreach($activity_types as $machine_name => $info) {
+      $options[$machine_name] = $info['label'];
+    }
+    $form['allowed_activity_types'] = array(
+      '#title' => t('Activity types'),
+      '#description' => t('Types of activities that can be logged against this case.'),
+      '#type' => 'checkboxes',
+      '#options' => $options
+    );
     $form['actions']['submit']['#submit'][] = array($this, 'submit');
   }
 
@@ -37,6 +48,11 @@ class EntityTypeRelationsWidget {
     $case_type = $form['id']['#default_value'];
     $allowedActorTypes = EntityTypeRelations::getAllowedActorTypesForCaseType($case_type); 
     $form['allowed_actor_types']['#default_value'] = $allowedActorTypes;
+    $caseTypeConfig = \Drupal::entityTypeManager()->getStorage('oc_case_type')->load($case_type);
+    $allowedActivityTypes = $caseTypeConfig->get('allowedActivityTypes');
+    if ($allowedActivityTypes) {
+      $form['allowed_activity_types']['#default_value'] = $allowedActivityTypes;
+    }
   }
   
   /**
@@ -56,5 +72,8 @@ class EntityTypeRelationsWidget {
     }
     $base_field_override->setSetting('handler_settings', ['target_bundles' => $form_state->getValue('allowed_actor_types')]);
     $base_field_override->save();
+    $caseTypeConfig = \Drupal::entityTypeManager()->getStorage('oc_case_type')->load($case_type_machine_name);
+    $caseTypeConfig->set('allowedActivityTypes', $form_state->getValue('allowed_activity_types'));
+    $caseTypeConfig->save();
   }
 }
