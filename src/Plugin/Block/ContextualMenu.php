@@ -188,10 +188,18 @@ class ContextualMenu extends BlockBase {
    */
   private function generateLinksForAddingNewCases($actor, $title, $query = []) {
     $actor_type = $actor->bundle();
-    $allowedChildBundles = EntityTypeRelations::getAllowedCaseTypesForActorType($actor_type);
+    $allCaseTypes = \Drupal::service('entity_type.bundle.info')->getBundleInfo('oc_case');
+    // $allCaseTypes is array where the key is the machine name and the value is array containing label
+    // Now we pick just the allowed ones and produced an array of labels keyed by machine name
+    $allowedCaseTypes = array();
+    foreach(array_keys($allCaseTypes) as $caseType) {
+      if (in_array($actor_type, EntityTypeRelations::getAllowedActorTypesForCaseType($caseType))) {
+        $allowedCaseTypes[$caseType] = $allCaseTypes[$caseType]['label'];
+      }
+    }
     $title = t($title); 
     $markup = "<h1>$title: </h1>";
-    foreach($allowedChildBundles as $machine_name => $label) {
+    foreach($allowedCaseTypes as $machine_name => $label) {
       $url = \Drupal\Core\Url::fromRoute("entity.oc_case.add_form", ['oc_case_type' => $machine_name]);
       $url->setOption('query', $query);
       $link = \Drupal\Core\Link::fromTextAndUrl($label, $url)->toString();
@@ -204,15 +212,21 @@ class ContextualMenu extends BlockBase {
    * returns html markup.
    */
   private function generateLinksForAddingNewActivities($case, $title, $query = []) {
-    $case_type = $case->bundle();
-    $allowedChildBundles = EntityTypeRelations::getAllowedChildBundles('oc_case', $case_type);
     $title = t($title); 
     $markup = "<h1>$title: </h1>";
-    foreach($allowedChildBundles as $machine_name => $label) {
-      $url = \Drupal\Core\Url::fromRoute("entity.oc_activity.add_form", ['oc_activity_type' => $machine_name]);
-      $url->setOption('query', $query);
-      $link = \Drupal\Core\Link::fromTextAndUrl($label, $url)->toString();
-      $markup .= "<p>$link</p>";
+    $caseType = $case->bundle();
+    $allActivityTypes = \Drupal::service('entity_type.bundle.info')->getBundleInfo('oc_activity');
+    // $allActivityTypes is array where the key is the machine name and the value is array containing label
+    // Now we pick just the allowed ones and produced an array of labels keyed by machine name
+    $allowedActivityTypes = EntityTypeRelations::getAllowedActivityTypesForCaseType($caseType);
+    foreach($allowedActivityTypes as $machine_name => $is_allowed) {
+      if ($is_allowed) {
+        $label = $allActivityTypes[$machine_name]['label'];
+        $url = \Drupal\Core\Url::fromRoute("entity.oc_activity.add_form", ['oc_activity_type' => $machine_name]);
+        $url->setOption('query', $query);
+        $link = \Drupal\Core\Link::fromTextAndUrl($label, $url)->toString();
+        $markup .= "<p>$link</p>";  
+      }
     }
     return "<div class='opencase_add_links'>$markup</div>";
   }

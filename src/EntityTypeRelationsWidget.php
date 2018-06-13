@@ -47,12 +47,7 @@ class EntityTypeRelationsWidget {
   public function populate(&$form) {
     $case_type = $form['id']['#default_value'];
     $allowedActorTypes = EntityTypeRelations::getAllowedActorTypesForCaseType($case_type); 
-    $form['allowed_actor_types']['#default_value'] = $allowedActorTypes;
-    $caseTypeConfig = \Drupal::entityTypeManager()->getStorage('oc_case_type')->load($case_type);
-    $allowedActivityTypes = $caseTypeConfig->get('allowedActivityTypes');
-    if ($allowedActivityTypes) {
-      $form['allowed_activity_types']['#default_value'] = $allowedActivityTypes;
-    }
+    $form['allowed_activity_types']['#default_value'] = $allowedActivityTypes;
   }
   
   /**
