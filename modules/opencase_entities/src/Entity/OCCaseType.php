@@ -23,7 +23,7 @@ use Drupal\Core\Config\Entity\ConfigEntityBundleBase;
  *     },
  *   },
  *   config_prefix = "oc_case_type",
- *   admin_permission = "administer site configuration",
+ *   admin_permission = "administer opencase entity bundles",
  *   bundle_of = "oc_case",
  *   entity_keys = {
  *     "id" = "id",

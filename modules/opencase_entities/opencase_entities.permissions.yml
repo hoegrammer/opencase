@@ -1,3 +1,7 @@
+administer opencase entity bundles:
+  title: 'Administer OpenCase Actor/Case/Activity Types'
+  description: 'Create, configure and delete types of actor (such as "Client" or "Legal Advisor"), types of case (such as "Housing" or "Asylum") and types of activity (such as "Case Note" or "Interview")'
+
 administer actor entities:
   title: 'Administer Actor entities'
   description: 'Allow to access the administration form to configure Actor entities.'
