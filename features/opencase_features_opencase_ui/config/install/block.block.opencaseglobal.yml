@@ -11,7 +11,7 @@ dependencies:
 id: opencaseglobal
 theme: bartik
 region: sidebar_first
-weight: -7
+weight: -6
 provider: null
 plugin: 'system_menu_block:openc'
 settings:

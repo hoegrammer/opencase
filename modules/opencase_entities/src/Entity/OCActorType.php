@@ -11,6 +11,7 @@ use Drupal\Core\Config\Entity\ConfigEntityBundleBase;
  *   id = "oc_actor_type",
  *   label = @Translation("Actor type"),
  *   handlers = {
+ *     "access" = "Drupal\opencase_entities\OCActorTypeAccessControlHandler",
  *     "view_builder" = "Drupal\Core\Entity\EntityViewBuilder",
  *     "list_builder" = "Drupal\opencase_entities\OCActorTypeListBuilder",
  *     "form" = {

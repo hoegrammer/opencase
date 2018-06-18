@@ -11,6 +11,7 @@ use Drupal\Core\Config\Entity\ConfigEntityBundleBase;
  *   id = "oc_activity_type",
  *   label = @Translation("Activity type"),
  *   handlers = {
+ *     "access" = "Drupal\opencase_entities\OCActivityTypeAccessControlHandler",
  *     "view_builder" = "Drupal\Core\Entity\EntityViewBuilder",
  *     "list_builder" = "Drupal\opencase_entities\OCActivityTypeListBuilder",
  *     "form" = {

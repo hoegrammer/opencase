@@ -11,6 +11,7 @@ use Drupal\Core\Config\Entity\ConfigEntityBundleBase;
  *   id = "oc_case_type",
  *   label = @Translation("Case type"),
  *   handlers = {
+ *     "access" = "Drupal\opencase_entities\OCCaseTypeAccessControlHandler",
  *     "view_builder" = "Drupal\Core\Entity\EntityViewBuilder",
  *     "list_builder" = "Drupal\opencase_entities\OCCaseTypeListBuilder",
  *     "form" = {

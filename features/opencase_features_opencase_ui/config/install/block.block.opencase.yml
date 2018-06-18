@@ -5,13 +5,12 @@ dependencies:
     - system.menu.opencase-admin
   module:
     - system
-    - user
   theme:
     - bartik
 id: opencase
 theme: bartik
 region: sidebar_first
-weight: -6
+weight: -7
 provider: null
 plugin: 'system_menu_block:opencase-admin'
 settings:
@@ -21,11 +20,4 @@ settings:
   label_display: visible
   level: 1
   depth: 0
-visibility:
-  user_role:
-    id: user_role
-    roles:
-      administrator: administrator
-    negate: false
-    context_mapping:
-      user: '@user.current_user_context:current_user'
+visibility: {  }
