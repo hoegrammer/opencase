@@ -47,6 +47,8 @@ class EntityTypeRelationsWidget {
   public function populate(&$form) {
     $case_type = $form['id']['#default_value'];
     $allowedActorTypes = EntityTypeRelations::getAllowedActorTypesForCaseType($case_type); 
+    $form['allowed_actor_types']['#default_value'] = $allowedActorTypes;
+    $allowedActivityTypes = EntityTypeRelations::getAllowedActivityTypesForCaseType($case_type); 
     $form['allowed_activity_types']['#default_value'] = $allowedActivityTypes;
   }
   

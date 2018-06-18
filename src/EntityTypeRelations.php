@@ -20,6 +20,8 @@ class EntityTypeRelations {
 
   public static function getAllowedActivityTypesForCaseType($case_type) {
     $caseTypeConfig = \Drupal::entityTypeManager()->getStorage('oc_case_type')->load($case_type);
-    return $caseTypeConfig->get('allowedActivityTypes');  // format: ['application' => 'application', 'interview' => 0]
+    $allowedActivityTypes = $caseTypeConfig->get('allowedActivityTypes');  // format: ['application' => 'application', 'interview' => 0]
+    if (!$allowedActivityTypes) $allowedActivityTypes = array();
+    return $allowedActivityTypes;
   }    
 }
