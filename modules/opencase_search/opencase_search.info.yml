@@ -1,9 +1,0 @@
-name: 'OpenCase Search'
-type: module
-description: 'Search functionality for OpenCase'
-core: 8.x
-package: 'OpenCase'
-dependencies:
-  - opencase_entities
-  - search_api
-  - search_api_db
