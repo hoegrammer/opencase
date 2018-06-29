@@ -1,5 +1,0 @@
-langcode: en
-status: true
-dependencies: {  }
-id: case_note
-label: 'Case note'
