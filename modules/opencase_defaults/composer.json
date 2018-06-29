@@ -1,0 +1,14 @@
+{
+  "name": "drupal/opencase_defaults",
+  "type": "drupal-module",
+  "description": "OpenCase Default Configuration",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/opencase_defaults",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/opencase_defaults",
+    "source": "http://cgit.drupalcode.org/opencase_defaults"
+  },
+  "require": { }
+}

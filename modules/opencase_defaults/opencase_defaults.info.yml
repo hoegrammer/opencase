@@ -1,0 +1,5 @@
+name: 'opencase_defaults'
+type: module
+description: 'OpenCase Default Configuration'
+core: 8.x
+package: 'OpenCase'
