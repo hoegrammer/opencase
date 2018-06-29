@@ -5,6 +5,5 @@ core: 8.x
 package: 'OpenCase'
 dependencies:
   - opencase_entities
-  - opencase_search
 libraries:
   - opencase/opencase-lib
