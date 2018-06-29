@@ -21,6 +21,6 @@ class OCActorTypeAccessControlHandler extends EntityAccessControlHandler {
     if ($operation == 'view label') {
       return AccessResult::allowed();
     }
-    return parent::checkAccess();
+    return parent::checkAccess($entity, $operation, $account);
   }
 }
