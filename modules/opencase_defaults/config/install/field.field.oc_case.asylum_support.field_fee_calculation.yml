@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.oc_case.field_fee_calculation
+    - opencase_entities.oc_case_type.asylum_support
+  module:
+    - options
+id: oc_case.asylum_support.field_fee_calculation
+field_name: field_fee_calculation
+entity_type: oc_case
+bundle: asylum_support
+label: 'Fee calculation'
+description: 'If it is per hour, it will be calculated according to the sum of time spent on all the activities logged on the case.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

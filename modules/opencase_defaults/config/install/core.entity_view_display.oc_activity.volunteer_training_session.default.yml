@@ -1,0 +1,33 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.oc_activity.volunteer_training_session.field_date_attended
+    - field.field.oc_activity.volunteer_training_session.field_type_of_session
+    - opencase_entities.oc_activity_type.volunteer_training_session
+  module:
+    - datetime
+    - user
+id: oc_activity.volunteer_training_session.default
+targetEntityType: oc_activity
+bundle: volunteer_training_session
+mode: default
+content:
+  field_date_attended:
+    weight: 1
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_type_of_session:
+    weight: 0
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

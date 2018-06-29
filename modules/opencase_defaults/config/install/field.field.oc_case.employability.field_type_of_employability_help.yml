@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.oc_case.field_type_of_employability_help
+    - opencase_entities.oc_case_type.employability
+  module:
+    - options
+id: oc_case.employability.field_type_of_employability_help
+field_name: field_type_of_employability_help
+entity_type: oc_case
+bundle: employability
+label: 'Type of employability help'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

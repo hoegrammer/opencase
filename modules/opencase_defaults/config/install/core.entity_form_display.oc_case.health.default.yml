@@ -1,0 +1,49 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.oc_case.health.field_case_finance
+    - field.field.oc_case.health.field_fee_calculation
+    - field.field.oc_case.health.field_fee_or_equivalent_cost
+    - field.field.oc_case.health.field_outcome
+    - field.field.oc_case.health.field_type_health
+    - opencase_entities.oc_case_type.health
+  module:
+    - file
+id: oc_case.health.default
+targetEntityType: oc_case
+bundle: health
+mode: default
+content:
+  field_case_finance:
+    weight: 27
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_fee_calculation:
+    weight: 29
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_fee_or_equivalent_cost:
+    weight: 28
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_outcome:
+    weight: 30
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_type_health:
+    weight: 26
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+hidden: {  }

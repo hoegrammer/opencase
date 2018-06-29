@@ -1,0 +1,169 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.oc_actor.client.field_asylum_status
+    - field.field.oc_actor.client.field_confidentiality_form
+    - field.field.oc_actor.client.field_date_of_birth
+    - field.field.oc_actor.client.field_dependants
+    - field.field.oc_actor.client.field_disability
+    - field.field.oc_actor.client.field_ethnic_o
+    - field.field.oc_actor.client.field_gender_identified_with
+    - field.field.oc_actor.client.field_how_heard
+    - field.field.oc_actor.client.field_income
+    - field.field.oc_actor.client.field_languages_spoken
+    - field.field.oc_actor.client.field_marital_
+    - field.field.oc_actor.client.field_nationality
+    - field.field.oc_actor.client.field_referred_by
+    - opencase_entities.oc_actor_type.client
+  module:
+    - datetime
+    - file
+    - options
+    - user
+id: oc_actor.client.default
+targetEntityType: oc_actor
+bundle: client
+mode: default
+content:
+  field_asylum_status:
+    weight: 15
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_client_field_1:
+    weight: 1
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_confidentiality_form:
+    weight: 19
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    type: file_default
+    region: content
+  field_date_of_birth:
+    weight: 7
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_dependants:
+    weight: 16
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_disability:
+    weight: 11
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_ethnic_o:
+    weight: 13
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_gender_identified_with:
+    weight: 10
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_how_heard:
+    weight: 17
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_income:
+    weight: 14
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_languages_spoken:
+    weight: 12
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_marital_:
+    weight: 9
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_nationality:
+    weight: 8
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_referred_by:
+    weight: 18
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  name:
+    label: above
+    type: string
+    weight: -4
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  phone:
+    label: above
+    type: string
+    weight: 2
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  phone2:
+    label: above
+    type: string
+    weight: 3
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  postal_address:
+    label: above
+    type: basic_string
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

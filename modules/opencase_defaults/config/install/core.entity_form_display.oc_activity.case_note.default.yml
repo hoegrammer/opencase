@@ -1,0 +1,11 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - opencase_entities.oc_activity_type.case_note
+id: oc_activity.case_note.default
+targetEntityType: oc_activity
+bundle: case_note
+mode: default
+content: {  }
+hidden: {  }

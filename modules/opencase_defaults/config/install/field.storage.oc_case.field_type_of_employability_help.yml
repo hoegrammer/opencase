@@ -1,0 +1,26 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - opencase_entities
+    - options
+id: oc_case.field_type_of_employability_help
+field_name: field_type_of_employability_help
+entity_type: oc_case
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 'Job search'
+      label: 'Job search'
+    -
+      value: 'Interview skills'
+      label: 'Interview skills'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

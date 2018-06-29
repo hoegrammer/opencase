@@ -1,0 +1,56 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.oc_case.immigration.field_case_finance
+    - field.field.oc_case.immigration.field_fee_calculation
+    - field.field.oc_case.immigration.field_fee_or_equivalent_cost
+    - field.field.oc_case.immigration.field_level
+    - field.field.oc_case.immigration.field_outcome
+    - field.field.oc_case.immigration.field_type_of_applicat
+    - opencase_entities.oc_case_type.immigration
+  module:
+    - file
+id: oc_case.immigration.default
+targetEntityType: oc_case
+bundle: immigration
+mode: default
+content:
+  field_case_finance:
+    weight: 28
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_fee_calculation:
+    weight: 30
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_fee_or_equivalent_cost:
+    weight: 29
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_level:
+    weight: 26
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_outcome:
+    weight: 31
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_type_of_applicat:
+    weight: 27
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+hidden: {  }

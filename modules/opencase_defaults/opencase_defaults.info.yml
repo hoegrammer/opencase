@@ -1,5 +1,5 @@
-name: 'opencase_defaults'
+name: 'Opencase Example Configuration'
 type: module
-description: 'OpenCase Default Configuration'
+description: 'Actor types, case types, activity types and user roles suited to an asylum advice group'
 core: 8.x
 package: 'OpenCase'
