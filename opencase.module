@@ -130,3 +130,22 @@ function opencase_form_oc_case_type_edit_form_alter(&$form, $form_state) {
   $widget->setup($form);
   $widget->populate($form);
 }
+
+/**
+ * Implements hook_uninstall().
+ * Removes configs.
+ */
+function opencase_uninstall() {
+  $configs = [
+    'block.block.opencasecontextualmenu',
+    'block.block.opencase',
+    'system.menu.openc',
+    'views.view.cases',
+    'block.block.opencaseglobal',
+    'system.menu.opencase-admin',
+    'views.view.activities'
+  ];
+  foreach($configs as $config) {
+    Drupal::configFactory()->getEditable($config)->delete();
+  }
+} 
