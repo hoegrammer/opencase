@@ -1,0 +1,40 @@
+<?php
+
+/**
+ * @file
+ * Contains opencase_search.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function opencase_search_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the opencase_search module.
+    case 'help.page.opencase_search':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Search functionality for OpenCase.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_uninstall().
+ * Removes configs.
+ */
+function opencase_search_uninstall() {
+  $configs = [
+    'views.view.actor_search', 
+    'block.block.exposedformactor_searchpage_1', 
+    'search_api.server.opencase_server',
+    'search_api.index.opencase_actors'
+  ];
+  foreach($configs as $config) {
+    Drupal::configFactory()->getEditable($config)->delete();
+  }
+} 
