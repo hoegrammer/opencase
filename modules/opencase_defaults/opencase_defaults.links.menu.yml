@@ -1,0 +1,12 @@
+opencase.add_volunteer:
+  title: 'Add a new volunteer'
+  description: 'Create a new volunteer record'
+  menu_name: opencase-add-actors
+  url: internal:/opencase/oc_actor/add/volunteer
+  weight: 0
+opencase.add_client:
+  title: 'Add a new client'
+  description: 'Create a new client record'
+  menu_name: opencase-add-actors
+  url: internal:/opencase/oc_actor/add/client
+  weight: 1
