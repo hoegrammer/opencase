@@ -287,11 +287,11 @@ class OCActivity extends RevisionableContentEntityBase implements OCActivityInte
       ->setDefaultValue('')
       ->setDisplayOptions('view', [
         'label' => 'above',
-        'type' => 'number',
+        'type' => 'number_unformatted',
         'weight' => -3,
       ])
       ->setDisplayOptions('form', [
-        'type' => 'number',
+        'type' => 'number_unformatted',
         'weight' => -3,
       ]);
 
