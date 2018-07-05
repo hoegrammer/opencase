@@ -1,7 +1,0 @@
-langcode: en
-status: true
-dependencies: {  }
-id: opencase-add-actors
-label: 'OpenCase Add Actors'
-description: ''
-locked: false

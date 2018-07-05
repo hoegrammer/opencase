@@ -278,7 +278,7 @@ class OCActivity extends RevisionableContentEntityBase implements OCActivityInte
       ])
       ->setRequired(FALSE);
 
-    $fields['time_taken'] = BaseFieldDefinition::create('integer')
+    $fields['time_taken'] = BaseFieldDefinition::create('decimal')
       ->setLabel(t('Time taken'))
       ->setRevisionable(TRUE)
       ->setSettings([
@@ -287,11 +287,11 @@ class OCActivity extends RevisionableContentEntityBase implements OCActivityInte
       ->setDefaultValue('')
       ->setDisplayOptions('view', [
         'label' => 'above',
-        'type' => 'number_unformatted',
+        'type' => 'number_decimal',
         'weight' => -3,
       ])
       ->setDisplayOptions('form', [
-        'type' => 'number_unformatted',
+        'type' => 'number_decimal',
         'weight' => -3,
       ]);
 
