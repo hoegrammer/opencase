@@ -1,0 +1,31 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.opencase-add-actors
+  module:
+    - system
+    - user
+  theme:
+    - bartik
+id: opencaseaddactors
+theme: bartik
+region: sidebar_first
+weight: -8
+provider: null
+plugin: 'system_menu_block:opencase-add-actors'
+settings:
+  id: 'system_menu_block:opencase-add-actors'
+  label: 'Add Records'
+  provider: system
+  label_display: visible
+  level: 1
+  depth: 0
+visibility:
+  user_role:
+    id: user_role
+    roles:
+      authenticated: authenticated
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'

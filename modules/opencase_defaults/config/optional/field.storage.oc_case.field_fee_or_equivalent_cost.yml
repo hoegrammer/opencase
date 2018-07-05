@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - opencase_entities
+id: oc_case.field_fee_or_equivalent_cost
+field_name: field_fee_or_equivalent_cost
+entity_type: oc_case
+type: number_decimal
+settings:
+  precision: 10
+  scale: 2
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

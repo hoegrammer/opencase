@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.oc_actor.field_income
+    - opencase_entities.oc_actor_type.client
+  module:
+    - options
+id: oc_actor.client.field_income
+field_name: field_income
+entity_type: oc_actor
+bundle: client
+label: Income
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,26 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.oc_activity.destitution_funds_provided.field_amount
+    - field.field.oc_activity.destitution_funds_provided.field_funds_for
+    - opencase_entities.oc_activity_type.destitution_funds_provided
+id: oc_activity.destitution_funds_provided.default
+targetEntityType: oc_activity
+bundle: destitution_funds_provided
+mode: default
+content:
+  field_amount:
+    weight: 28
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number_decimal
+    region: content
+  field_funds_for:
+    weight: 27
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+hidden: {  }

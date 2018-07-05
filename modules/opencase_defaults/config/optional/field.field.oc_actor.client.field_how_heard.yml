@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.oc_actor.field_how_heard
+    - opencase_entities.oc_actor_type.client
+  module:
+    - options
+id: oc_actor.client.field_how_heard
+field_name: field_how_heard
+entity_type: oc_actor
+bundle: client
+label: 'How did you hear about the service?'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

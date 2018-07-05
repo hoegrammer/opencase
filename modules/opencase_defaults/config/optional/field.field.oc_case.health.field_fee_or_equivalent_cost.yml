@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.oc_case.field_fee_or_equivalent_cost
+    - opencase_entities.oc_case_type.health
+id: oc_case.health.field_fee_or_equivalent_cost
+field_name: field_fee_or_equivalent_cost
+entity_type: oc_case
+bundle: health
+label: 'Fee or equivalent cost'
+description: 'If the case is pro bono, state what it would have cost if it were fee paying.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: £
+  suffix: ''
+field_type: decimal

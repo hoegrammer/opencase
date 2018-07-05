@@ -1,0 +1,15 @@
+langcode: en
+status: true
+dependencies: {  }
+id: volunteer_engagement
+label: 'Volunteer Engagement'
+allowedActivityTypes:
+  application: application
+  case_note: case_note
+  email: email
+  interview: interview
+  lete: lete
+  research: research
+  telephone_call: telephone_call
+  volunteer_training_session: volunteer_training_session
+  destitution_funds_provided: 0

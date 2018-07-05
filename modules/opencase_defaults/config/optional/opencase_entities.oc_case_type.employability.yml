@@ -1,0 +1,15 @@
+langcode: en
+status: true
+dependencies: {  }
+id: employability
+label: Employability
+allowedActivityTypes:
+  application: application
+  case_note: case_note
+  destitution_funds_provided: destitution_funds_provided
+  email: email
+  interview: interview
+  lete: lete
+  research: research
+  telephone_call: telephone_call
+  volunteer_training_session: 0

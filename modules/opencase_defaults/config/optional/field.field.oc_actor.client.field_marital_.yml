@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.oc_actor.field_marital_
+    - opencase_entities.oc_actor_type.client
+  module:
+    - options
+id: oc_actor.client.field_marital_
+field_name: field_marital_
+entity_type: oc_actor
+bundle: client
+label: 'Marital status'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

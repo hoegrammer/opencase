@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.oc_activity.field_type_of_session
+    - opencase_entities.oc_activity_type.volunteer_training_session
+id: oc_activity.volunteer_training_session.field_type_of_session
+field_name: field_type_of_session
+entity_type: oc_activity
+bundle: volunteer_training_session
+label: 'Type of session'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
