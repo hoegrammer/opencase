@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - opencase
+  theme:
+    - bartik
+id: opencasecontextualmenu
+theme: bartik
+region: sidebar_second
+weight: -8
+provider: null
+plugin: opencase_contextual_menu
+settings:
+  id: opencase_contextual_menu
+  label: 'OpenCase Contextual Menu'
+  provider: opencase
+  label_display: visible
+visibility: {  }

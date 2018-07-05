@@ -1,0 +1,31 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.openc
+  module:
+    - system
+    - user
+  theme:
+    - bartik
+id: opencaseglobal
+theme: bartik
+region: sidebar_first
+weight: -7
+provider: null
+plugin: 'system_menu_block:openc'
+settings:
+  id: 'system_menu_block:openc'
+  label: 'OpenCase Global'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+visibility:
+  user_role:
+    id: user_role
+    roles:
+      authenticated: authenticated
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'

@@ -1,0 +1,36 @@
+opencase.manage_user_logins:
+  title: 'Manager user logins'
+  description: 'Manage who can access the system'
+  menu_name: opencase-admin 
+  url: internal:/admin/people
+  weight: 0
+opencase.manage_actor_types:
+  title: 'Manage actor types'
+  description: 'Configure types of actors and their fields'
+  menu_name: opencase-admin 
+  url: internal:/admin/opencase/oc_actor_type
+  weight: 1
+opencase.manage_case_types:
+  title: 'Manage case types'
+  description: 'Configure types of cases and their fields'
+  menu_name: opencase-admin 
+  url: internal:/admin/opencase/oc_case_type
+  weight: 2
+opencase.manage_activity_types:
+  title: 'Manage activity types'
+  description: 'Configure types of activities and their fields'
+  menu_name: opencase-admin 
+  url: internal:/admin/opencase/oc_activity_type
+  weight: 3
+opencase.view_documentation:
+  title: 'Read documentation'
+  description: 'Find out about OpenCase and how it works'
+  menu_name: openc
+  url: https://hoegrammer.gitbooks.io/opencase/content/
+  weight: 0
+opencase.send_feedback:
+  title: 'Send feedback'
+  description: 'Contact the OpenCase developers'
+  menu_name: openc
+  url: internal:/contact
+  weight: 1
