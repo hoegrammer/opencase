@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: opencase-admin
+label: 'OpenCase Admin'
+description: 'Administer OpenCase '
+locked: false
