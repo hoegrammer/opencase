@@ -1,5 +1,5 @@
 opencase.manage_user_logins:
-  title: 'Manager user logins'
+  title: 'Manage user logins'
   description: 'Manage who can access the system'
   menu_name: opencase-admin 
   url: internal:/admin/people
