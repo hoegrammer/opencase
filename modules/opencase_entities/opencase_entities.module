@@ -122,10 +122,8 @@ function opencase_views_query_alter(Drupal\views\ViewExecutable $view, $query) {
 function opencase_query_oc_case_access_alter($query) {
   if (\Drupal::currentUser()->hasPermission('view published case entities')) {
     return;
-  } elseif (\Drupal::currentUser()->hasPermission('view own cases')) {
-    $linked_actor_id = CaseInvolvement::getLinkedActorId(\Drupal::currentUser());
-    $query->addJoin('INNER', 'oc_case__actors_involved', 'access_filter', 'access_filter.entity_id = oc_case_field_data.id');
-    $query->condition('access_filter.actors_involved_target_id', $linked_actor_id);
-    return $query;
-  }
+  } 
+  $linked_actor_id = CaseInvolvement::getLinkedActorId(\Drupal::currentUser());
+  $query->addJoin('INNER', 'oc_case__actors_involved', 'access_filter', 'access_filter.entity_id = oc_case_field_data.id');
+  $query->condition('access_filter.actors_involved_target_id', $linked_actor_id);
 }

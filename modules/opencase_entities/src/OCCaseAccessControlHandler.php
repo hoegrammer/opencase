@@ -30,8 +30,10 @@ class OCCaseAccessControlHandler extends EntityAccessControlHandler {
             || CaseInvolvement::userIsInvolved($account, $entity)
         );
       case 'update':
-        return AccessResult::allowedIfHasPermission($account, 'edit case entities');
-
+        return AccessResult::allowedIf(
+            $account->hasPermission('edit published case entities')
+            || CaseInvolvement::userIsInvolved($account, $entity)
+        );
       case 'delete':
         return AccessResult::allowedIfHasPermission($account, 'delete case entities');
     }

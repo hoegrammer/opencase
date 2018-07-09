@@ -10,8 +10,6 @@ permissions:
   - 'add case entities'
   - 'add client entities'
   - 'delete activity entities'
-  - 'view own cases'
-  - 'edit own cases'
   - 'delete client entities'
   - 'edit client entities'
   - 'view published client entities'
