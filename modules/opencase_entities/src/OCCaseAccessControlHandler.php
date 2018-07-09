@@ -6,6 +6,7 @@ use Drupal\Core\Entity\EntityAccessControlHandler;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\Access\AccessResult;
+use Drupal\opencase_entities\CaseInvolvement;
 
 /**
  * Access controller for the Case entity.
@@ -24,8 +25,10 @@ class OCCaseAccessControlHandler extends EntityAccessControlHandler {
         if (!$entity->isPublished()) {
           return AccessResult::allowedIfHasPermission($account, 'view unpublished case entities');
         }
-        return AccessResult::allowedIfHasPermission($account, 'view published case entities');
-
+        return AccessResult::allowedIf(
+            $account->hasPermission('view published case entities')
+            || (new CaseInvolvement())->userIsInvolved($account, $entity)
+        );
       case 'update':
         return AccessResult::allowedIfHasPermission($account, 'edit case entities');
 

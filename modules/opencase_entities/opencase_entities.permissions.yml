@@ -78,10 +78,19 @@ edit case entities:
   title: 'Edit Case entities'
 
 view published case entities:
-  title: 'View published Case entities'
+  title: 'View all cases'
+  description: 'Even those which they user is not involved in.'
 
 view unpublished case entities:
   title: 'View unpublished Case entities'
+
+view own cases:
+  title: 'View cases they are involved in'
+  description: "Allow to access cases in which the user's linked actor is an involved party."
+
+edit own cases:
+  title: 'Edit cases they are involved in'
+  description: "Allow to edit cases in which the user's linked actor is an involved party."
 
 view all case revisions:
   title: 'View all Case revisions'
