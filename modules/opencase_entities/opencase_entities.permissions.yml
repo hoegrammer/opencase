@@ -75,7 +75,7 @@ edit case entities:
 
 view published case entities:
   title: 'View all cases'
-  description: 'Even those which they user is not involved in.'
+  description: 'All users can see cases which they are involved in. This grants permission to see all cases regardless of involvement.'
 
 view unpublished case entities:
   title: 'View unpublished Case entities'
