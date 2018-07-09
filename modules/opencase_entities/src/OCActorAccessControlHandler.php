@@ -14,6 +14,9 @@ use Drupal\Core\Access\AccessResult;
  */
 class OCActorAccessControlHandler extends EntityAccessControlHandler {
 
+
+  protected $viewLabelOperation = TRUE;
+
   /**
    * {@inheritdoc}
    * Permissions are assigned by bundle.
@@ -22,21 +25,18 @@ class OCActorAccessControlHandler extends EntityAccessControlHandler {
   protected function checkAccess(EntityInterface $entity, $operation, AccountInterface $account) {
     /** @var \Drupal\opencase_entities\Entity\OCActorInterface $entity */
     $bundle = $entity->bundle();
-    $route_name = \Drupal::routeMatch()->getRouteName();
-    $case_routes = ['entity.oc_case.canonical', 'entity.oc_case.edit_form', 'view.cases.page_1', 'entity.oc_case.add_form'];
-    $is_case_context = in_array($route_name, $case_routes);
-
     switch ($operation) {
+      case 'view label':
+        return AccessResult::allowed();    
+
       case 'view':
         if (!$entity->isPublished()) {
           return AccessResult::allowedIf(
             $account->hasPermission("view unpublished $bundle entities")
-            or ($is_case_context && $account->hasPermission("view unpublished $bundle entities"))
           );
         }
         return AccessResult::allowedIf(
           $account->hasPermission("view published $bundle entities")
-          or ($is_case_context && $account->hasPermission("view $bundle involvement in cases"))
         );
 
       case "update":
