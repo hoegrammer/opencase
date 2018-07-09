@@ -3,7 +3,6 @@ status: true
 dependencies:
   config:
     - opencase_entities.oc_actor_type.client
-    - opencase_entities.oc_actor_type.volunteer
     - opencase_entities.oc_case_type.volunteer_engagement
 id: oc_case.volunteer_engagement.actors_involved
 field_name: actors_involved
@@ -19,6 +18,5 @@ settings:
   handler_settings:
     target_bundles:
       client: client
-      volunteer: volunteer
   handler: default
 field_type: entity_reference
