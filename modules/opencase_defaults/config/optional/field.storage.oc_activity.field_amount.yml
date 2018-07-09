@@ -6,7 +6,7 @@ dependencies:
 id: oc_activity.field_amount
 field_name: field_amount
 entity_type: oc_activity
-type: number_decimal
+type: decimal
 settings:
   precision: 10
   scale: 2

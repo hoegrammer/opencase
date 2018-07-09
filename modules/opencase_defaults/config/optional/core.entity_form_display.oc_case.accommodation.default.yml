@@ -32,7 +32,7 @@ content:
     settings:
       placeholder: ''
     third_party_settings: {  }
-    type: number_decimal
+    type: number
     region: content
   field_outcome:
     weight: 26
