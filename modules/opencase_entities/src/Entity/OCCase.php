@@ -76,10 +76,13 @@ class OCCase extends RevisionableContentEntityBase implements OCCaseInterface {
 
   /**
    * When creating a case, it sets the first involved party to the actor
-   * id from the URL.
+   * id from the URL, and the second to the author's linked actor 
+   * (if it exists and is different)
    */
   public static function defaultVal() {
-    return array(\Drupal::request()->query->get('actor_id'));
+    $author_linked_actor_id = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id())->get('field_linked_opencase_actor')->target_id;
+    $currently_viewed_actor_id = \Drupal::request()->query->get('actor_id');
+    return array_unique([$currently_viewed_actor_id, $author_linked_actor_id]);
   }
 
   /**
