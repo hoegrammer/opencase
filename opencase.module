@@ -149,3 +149,9 @@ function opencase_uninstall() {
     Drupal::configFactory()->getEditable($config)->delete();
   }
 } 
+
+function opencase_views_pre_render($view) {
+  if (empty($view->result) && empty($view->exposed_input)) {
+    $view->exposed_widgets = NULL;
+  }
+}
