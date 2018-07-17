@@ -114,7 +114,7 @@ function opencase_entities_theme_suggestions_oc_activity(array $variables) {
 }
 
 function opencase_views_query_alter(Drupal\views\ViewExecutable $view, $query) {
-  if ($view->getBaseEntityType()->id() == 'oc_case') {
+  if ($view->getBaseEntityType() && $view->getBaseEntityType()->id() == 'oc_case') {
     $query->addTag('oc_case_access');
   }
 }
