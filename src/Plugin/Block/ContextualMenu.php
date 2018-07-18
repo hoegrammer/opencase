@@ -101,7 +101,8 @@ class ContextualMenu extends BlockBase {
   private function casePage() {
     $case = \Drupal::routeMatch()->getParameter('oc_case');
     $actor_id = \Drupal::service('user.private_tempstore')->get('opencase')->get('actor_id');
-    if ($actor_id) {
+    $actor = \Drupal::entityTypeManager()->getStorage('oc_actor')->load($actor_id);
+    if ($actor) {
       $actor = \Drupal::entityTypeManager()->getStorage('oc_actor')->load($actor_id);
       $caseListLink = $this->getCaseListLink($actor);
     } else {

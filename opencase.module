@@ -165,3 +165,19 @@ function opencase_entity_field_access($operation, \Drupal\Core\Field\FieldDefini
   }
   return AccessResult::neutral();
 }
+
+
+
+/**
+ * Implementation of hook_form_alter()
+ * After deleting an actor or a 
+ */
+function opencase_form_alter(&$form, &$form_state, $form_id) {
+  if (preg_match('/oc_actor_.*_delete_form/', $form_id) or (preg_match('/oc_case_.*_delete_form/', $form_id))) {
+    $form['actions']['submit']['#submit'][] = '_opencase_delete_case_redirect';
+  }
+}
+
+function _opencase_delete_case_redirect($form, &$form_state) {
+  $form_state->setRedirect('view.cases.page_2'); // redirect to view of all cases
+}
