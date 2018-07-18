@@ -167,17 +167,23 @@ function opencase_entity_field_access($operation, \Drupal\Core\Field\FieldDefini
 }
 
 
-
 /**
  * Implementation of hook_form_alter()
- * After deleting an actor or a 
+ * After deleting an actor or a case, redirect to the main page, which is a view of all cases. 
  */
 function opencase_form_alter(&$form, &$form_state, $form_id) {
   if (preg_match('/oc_actor_.*_delete_form/', $form_id) or (preg_match('/oc_case_.*_delete_form/', $form_id))) {
     $form['actions']['submit']['#submit'][] = '_opencase_delete_case_redirect';
   }
+  if (preg_match('/oc_activity_.*_delete_form/', $form_id)) {
+    $form['actions']['submit']['#submit'][] = '_opencase_delete_activity_redirect';
+  }
 }
 
 function _opencase_delete_case_redirect($form, &$form_state) {
   $form_state->setRedirect('view.cases.page_2'); // redirect to view of all cases
+}
+function _opencase_delete_activity_redirect($form, &$form_state) {
+  $case_id = $form_state->getFormObject()->getEntity()->oc_case->target_id;
+  $form_state->setRedirect('view.activities.page_1', ['case_id' => $case_id]); // redirect to the activity list
 }
