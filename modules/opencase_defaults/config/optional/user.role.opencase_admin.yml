@@ -6,6 +6,8 @@ label: 'CRM Admin'
 weight: 7
 is_admin: null
 permissions:
+  - 'add activity entities'
+  - 'add case entities'
   - 'add client entities'
   - 'add volunteer entities'
   - 'administer oc_activity fields'
@@ -17,5 +19,11 @@ permissions:
   - 'delete case entities'
   - 'delete client entities'
   - 'delete volunteer entities'
+  - 'edit activity entities'
+  - 'edit case entities'
   - 'edit client entities'
   - 'edit volunteer entities'
+  - 'view published activity entities'
+  - 'view published case entities'
+  - 'view published client entities'
+  - 'view published volunteer entities'
