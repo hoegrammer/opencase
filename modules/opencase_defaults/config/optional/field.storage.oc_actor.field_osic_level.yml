@@ -1,0 +1,32 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - opencase_entities
+    - options
+id: oc_actor.field_osic_level
+field_name: field_osic_level
+entity_type: oc_actor
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 'Under supervision'
+      label: 'Under supervision'
+    -
+      value: 'Level 1'
+      label: 'Level 1'
+    -
+      value: 'Level 2'
+      label: 'Level 2'
+    -
+      value: 'Level 3'
+      label: 'Level 3'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,35 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - opencase_entities
+    - options
+id: oc_actor.field_languages_spoken
+field_name: field_languages_spoken
+entity_type: oc_actor
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: English
+      label: English
+    -
+      value: French
+      label: French
+    -
+      value: Arabic
+      label: Arabic
+    -
+      value: Kurdish
+      label: Kurdish
+    -
+      value: Farsi
+      label: Farsi
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

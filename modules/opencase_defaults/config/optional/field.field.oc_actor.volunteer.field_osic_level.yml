@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.oc_actor.field_osic_level
+    - opencase_entities.oc_actor_type.volunteer
+  module:
+    - options
+id: oc_actor.volunteer.field_osic_level
+field_name: field_osic_level
+entity_type: oc_actor
+bundle: volunteer
+label: 'OSIC level'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

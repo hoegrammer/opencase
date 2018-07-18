@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.oc_actor.field_languages_spoken
+    - opencase_entities.oc_actor_type.volunteer
+  module:
+    - options
+id: oc_actor.volunteer.field_languages_spoken
+field_name: field_languages_spoken
+entity_type: oc_actor
+bundle: volunteer
+label: 'Languages spoken'
+description: 'Hold down <b>Ctrl</b> (or the Mac equivalent) while clicking, and you can select more than one.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string
