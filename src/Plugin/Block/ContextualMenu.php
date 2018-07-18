@@ -94,14 +94,20 @@ class ContextualMenu extends BlockBase {
 
   /**
    * Contextual menu for Case page
-   *    - Link to case list for the actor that is stored in the session
+   *    - Link either the case list for the actor stored in the session (because their case list page was previously loaded)
+   *           or the home page
    *    - Link to Activity list for that case
    */
   private function casePage() {
     $case = \Drupal::routeMatch()->getParameter('oc_case');
     $actor_id = \Drupal::service('user.private_tempstore')->get('opencase')->get('actor_id');
-    $actor = \Drupal::entityTypeManager()->getStorage('oc_actor')->load($actor_id);
-    $links = [$this->getCaseListLink($actor), $this->getActivityListLink($case)];
+    if ($actor_id) {
+      $actor = \Drupal::entityTypeManager()->getStorage('oc_actor')->load($actor_id);
+      $caseListLink = $this->getCaseListLink($actor);
+    } else {
+      $caseListLink = $this->getCaseListLinkAll();
+    }
+    $links = [$caseListLink, $this->getActivityListLink($case)];
     return $this->asNavLinks($links); 
   }
 
@@ -169,6 +175,14 @@ class ContextualMenu extends BlockBase {
   private function getCaseListLink($actor) {
     $url = Url::fromRoute('view.cases.page_1', ['actor_id' => $actor->id()]);
     return Link::fromTextAndUrl(t($actor->getName(). ": Cases"), $url)->toString();
+  }
+
+  /**
+   * Returns a link to the list of all cases
+   */
+  private function getCaseListLinkAll() {
+    $url = Url::fromRoute('view.cases.page_2');
+    return Link::fromTextAndUrl(t("All cases"), $url)->toString();
   }
 
   /**
