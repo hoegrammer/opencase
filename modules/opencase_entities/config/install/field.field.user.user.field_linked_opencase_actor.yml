@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_linked_opencase_actor
+    - opencase_entities.oc_actor_type.volunteer
+  module:
+    - user
+id: user.user.field_linked_opencase_actor
+field_name: field_linked_opencase_actor
+entity_type: user
+bundle: user
+label: 'Linked OpenCase actor'
+description: 'If this user is also an actor (e.g. a volunteer or staff member) in OpenCase, link them here. This will ensure that they have access to the correct cases and that the correct cases are shown as "theirs".'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:oc_actor'
+  handler_settings:
+    target_bundles:
+      volunteer: volunteer
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
