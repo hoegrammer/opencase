@@ -24,11 +24,15 @@ class OCActivityAccessControlHandler extends EntityAccessControlHandler {
         if (!$entity->isPublished()) {
           return AccessResult::allowedIfHasPermission($account, 'view unpublished activity entities');
         }
-        return AccessResult::allowedIfHasPermission($account, 'view published activity entities');
-
-      case 'update':
-        return AccessResult::allowedIfHasPermission($account, 'edit activity entities');
-
+        return AccessResult::allowedIf(
+            $account->hasPermission('view published case entities')  // activity permissions are inherited from case
+            || CaseInvolvement::userIsInvolved_activity($account, $entity)
+        );
+      case 'update':  // allowed only if a) they can see the case the activity is on and b) they can edit cases
+        return AccessResult::allowedIf(
+            $account->hasPermission('edit case entities')
+            && ($account->hasPermission('view published case entities') || CaseInvolvement::userIsInvolved_activity($account, $entity))
+        );
       case 'delete':
         return AccessResult::allowedIfHasPermission($account, 'delete activity entities');
     }
