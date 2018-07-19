@@ -117,6 +117,9 @@ function opencase_views_query_alter(Drupal\views\ViewExecutable $view, $query) {
   if ($view->getBaseEntityType() && $view->getBaseEntityType()->id() == 'oc_case') {
     $query->addTag('oc_case_access');
   }
+  if ($view->getBaseEntityType() && $view->getBaseEntityType()->id() == 'oc_activity') {
+    $query->addTag('oc_activity_access');
+  }
 }
 
 function opencase_query_oc_case_access_alter($query) {
@@ -125,5 +128,14 @@ function opencase_query_oc_case_access_alter($query) {
   } 
   $linked_actor_id = CaseInvolvement::getLinkedActorId(\Drupal::currentUser());
   $query->addJoin('INNER', 'oc_case__actors_involved', 'access_filter', 'access_filter.entity_id = oc_case_field_data.id');
+  $query->condition('access_filter.actors_involved_target_id', $linked_actor_id);
+}
+
+function opencase_query_oc_activity_access_alter($query) {
+  if (\Drupal::currentUser()->hasPermission('view published case entities')) {
+    return;
+  } 
+  $linked_actor_id = CaseInvolvement::getLinkedActorId(\Drupal::currentUser());
+  $query->addJoin('INNER', 'oc_case__actors_involved', 'access_filter', 'access_filter.entity_id = oc_activity_field_data.oc_case');
   $query->condition('access_filter.actors_involved_target_id', $linked_actor_id);
 }
