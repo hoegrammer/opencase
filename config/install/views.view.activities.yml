@@ -389,7 +389,18 @@ display:
       title: 'Activity List'
       header: {  }
       footer: {  }
-      empty: {  }
+      empty:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content: 'This case has no activities yet. To add one, use the links in the sidebar to the right.'
+          plugin_id: text_custom
       relationships: {  }
       arguments:
         oc_case:
