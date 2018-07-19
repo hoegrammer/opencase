@@ -101,10 +101,13 @@ class ContextualMenu extends BlockBase {
   private function casePage() {
     $case = \Drupal::routeMatch()->getParameter('oc_case');
     $actor_id = \Drupal::service('user.private_tempstore')->get('opencase')->get('actor_id');
-    $actor = \Drupal::entityTypeManager()->getStorage('oc_actor')->load($actor_id);
-    if ($actor) {
+    if ($actor_id) {   // there is not always one stored.
       $actor = \Drupal::entityTypeManager()->getStorage('oc_actor')->load($actor_id);
-      $caseListLink = $this->getCaseListLink($actor);
+      if ($actor) {  // actor may have been deleted.
+        $caseListLink = $this->getCaseListLink($actor);
+      } else {
+        $caseListLink = $this->getCaseListLinkAll();
+      }
     } else {
       $caseListLink = $this->getCaseListLinkAll();
     }
