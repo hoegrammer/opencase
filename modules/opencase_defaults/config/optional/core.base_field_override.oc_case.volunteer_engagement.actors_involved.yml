@@ -17,6 +17,6 @@ default_value_callback: 'Drupal\opencase_entities\Entity\OCCase::defaultVal'
 settings:
   handler_settings:
     target_bundles:
-      client: client
+      volunteer: volunteer
   handler: default
 field_type: entity_reference
