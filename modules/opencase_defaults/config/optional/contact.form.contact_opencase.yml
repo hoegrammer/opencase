@@ -4,7 +4,7 @@ dependencies: {  }
 id: contact_opencase
 label: 'Contact the OpenCase Developers'
 recipients:
-  - naomirosenberguk@gmail.com
+  - naomi@aktivix.org
 reply: ''
 weight: 0
 message: 'Thank you for your message. The OpenCase team will get back to you ASAP.'
