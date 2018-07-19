@@ -174,9 +174,11 @@ function opencase_entity_field_access($operation, \Drupal\Core\Field\FieldDefini
 function opencase_form_alter(&$form, &$form_state, $form_id) {
   if (preg_match('/oc_actor_.*_delete_form/', $form_id) or (preg_match('/oc_case_.*_delete_form/', $form_id))) {
     $form['actions']['submit']['#submit'][] = '_opencase_delete_case_redirect';
+    $form['actions']['cancel']['#url'] = $form_state->getFormObject()->getEntity()->toUrl();
   }
   if (preg_match('/oc_activity_.*_delete_form/', $form_id)) {
     $form['actions']['submit']['#submit'][] = '_opencase_delete_activity_redirect';
+    $form['actions']['cancel']['#url'] = $form_state->getFormObject()->getEntity()->toUrl();
   }
 }
 
@@ -186,4 +188,8 @@ function _opencase_delete_case_redirect($form, &$form_state) {
 function _opencase_delete_activity_redirect($form, &$form_state) {
   $case_id = $form_state->getFormObject()->getEntity()->oc_case->target_id;
   $form_state->setRedirect('view.activities.page_1', ['case_id' => $case_id]); // redirect to the activity list
+}
+function _opencase_cancel_delete_activity_redirect($form, &$form_state) {
+  $entity = $form_state->getFormObject()->getEntity();
+  $form_state->setRedirect('entity.oc_activity.canonical', ['oc_activity' => $entity->id()]); // redirect to the activity
 }
