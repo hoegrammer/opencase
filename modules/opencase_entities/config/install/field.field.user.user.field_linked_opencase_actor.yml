@@ -10,8 +10,8 @@ id: user.user.field_linked_opencase_actor
 field_name: field_linked_opencase_actor
 entity_type: user
 bundle: user
-label: 'Linked OpenCase actor'
-description: 'If this user is also an actor (e.g. a volunteer or staff member) in OpenCase, link them here. This will ensure that they have access to the correct cases and that the correct cases are shown as "theirs".'
+label: 'Person in OpenCase'
+description: 'If this user is also a person in OpenCase (e.g. a staff member or a volunteer), start typing the name here to link them. This will ensure they have access to the right cases.'
 required: false
 translatable: false
 default_value: {  }
