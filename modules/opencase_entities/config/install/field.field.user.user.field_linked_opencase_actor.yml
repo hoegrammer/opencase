@@ -3,7 +3,6 @@ status: true
 dependencies:
   config:
     - field.storage.user.field_linked_opencase_actor
-    - opencase_entities.oc_actor_type.volunteer
   module:
     - user
 id: user.user.field_linked_opencase_actor
@@ -20,7 +19,6 @@ settings:
   handler: 'default:oc_actor'
   handler_settings:
     target_bundles:
-      volunteer: volunteer
     sort:
       field: _none
     auto_create: false
