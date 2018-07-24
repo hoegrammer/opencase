@@ -24,10 +24,10 @@ OpenCase will be available as:
 
 ## Not done yet ##
 
-Reporting
-Donations
-Anything to do with emails/bounces
-Any specific guidelines or features relating to the GDPR
+* Reporting
+* Donations
+* Anything to do with emails/bounces
+* Any specific guidelines or features relating to the GDPR
 
 
 
