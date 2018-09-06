@@ -448,51 +448,6 @@ display:
           hide_alter_empty: false
           plugin_id: custom
       filters:
-        type:
-          id: type
-          table: oc_case_field_data
-          field: type
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: in
-          value: {  }
-          group: 1
-          exposed: true
-          expose:
-            operator_id: type_op
-            label: 'Case type'
-            description: ''
-            use_operator: false
-            operator: type_op
-            identifier: type
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              overseer: '0'
-              caseworker: '0'
-              volunteer_co_ord: '0'
-              opencase_admin: '0'
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          entity_type: oc_case
-          entity_field: type
-          plugin_id: bundle
       sorts:
         created:
           id: created
@@ -615,51 +570,6 @@ display:
         empty: false
       path: opencase/all-cases
       filters:
-        type:
-          id: type
-          table: oc_case_field_data
-          field: type
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: in
-          value: {  }
-          group: 1
-          exposed: true
-          expose:
-            operator_id: type_op
-            label: 'Case type'
-            description: ''
-            use_operator: false
-            operator: type_op
-            identifier: type
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              overseer: '0'
-              caseworker: '0'
-              volunteer_co_ord: '0'
-              opencase_admin: '0'
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          entity_type: oc_case
-          entity_field: type
-          plugin_id: bundle
       filter_groups:
         operator: AND
         groups:
