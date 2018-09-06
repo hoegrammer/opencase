@@ -1,0 +1,5 @@
+opencase-reporting-lib:
+  version: 1.x
+  css:
+    theme:
+      css/opencase-reporting.css: {}

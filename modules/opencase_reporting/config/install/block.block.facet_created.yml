@@ -16,7 +16,7 @@ provider: null
 plugin: 'facet_block:created'
 settings:
   id: 'facet_block:created'
-  label: ''
+  label: 'Created Date'
   provider: facets
   label_display: visible
   block_id: facet_created
