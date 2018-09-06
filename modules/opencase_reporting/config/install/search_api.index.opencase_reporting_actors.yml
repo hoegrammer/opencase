@@ -1,0 +1,42 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - search_api.server.opencase_reporting_server
+  module:
+    - search_api
+    - opencase_entities
+id: opencase_reporting_actors
+name: 'OpenCase Reporting: Actors'
+description: ''
+read_only: false
+field_settings:
+  created:
+    label: Created
+    datasource_id: 'entity:oc_actor'
+    property_path: created
+    type: date
+  type:
+    label: 'Actor type'
+    datasource_id: 'entity:oc_actor'
+    property_path: type
+    type: string
+datasource_settings:
+  'entity:oc_actor':
+    bundles:
+      default: true
+      selected: {  }
+    languages:
+      default: true
+      selected: {  }
+processor_settings:
+  add_url: {  }
+  aggregated_field: {  }
+  rendered_item: {  }
+tracker_settings:
+  default:
+    indexing_order: fifo
+options:
+  index_directly: true
+  cron_limit: 50
+server: opencase_reporting_server
