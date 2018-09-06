@@ -6,4 +6,4 @@ package: 'OpenCase'
 dependencies:
   - search_api
   - search_api_db
-  - opencase_entities
+  - opencase

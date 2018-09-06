@@ -141,6 +141,8 @@ function opencase_uninstall() {
   $configs = [
     'block.block.opencasecontextualmenu',
     'block.block.opencase',
+    'block.block.opencaseaddactors',
+    'system.menu.opencase-add-actors',
     'system.menu.openc',
     'views.view.cases',
     'block.block.opencaseglobal',
