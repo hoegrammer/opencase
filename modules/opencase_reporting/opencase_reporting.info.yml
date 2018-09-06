@@ -1,0 +1,12 @@
+name: 'OpenCase Reporting'
+type: module
+description: 'Reporting functionality for OpenCase'
+core: 8.x
+package: 'OpenCase'
+dependencies:
+  - opencase_entities
+  - search_api
+  - search_api_db
+  - facets
+libraries:
+  - opencase_reporting/opencase-reporting-lib
