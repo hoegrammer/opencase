@@ -30,7 +30,14 @@ function opencase_reporting_help($route_name, RouteMatchInterface $route_match) 
 function opencase_reporting_uninstall() {
   $configs = [
     'search_api.server.opencase_reporting_server',
-    'search_api.index.opencase_reporting_actors'
+    'search_api.index.opencase_reporting_actors',
+    'facets.facet.actor_type',
+    'facets.facet.actor_type_export',
+    'facets.facet.created',
+    'facets.facet.created_export',
+    'views.view.reporting_actors',
+    'block.block.facet_actortype',
+    'block.block.facet_created',
   ];
   foreach($configs as $config) {
     Drupal::configFactory()->getEditable($config)->delete();

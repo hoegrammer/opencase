@@ -8,5 +8,11 @@ dependencies:
   - search_api
   - search_api_db
   - facets
+  - csv_serialization
+  - rest
+  - serialization
+  - user
+  - views_data_export
+
 libraries:
   - opencase_reporting/opencase-reporting-lib
