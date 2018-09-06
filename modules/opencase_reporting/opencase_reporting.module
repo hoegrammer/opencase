@@ -1,0 +1,38 @@
+<?php
+
+/**
+ * @file
+ * Contains opencase_reporting.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function opencase_reporting_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the opencase_reporting module.
+    case 'help.page.opencase_reporting':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Reporting functionality for OpenCase.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_uninstall().
+ * Removes configs.
+ */
+function opencase_reporting_uninstall() {
+  $configs = [
+    'search_api.server.opencase_reporting_server',
+    'search_api.index.opencase_reporting_actors'
+  ];
+  foreach($configs as $config) {
+    Drupal::configFactory()->getEditable($config)->delete();
+  }
+} 
