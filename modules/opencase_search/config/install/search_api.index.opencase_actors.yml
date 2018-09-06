@@ -7,7 +7,7 @@ dependencies:
     - search_api
     - opencase_entities
 id: opencase_actors
-name: 'OpenCase Actors'
+name: 'OpenCase Search: Actors'
 description: ''
 read_only: false
 field_settings:
