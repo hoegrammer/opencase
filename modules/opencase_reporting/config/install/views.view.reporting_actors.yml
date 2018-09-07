@@ -413,10 +413,11 @@ display:
             title: All
           title_enable: true
           title: '{{ raw_arguments.null }}'
-          default_argument_type: raw
+          default_argument_type: query_parameter
           default_argument_options:
-            index: 3
-            use_alias: false
+            query_param: preset_title
+            fallback: '%nbsp;'
+            multiple: and
           default_argument_skip_url: false
           summary_options:
             base_path: ''
