@@ -23,6 +23,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: /opencase/reporting/actors
+    pages: '/opencase/reporting/actors/*'
     negate: false
     context_mapping: {  }
