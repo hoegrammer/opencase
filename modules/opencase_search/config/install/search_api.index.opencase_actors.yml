@@ -11,10 +11,15 @@ name: 'OpenCase Search: Actors'
 description: ''
 read_only: false
 field_settings:
-  name:
-    label: Name
+  first_name:
+    label: 'First Name'
     datasource_id: 'entity:oc_actor'
-    property_path: name
+    property_path: first_name
+    type: text
+  last_name:
+    label: 'Last Name'
+    datasource_id: 'entity:oc_actor'
+    property_path: last_name
     type: text
 datasource_settings:
   'entity:oc_actor':
@@ -25,16 +30,17 @@ datasource_settings:
       default: true
       selected: {  }
 processor_settings:
-  rendered_item: {  }
+  add_url: {  }
   aggregated_field: {  }
   ignorecase:
     all_fields: true
     fields:
-      - name
+      - first_name
+      - last_name
     weights:
       preprocess_index: -20
       preprocess_query: -20
-  add_url: {  }
+  rendered_item: {  }
 tracker_settings:
   default:
     indexing_order: fifo
