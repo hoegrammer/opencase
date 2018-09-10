@@ -290,13 +290,24 @@ class OCActor extends RevisionableContentEntityBase implements OCActorInterface 
       ->setDisplayOptions('view', [
         'label' => 'above',
         'type' => 'string',
-        'weight' => -1,
+        'weight' => -2,
       ])
       ->setDisplayOptions('form', [
         'type' => 'string_textfield',
-        'weight' => -1,
+        'weight' => -2,
       ])
       ->setRequired(TRUE);
+
+    $fields['consent'] = BaseFieldDefinition::create('boolean')
+      ->setLabel(t('Consent to data storage'))
+      ->setDescription(t('Has this person explicitly consented to having their personal data stored on this system?'))
+      ->setRevisionable(TRUE)
+      ->setDefaultValue(FALSE)
+      ->setRequired(TRUE)
+      ->setDisplayOptions('form', array(
+        'type' => 'checkbox',
+        'weight' => -1,
+      ));
 
     // Contact details.
     // so it is not exposed to user configuration. 
