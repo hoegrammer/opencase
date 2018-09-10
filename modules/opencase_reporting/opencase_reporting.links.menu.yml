@@ -1,0 +1,5 @@
+opencase_reporting.reporting:
+  title: 'Reporting'
+  menu_name: main 
+  url: internal:/opencase/reporting/actors
+  weight: 1
