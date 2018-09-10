@@ -416,7 +416,7 @@ display:
           default_argument_type: query_parameter
           default_argument_options:
             query_param: preset_title
-            fallback: '%nbsp;'
+            fallback: '&nbsp;'
             multiple: and
           default_argument_skip_url: false
           summary_options:

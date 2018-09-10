@@ -3,8 +3,9 @@ status: true
 dependencies:
   config:
     - search_api.index.opencase_reporting_actors
+    - views.view.reporting_actors
   module:
-    - views_data_export
+    - search_api
 id: actor_type
 name: 'Actor type'
 url_alias: actor_type
@@ -32,19 +33,19 @@ processor_configs:
   active_widget_order:
     processor_id: active_widget_order
     weights:
-      sort: 20
+      sort: -9
     settings:
       sort: DESC
   count_widget_order:
     processor_id: count_widget_order
     weights:
-      sort: 30
+      sort: -8
     settings:
       sort: DESC
   display_value_widget_order:
     processor_id: display_value_widget_order
     weights:
-      sort: 40
+      sort: -10
     settings:
       sort: ASC
   url_processor_handler:
@@ -56,4 +57,3 @@ processor_configs:
 empty_behavior:
   behavior: none
 show_title: false
-
