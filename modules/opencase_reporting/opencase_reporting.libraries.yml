@@ -3,3 +3,5 @@ opencase-reporting-lib:
   css:
     theme:
       css/opencase-reporting.css: {}
+  js:
+    js/opencase-reporting.js: {}

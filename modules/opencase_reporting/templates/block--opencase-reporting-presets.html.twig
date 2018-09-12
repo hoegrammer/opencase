@@ -1,11 +1,5 @@
-<select id="opencase_reporting_new">
-    <option disabled selected>Start a new report</option>
-    <option value="/opencase/reporting/actors">Actor based</option>
-    <option value="/opencase/reporting/cases">Case based</option>
-</select>
-<select id="opencase_reporting_presets_load">
-    <option disabled selected>Load a preset</option>
- {% for preset in presets %}
-    <option value={{ preset.url }}>{{ preset.title }}</option>
- {% endfor %}
-</select>
+<div id="opencase_reporting_buttons">
+  <button id="update-preset">Update template</button>
+  <button id="save-as-new-preset">Save as new template</button>
+  <button id="download-data">Download data</button>
+</div>

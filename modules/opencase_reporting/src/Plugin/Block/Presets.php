@@ -22,7 +22,7 @@ class Presets extends BlockBase {
    */
   public function build() {
     return array(
-      '#presets' => array(array('title'=>'me', 'url'=>'you'), array('title'=>'them', 'url'=>'us')),
+      '#presets' => array(array('title'=>'me and you', 'basis'=>'actors', 'filter'=>'&f%5B0%5D=actor_type%3Afat&f%5B1%5D=created%3A2018-09'), array('title'=>'them', 'basis'=>'actors')),
       '#theme' => 'opencase_reporting_presets'
     );
   }
