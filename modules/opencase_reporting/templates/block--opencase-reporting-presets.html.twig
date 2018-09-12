@@ -1,5 +1,10 @@
+<select id="opencase_reporting_new">
+    <option disabled selected>Start a new report</option>
+    <option value="/opencase/reporting/actors">Actor based</option>
+    <option value="/opencase/reporting/cases">Case based</option>
+</select>
 <select id="opencase_reporting_presets_load">
-    <option disabled selected>Load preset</option>
+    <option disabled selected>Load a preset</option>
  {% for preset in presets %}
     <option value={{ preset.url }}>{{ preset.title }}</option>
  {% endfor %}

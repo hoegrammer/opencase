@@ -3,3 +3,12 @@ opencase_reporting.reporting:
   menu_name: main 
   url: internal:/opencase/reporting/actors
   weight: 1
+
+# Preset menu items definition
+entity.preset.collection:
+  title: 'Preset'
+  route_name: entity.preset.collection
+  description: 'List Preset (bundles)'
+  parent: system.admin_structure
+  weight: 99
+
