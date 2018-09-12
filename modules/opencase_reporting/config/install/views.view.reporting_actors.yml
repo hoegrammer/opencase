@@ -416,7 +416,7 @@ display:
           default_argument_type: query_parameter
           default_argument_options:
             query_param: preset_title
-            fallback: '<p style="display:none;"></p>'
+            fallback: 'New actor report'
             multiple: and
           default_argument_skip_url: false
           summary_options:
@@ -453,7 +453,7 @@ display:
     position: 3
     display_options:
       display_extenders: {  }
-      path: opencase/reporting/actors/export
+      path: opencase/reporting/actors
       filename: '[view:title].csv'
       displays:
         default: '0'
@@ -486,10 +486,50 @@ display:
         type: none
       defaults:
         cache: false
+        arguments: false
       pager:
         type: none
         options:
           offset: 0
+      arguments:
+        'null':
+          id: 'null'
+          table: views
+          field: 'null'
+          relationship: none
+          group_type: group
+          admin_label: ''
+          default_action: default
+          exception:
+            value: all
+            title_enable: false
+            title: All
+          title_enable: true
+          title: '{{ raw_arguments.null }}'
+          default_argument_type: query_parameter
+          default_argument_options:
+            query_param: preset_title
+            fallback: 'Untitled actor report'
+            multiple: and
+          default_argument_skip_url: false
+          summary_options:
+            base_path: ''
+            count: true
+            items_per_page: 25
+            override: false
+          summary:
+            sort_order: asc
+            number_of_records: 0
+            format: default_summary
+          specify_validation: false
+          validate:
+            type: none
+            fail: 'not found'
+          validate_options: {  }
+          must_not_be: false
+          plugin_id: 'null'
+      auth:
+        - cookie
     cache_metadata:
       max-age: -1
       contexts:
