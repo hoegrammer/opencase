@@ -24,6 +24,18 @@ function opencase_reporting_help($route_name, RouteMatchInterface $route_match) 
 }
 
 /**
+ * Implements hook_theme().
+ */
+function opencase_reporting_theme() {
+  return array(
+   'opencase_reporting_presets' => array(
+      'variables' => array('presets' => array()),
+      'template' => 'block--opencase-reporting-presets',
+    ),
+  );
+}
+
+/**
  * Implements hook_page_attachments
  *
  * Add the opencase library to every page

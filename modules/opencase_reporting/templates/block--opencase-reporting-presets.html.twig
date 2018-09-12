@@ -1,0 +1,6 @@
+<select id="opencase_reporting_presets_load">
+    <option disabled selected>Load preset</option>
+ {% for preset in presets %}
+    <option value={{ preset.url }}>{{ preset.title }}</option>
+ {% endfor %}
+</select>
