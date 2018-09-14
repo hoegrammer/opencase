@@ -305,7 +305,7 @@ class OCActor extends RevisionableContentEntityBase implements OCActorInterface 
       ->setDefaultValue(FALSE)
       ->setRequired(TRUE)
       ->setDisplayOptions('form', array(
-        'type' => 'checkbox',
+        'type' => 'boolean_checkbox',
         'weight' => -1,
       ));
 
