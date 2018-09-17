@@ -1,0 +1,19 @@
+add opencase report entities:
+  title: 'Create new OpenCase Report entities'
+
+administer opencase report entities:
+  title: 'Administer OpenCase Report entities'
+  description: 'Allow to access the administration form to configure OpenCase Report entities.'
+  restrict access: true
+
+delete opencase report entities:
+  title: 'Delete OpenCase Report entities'
+
+edit opencase report entities:
+  title: 'Edit OpenCase Report entities'
+
+view published opencase report entities:
+  title: 'View published OpenCase Report entities'
+
+view unpublished opencase report entities:
+  title: 'View unpublished OpenCase Report entities'

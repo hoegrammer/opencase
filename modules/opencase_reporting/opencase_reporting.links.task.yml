@@ -1,0 +1,22 @@
+# OpenCase Report routing definition
+opencase_report.settings_tab:
+  route_name: opencase_report.settings
+  title: 'Settings'
+  base_route: opencase_report.settings
+
+entity.opencase_report.canonical:
+  route_name: entity.opencase_report.canonical
+  base_route: entity.opencase_report.canonical
+  title: 'View'
+
+entity.opencase_report.edit_form:
+  route_name: entity.opencase_report.edit_form
+  base_route: entity.opencase_report.canonical
+  title: 'Edit'
+
+entity.opencase_report.delete_form:
+  route_name:  entity.opencase_report.delete_form
+  base_route:  entity.opencase_report.canonical
+  title: Delete
+  weight: 10
+

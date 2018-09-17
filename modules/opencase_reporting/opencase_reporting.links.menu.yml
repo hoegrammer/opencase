@@ -1,0 +1,14 @@
+
+# OpenCase Report menu items definition
+entity.opencase_report.collection:
+  title: 'OpenCase Report list'
+  route_name: entity.opencase_report.collection
+  description: 'List OpenCase Report entities'
+  parent: system.admin_structure
+  weight: 100
+
+opencase_report.admin.structure.settings:
+  title: 'OpenCase Report settings'
+  description: 'Configure OpenCase Report entities'
+  route_name: opencase_report.settings
+  parent: system.admin_structure
