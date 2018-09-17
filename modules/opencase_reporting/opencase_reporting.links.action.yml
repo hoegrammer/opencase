@@ -1,6 +1,0 @@
-entity.opencase_report.add_form:
-  route_name: view.reporting_actors.page_1
-  title: 'New Report'
-  appears_on:
-    - entity.opencase_report.collection
-
