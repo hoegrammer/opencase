@@ -19,10 +19,9 @@ class OpenCaseReportForm extends EntityForm {
     $opencase_report = $this->entity;
     $form['label'] = [
       '#type' => 'textfield',
-      '#title' => $this->t('Label'),
+      '#title' => $this->t('Report Title'),
       '#maxlength' => 255,
       '#default_value' => $opencase_report->label(),
-      '#description' => $this->t("Label for the OpenCase Report."),
       '#required' => TRUE,
     ];
 
@@ -49,13 +48,13 @@ class OpenCaseReportForm extends EntityForm {
 
     switch ($status) {
       case SAVED_NEW:
-        drupal_set_message($this->t('Created the %label OpenCase Report.', [
+        drupal_set_message($this->t('Created report: %label.', [
           '%label' => $opencase_report->label(),
         ]));
         break;
 
       default:
-        drupal_set_message($this->t('Saved the %label OpenCase Report.', [
+        drupal_set_message($this->t('Saved report: %label.', [
           '%label' => $opencase_report->label(),
         ]));
     }

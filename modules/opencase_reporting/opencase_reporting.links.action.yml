@@ -1,6 +1,6 @@
 entity.opencase_report.add_form:
   route_name: entity.opencase_report.add_form
-  title: 'Add OpenCase Report'
+  title: 'New Report'
   appears_on:
     - entity.opencase_report.collection
 
