@@ -23,7 +23,7 @@ use Drupal\Core\Config\Entity\ConfigEntityBase;
  *     },
  *   },
  *   config_prefix = "opencase_report",
- *   admin_permission = "administer site configuration",
+ *   admin_permission = "use opencase",
  *   entity_keys = {
  *     "id" = "id",
  *     "label" = "label",
@@ -34,7 +34,7 @@ use Drupal\Core\Config\Entity\ConfigEntityBase;
  *     "add-form" = "/opencase/reporting/opencase_report/add",
  *     "edit-form" = "/opencase/reporting/opencase_report/{opencase_report}/edit",
  *     "delete-form" = "/opencase/reporting/opencase_report/{opencase_report}/delete",
- *     "collection" = "/opencase/reporting/opencase_report"
+ *     "collection" = "/opencase/reporting/opencase_reports"
  *   }
  * )
  */

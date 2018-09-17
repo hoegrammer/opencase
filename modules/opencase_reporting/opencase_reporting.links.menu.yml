@@ -1,7 +1,7 @@
 opencase_reporting.reporting:
   title: 'Reporting'
   menu_name: main 
-  url: internal:/opencase/reporting
+  url: internal:/opencase/reporting/opencase_reports
   weight: 1
 
 # OpenCase Report menu items definition

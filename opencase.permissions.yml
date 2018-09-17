@@ -1,5 +1,5 @@
 use opencase:
-title: 'Use OpenCase'
-description: 'Use the OpenCase case management system'
-restrict access: true
+  title: 'Use OpenCase'
+  description: 'Use the OpenCase case management system'
+  restrict access: true
 
