@@ -1,5 +1,5 @@
-entity.opencase_report.add_form:
-  route_name: entity.opencase_report.add_form
-  title: 'Add OpenCase Report'
+entity.opencase_report.create_new:
+  route_name: view.reporting_actors.page_1 
+  title: 'Create a new report'
   appears_on:
-    - entity.opencase_report.collection
+    - view.opencase_saved_reports.page_1

@@ -44,7 +44,7 @@ class OpenCaseReportForm extends ContentEntityForm {
           '%label' => $entity->label(),
         ]));
     }
-    $form_state->setRedirect('entity.opencase_report.canonical', ['opencase_report' => $entity->id()]);
+    $form_state->setRedirect('view.opencase_saved_reports.page_1');
   }
 
 }
