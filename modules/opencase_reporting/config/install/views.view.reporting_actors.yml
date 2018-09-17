@@ -398,43 +398,7 @@ display:
       footer: {  }
       empty: {  }
       relationships: {  }
-      arguments:
-        'null':
-          id: 'null'
-          table: views
-          field: 'null'
-          relationship: none
-          group_type: group
-          admin_label: ''
-          default_action: default
-          exception:
-            value: all
-            title_enable: false
-            title: All
-          title_enable: true
-          title: '{{ raw_arguments.null }}'
-          default_argument_type: query_parameter
-          default_argument_options:
-            query_param: preset_title
-            fallback: 'New actor report'
-            multiple: and
-          default_argument_skip_url: false
-          summary_options:
-            base_path: ''
-            count: true
-            items_per_page: 25
-            override: false
-          summary:
-            sort_order: asc
-            number_of_records: 0
-            format: default_summary
-          specify_validation: false
-          validate:
-            type: none
-            fail: 'not found'
-          validate_options: {  }
-          must_not_be: false
-          plugin_id: 'null'
+      arguments: {  }
       display_extenders: {  }
       use_ajax: true
     cache_metadata:
@@ -442,7 +406,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - url
         - url.query_args
         - user.permissions
       tags: {  }
@@ -491,43 +454,7 @@ display:
         type: none
         options:
           offset: 0
-      arguments:
-        'null':
-          id: 'null'
-          table: views
-          field: 'null'
-          relationship: none
-          group_type: group
-          admin_label: ''
-          default_action: default
-          exception:
-            value: all
-            title_enable: false
-            title: All
-          title_enable: true
-          title: '{{ raw_arguments.null }}'
-          default_argument_type: query_parameter
-          default_argument_options:
-            query_param: preset_title
-            fallback: 'Untitled actor report'
-            multiple: and
-          default_argument_skip_url: false
-          summary_options:
-            base_path: ''
-            count: true
-            items_per_page: 25
-            override: false
-          summary:
-            sort_order: asc
-            number_of_records: 0
-            format: default_summary
-          specify_validation: false
-          validate:
-            type: none
-            fail: 'not found'
-          validate_options: {  }
-          must_not_be: false
-          plugin_id: 'null'
+      arguments: {  }
       auth:
         - cookie
     cache_metadata:
@@ -536,7 +463,6 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - request_format
-        - url
         - user.permissions
       tags: {  }
   page_1:
@@ -556,7 +482,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - url
         - url.query_args
         - user.permissions
       tags: {  }

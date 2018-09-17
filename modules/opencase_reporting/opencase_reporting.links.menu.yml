@@ -1,14 +1,14 @@
 opencase_reporting.reporting:
   title: 'Reporting'
   menu_name: main 
-  url: internal:/opencase/reporting/actors
+  url: internal:/opencase/reporting
   weight: 1
 
-# Preset menu items definition
-entity.preset.collection:
-  title: 'Preset'
-  route_name: entity.preset.collection
-  description: 'List Preset (bundles)'
+# OpenCase Report menu items definition
+entity.opencase_report.collection:
+  title: 'OpenCase Reports'
+  route_name: entity.opencase_report.collection
+  description: 'List OpenCase Reports'
   parent: system.admin_structure
   weight: 99
 

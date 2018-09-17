@@ -1,0 +1,12 @@
+opencase_reporting.opencase_report.*:
+  type: config_entity
+  label: 'OpenCase Report config'
+  mapping:
+    id:
+      type: string
+      label: 'ID'
+    label:
+      type: label
+      label: 'Label'
+    uuid:
+      type: string
