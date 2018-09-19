@@ -235,7 +235,7 @@ class OCActor extends RevisionableContentEntityBase implements OCActorInterface 
       ->setDisplayOptions('view', [
         'label' => 'inline',
         'type' => 'author',
-        'weight' => -4,
+        'weight' => -10,
       ]);
 
     $fields['first_name'] = BaseFieldDefinition::create('string')
@@ -250,11 +250,11 @@ class OCActor extends RevisionableContentEntityBase implements OCActorInterface 
       ->setDisplayOptions('view', [
         'label' => 'above',
         'type' => 'string',
-        'weight' => -3,
+        'weight' => -9,
       ])
       ->setDisplayOptions('form', [
         'type' => 'string_textfield',
-        'weight' => -3,
+        'weight' => -9,
       ])
       ->setRequired(TRUE);
 
@@ -270,11 +270,11 @@ class OCActor extends RevisionableContentEntityBase implements OCActorInterface 
       ->setDisplayOptions('view', [
         'label' => 'above',
         'type' => 'string',
-        'weight' => -2,
+        'weight' => -8,
       ])
       ->setDisplayOptions('form', [
         'type' => 'string_textfield',
-        'weight' => -2,
+        'weight' => -8,
       ])
       ->setRequired(FALSE);
 
@@ -290,11 +290,11 @@ class OCActor extends RevisionableContentEntityBase implements OCActorInterface 
       ->setDisplayOptions('view', [
         'label' => 'above',
         'type' => 'string',
-        'weight' => -2,
+        'weight' => -7,
       ])
       ->setDisplayOptions('form', [
         'type' => 'string_textfield',
-        'weight' => -2,
+        'weight' => -7,
       ])
       ->setRequired(TRUE);
 
@@ -306,7 +306,7 @@ class OCActor extends RevisionableContentEntityBase implements OCActorInterface 
       ->setRequired(TRUE)
       ->setDisplayOptions('form', array(
         'type' => 'boolean_checkbox',
-        'weight' => -1,
+        'weight' => -6,
       ));
 
     // Contact details.
@@ -321,16 +321,14 @@ class OCActor extends RevisionableContentEntityBase implements OCActorInterface 
       ->setDisplayOptions('view', array(
         'label' => 'above',
         'type' => 'string',
-        'weight' => 0,
+        'weight' => -5,
       ))
       ->setDisplayOptions('form', array(
         'type' => 'string_textfield',
-        'weight' => 0,
+        'weight' => -5,
       ));
     $fields['phone'] = BaseFieldDefinition::create('string')
       ->setLabel(t('Main Phone Number'))
-      ->setDisplayConfigurable('view', TRUE)
-      ->setDisplayConfigurable('form', TRUE)
       ->setSettings(array(
         'default_value' => '',
         'max_length' => 20,
@@ -339,11 +337,11 @@ class OCActor extends RevisionableContentEntityBase implements OCActorInterface 
       ->setDisplayOptions('view', array(
         'label' => 'above',
         'type' => 'string',
-        'weight' => 2,
+        'weight' => -4,
       ))
       ->setDisplayOptions('form', array(
         'type' => 'string_textfield',
-        'weight' => 2,
+        'weight' => -4,
       ));
     $fields['phone2'] = BaseFieldDefinition::create('string')
       ->setLabel(t('Alternative Phone Number'))
@@ -352,22 +350,18 @@ class OCActor extends RevisionableContentEntityBase implements OCActorInterface 
         'max_length' => 20,
         'text_processing' => 0,
       ))
-      ->setDisplayConfigurable('view', TRUE)
-      ->setDisplayConfigurable('form', TRUE)
       ->setDisplayOptions('view', array(
         'label' => 'above',
         'type' => 'string',
-        'weight' => 3,
+        'weight' => -3,
       ))
       ->setDisplayOptions('form', array(
         'type' => 'string_textfield',
-        'weight' => 3,
+        'weight' => -3,
       ));
     $fields['postal_address'] = BaseFieldDefinition::create('string_long')
       ->setLabel(t('Postal Address'))
       ->setDescription(t('Full address, apart from post code.'))
-      ->setDisplayConfigurable('view', TRUE)
-      ->setDisplayConfigurable('form', TRUE)
       ->setSettings(array(
         'default_value' => '',
         'max_length' => 255,
@@ -376,11 +370,11 @@ class OCActor extends RevisionableContentEntityBase implements OCActorInterface 
       ->setDisplayOptions('view', array(
         'label' => 'above',
         'type' => 'basic_string',
-        'weight' => 5,
+        'weight' => -2,
       ))
       ->setDisplayOptions('form', array(
         'type' => 'string_textarea',
-        'weight' => 5,
+        'weight' => -2,
       ));
     $fields['post_code'] = BaseFieldDefinition::create('string')
       ->setLabel(t('Post Code'))
@@ -392,11 +386,11 @@ class OCActor extends RevisionableContentEntityBase implements OCActorInterface 
       ->setDisplayOptions('view', array(
         'label' => 'above',
         'type' => 'string',
-        'weight' => 6,
+        'weight' => 1-1,
       ))
       ->setDisplayOptions('form', array(
         'type' => 'string_textfield',
-        'weight' => 6,
+        'weight' => -1,
       ));
 
     $fields['created'] = BaseFieldDefinition::create('created')
