@@ -3,6 +3,8 @@ status: true
 dependencies:
   config:
     - search_api.index.opencase_reporting_actors
+  content:
+    - 'block_content:basic:944ff38d-5931-4439-91d5-f53b5ad7aac7'
   module:
     - csv_serialization
     - rest
@@ -398,7 +400,43 @@ display:
       footer: {  }
       empty: {  }
       relationships: {  }
-      arguments: {  }
+      arguments:
+        'null':
+          id: 'null'
+          table: views
+          field: 'null'
+          relationship: none
+          group_type: group
+          admin_label: ''
+          default_action: default
+          exception:
+            value: all
+            title_enable: false
+            title: All
+          title_enable: true
+          title: '{{ "now"|date("Y/m/d") }}-{{ raw_arguments.null }} '
+          default_argument_type: query_parameter
+          default_argument_options:
+            query_param: title
+            fallback: Report
+            multiple: and
+          default_argument_skip_url: false
+          summary_options:
+            base_path: ''
+            count: true
+            items_per_page: 25
+            override: false
+          summary:
+            sort_order: asc
+            number_of_records: 0
+            format: default_summary
+          specify_validation: false
+          validate:
+            type: none
+            fail: 'not found'
+          validate_options: {  }
+          must_not_be: false
+          plugin_id: 'null'
       display_extenders: {  }
       use_ajax: true
     cache_metadata:
@@ -406,6 +444,7 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
         - user.permissions
       tags: {  }
@@ -454,7 +493,43 @@ display:
         type: none
         options:
           offset: 0
-      arguments: {  }
+      arguments:
+        'null':
+          id: 'null'
+          table: views
+          field: 'null'
+          relationship: none
+          group_type: group
+          admin_label: ''
+          default_action: default
+          exception:
+            value: all
+            title_enable: false
+            title: All
+          title_enable: true
+          title: '{{ raw_arguments.null }}'
+          default_argument_type: query_parameter
+          default_argument_options:
+            query_param: title
+            fallback: New+Report
+            multiple: and
+          default_argument_skip_url: false
+          summary_options:
+            base_path: ''
+            count: true
+            items_per_page: 25
+            override: false
+          summary:
+            sort_order: asc
+            number_of_records: 0
+            format: default_summary
+          specify_validation: false
+          validate:
+            type: none
+            fail: 'not found'
+          validate_options: {  }
+          must_not_be: false
+          plugin_id: 'null'
       auth:
         - cookie
     cache_metadata:
@@ -463,6 +538,7 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - request_format
+        - url
         - user.permissions
       tags: {  }
   page_1:
@@ -477,11 +553,36 @@ display:
         type: none
       defaults:
         cache: false
+        header: false
+      menu:
+        type: tab
+        title: Reporting
+        description: ''
+        expanded: false
+        parent: ''
+        weight: 0
+        context: '0'
+        menu_name: main
+      header:
+        entity_block_content:
+          id: entity_block_content
+          table: views
+          field: entity_block_content
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          target: 944ff38d-5931-4439-91d5-f53b5ad7aac7
+          view_mode: default
+          bypass_access: false
+          plugin_id: entity
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
         - user.permissions
       tags: {  }

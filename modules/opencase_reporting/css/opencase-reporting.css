@@ -1,0 +1,16 @@
+.facet-item label {
+    display: inline;
+    padding-left: 5px;
+}
+
+li.facet-item {
+      list-style-type: none;
+}
+
+#opencase_reporting_buttons {
+  margin-bottom: 20px;
+}
+
+#opencase_reporting_buttons #download-data{
+  float: right;
+}
