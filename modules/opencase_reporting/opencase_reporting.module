@@ -23,14 +23,6 @@ function opencase_reporting_help($route_name, RouteMatchInterface $route_match) 
   }
 }
 
-/**
- * Implements hook_page_attachments
- *
- * Add the opencase library to every page
- */
-function opencase_reporting_page_attachments(array &$page) {
-  $page['#attached']['library'][] = 'opencase_reporting/opencase-reporting-lib';
-}
 
 /**
  * Implements hook_uninstall().
