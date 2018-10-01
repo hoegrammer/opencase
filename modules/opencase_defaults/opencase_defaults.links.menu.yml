@@ -10,3 +10,21 @@ opencase.add_client:
   menu_name: opencase-add-actors
   url: internal:/opencase/oc_actor/add/client
   weight: 1
+opencase_reporting.clients:
+  title: 'Clients'
+  description: 'Report on clients'
+  menu_name: opencase_reporting
+  url: internal:/opencase/reporting/clients
+  weight: 0
+opencase_reporting.volunteers:
+  title: 'Volunteers'
+  description: 'Report on volunteers'
+  menu_name: opencase_reporting
+  url: internal:/opencase/reporting/volunteers
+  weight: 1
+opencase_reporting.cases:
+  title: 'Cases'
+  description: 'Report on cases'
+  menu_name: opencase_reporting
+  url: internal:/opencase/reporting/cases
+  weight: 2
