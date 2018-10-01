@@ -1,0 +1,6 @@
+opencase_reporting.new_report:
+  title: 'Custom report'
+  description: 'Make your own report'
+  menu_name: opencase_reporting
+  url: internal:/opencase/reporting/actors?title=Custom+Report
+  weight: 0

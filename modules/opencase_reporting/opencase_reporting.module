@@ -47,6 +47,8 @@ function opencase_reporting_uninstall() {
     'views.view.reporting_actors',
     'block.block.facet_actortype',
     'block.block.facet_created',
+    'block.block.opencase_reporting_menu',
+    'system.menu.opencase_reporting'
   ];
   foreach($configs as $config) {
     Drupal::configFactory()->getEditable($config)->delete();

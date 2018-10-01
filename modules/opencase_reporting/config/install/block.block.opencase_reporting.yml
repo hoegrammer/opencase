@@ -1,0 +1,23 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.opencase_reporting
+  module:
+    - system
+  theme:
+    - bartik
+id: opencase_reporting_menu
+theme: bartik
+region: sidebar_first
+weight: -8
+provider: null
+plugin: 'system_menu_block:opencase_reporting'
+settings:
+  id: 'system_menu_block:opencase_reporting'
+  label: 'Reporting'
+  provider: system
+  label_display: visible
+  level: 1
+  depth: 0
+visibility: {  }
