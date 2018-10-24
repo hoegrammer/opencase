@@ -1,0 +1,25 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - opencase
+    - system
+  theme:
+    - bartik
+id: actortypehelp
+theme: bartik
+region: content
+weight: -11
+provider: null
+plugin: actor_type_help
+settings:
+  id: actor_type_help
+  label: 'Actor Type Help'
+  provider: opencase
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: '/admin/opencase/oc_actor_type/*/edit/fields'
+    negate: false
+    context_mapping: {  }
