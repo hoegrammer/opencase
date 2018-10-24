@@ -7,10 +7,9 @@ li.facet-item {
       list-style-type: none;
 }
 
-#opencase_reporting_buttons {
-  margin-bottom: 20px;
-}
-
-#opencase_reporting_buttons #download-data{
+.views-data-export-feed.csv-feed .feed-icon {
+  background-image: url(/modules/contrib/opencase/modules/opencase_reporting/assets/download.png);
+  width: 200px;
+  height: 27px;
   float: right;
 }
