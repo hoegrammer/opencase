@@ -34,3 +34,7 @@ opencase.send_feedback:
   menu_name: openc
   url: internal:/contact
   weight: 1
+opencase.add_actors_links:
+  class: Drupal\opencase\Plugin\Menu\AddActorsMenuLink
+  deriver: Drupal\opencase\Plugin\Derivative\AddActorsMenuLink
+  menu_name: opencase-add-actors
