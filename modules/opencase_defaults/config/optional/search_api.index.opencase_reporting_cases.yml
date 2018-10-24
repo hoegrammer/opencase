@@ -1,0 +1,57 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - opencase_entities
+    - search_api
+  config:
+    - field.storage.oc_case.field_outcome
+    - search_api.server.opencase_reporting_server
+id: opencase_reporting_cases
+name: 'OpenCase Reporting: Cases'
+description: ''
+read_only: false
+field_settings:
+  actors_involved:
+    label: 'Involved Parties'
+    datasource_id: 'entity:oc_case'
+    property_path: actors_involved
+    type: integer
+    dependencies:
+      module:
+        - opencase_entities
+  created:
+    label: Created
+    datasource_id: 'entity:oc_case'
+    property_path: created
+    type: date
+    dependencies:
+      module:
+        - opencase_entities
+  field_outcome:
+    label: Outcome
+    datasource_id: 'entity:oc_case'
+    property_path: field_outcome
+    type: string
+    dependencies:
+      config:
+        - field.storage.oc_case.field_outcome
+datasource_settings:
+  'entity:oc_case':
+    bundles:
+      default: true
+      selected: {  }
+    languages:
+      default: true
+      selected: {  }
+processor_settings:
+  add_url: {  }
+  aggregated_field: {  }
+  rendered_item: {  }
+tracker_settings:
+  default:
+    indexing_order: fifo
+options:
+  index_directly: true
+  cron_limit: 50
+server: opencase_reporting_server

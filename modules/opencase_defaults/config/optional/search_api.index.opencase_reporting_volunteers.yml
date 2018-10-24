@@ -1,0 +1,50 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - opencase_entities
+    - search_api
+  config:
+    - field.storage.oc_actor.field_osic_level
+    - search_api.server.opencase_reporting_server
+id: opencase_reporting_volunteers
+name: 'OpenCase Reporting: Volunteers'
+description: ''
+read_only: false
+field_settings:
+  created:
+    label: Created
+    datasource_id: 'entity:oc_actor'
+    property_path: created
+    type: date
+    dependencies:
+      module:
+        - opencase_entities
+  field_osic_level:
+    label: 'OSIC level'
+    datasource_id: 'entity:oc_actor'
+    property_path: field_osic_level
+    type: string
+    dependencies:
+      config:
+        - field.storage.oc_actor.field_osic_level
+datasource_settings:
+  'entity:oc_actor':
+    bundles:
+      default: false
+      selected:
+        - volunteer
+    languages:
+      default: true
+      selected: {  }
+processor_settings:
+  add_url: {  }
+  aggregated_field: {  }
+  rendered_item: {  }
+tracker_settings:
+  default:
+    indexing_order: fifo
+options:
+  index_directly: true
+  cron_limit: 50
+server: opencase_reporting_server
