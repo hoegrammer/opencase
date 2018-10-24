@@ -10,6 +10,7 @@ allowedActivityTypes:
   interview: interview
   lete: lete
   research: research
+  supervision: supervision
   telephone_call: telephone_call
   volunteer_training_session: volunteer_training_session
   destitution_funds_provided: 0
