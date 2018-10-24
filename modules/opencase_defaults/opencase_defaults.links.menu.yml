@@ -22,9 +22,3 @@ opencase_reporting.volunteers:
   menu_name: opencase_reporting
   url: internal:/opencase/reporting/volunteers
   weight: 1
-opencase_reporting.cases:
-  title: 'Cases'
-  description: 'Report on cases'
-  menu_name: opencase_reporting
-  url: internal:/opencase/reporting/cases
-  weight: 2
