@@ -53,8 +53,8 @@ content:
     weight: 3
     label: above
     settings:
-      format_type: medium
       timezone_override: ''
+      format_type: short
     third_party_settings: {  }
     type: datetime_default
     region: content
@@ -140,28 +140,5 @@ content:
     region: content
     settings:
       link_to_entity: false
-    third_party_settings: {  }
-  phone:
-    label: above
-    type: string
-    weight: 0
-    region: content
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-  phone2:
-    label: above
-    type: string
-    weight: 1
-    region: content
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-  postal_address:
-    label: above
-    type: basic_string
-    weight: 2
-    region: content
-    settings: {  }
     third_party_settings: {  }
 hidden: {  }
