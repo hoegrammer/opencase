@@ -45,7 +45,7 @@ class AddActorsMenuLink extends DeriverBase implements ContainerDeriverInterface
     $actorTypes = $this->entityTypeManager->getStorage('oc_actor_type')->loadMultiple();
     foreach ($actorTypes as $id => $actorType) {
       $links[$id] = [
-        'title' => "Add a ". $actorType->label(),
+        'title' => "Add ". $actorType->label(),
         'route_name' => "entity.oc_actor.add_form",
         'route_parameters' => ['oc_actor_type' => $actorType->id()]
       ] + $base_plugin_definition;
