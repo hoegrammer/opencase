@@ -23,6 +23,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: '<front>'
-    negate: true
+    pages: '/opencase/reporting/*'
+    negate: false
     context_mapping: {  }
