@@ -5,6 +5,7 @@ dependencies:
     - facets.facet.osic_level
   module:
     - facets
+    - system
   theme:
     - bartik
 id: osiclevel
@@ -19,4 +20,9 @@ settings:
   provider: facets
   label_display: visible
   block_id: osiclevel
-visibility: {  }
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: true
+    context_mapping: {  }
