@@ -15,5 +15,6 @@ permissions:
   - 'edit activity entities'
   - 'edit case entities'
   - 'edit client entities'
+  - 'use opencase'
   - 'view own cases'
   - 'view published client entities'

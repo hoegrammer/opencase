@@ -15,4 +15,5 @@ permissions:
   - 'edit activity entities'
   - 'edit case entities'
   - 'edit volunteer entities'
+  - 'use opencase'
   - 'view published volunteer entities'

@@ -18,6 +18,7 @@ permissions:
   - 'edit case entities'
   - 'edit client entities'
   - 'edit volunteer entities'
+  - 'use opencase'
   - 'view published case entities'
   - 'view published client entities'
   - 'view published volunteer entities'
