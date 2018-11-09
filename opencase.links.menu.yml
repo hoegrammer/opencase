@@ -1,13 +1,20 @@
-opencase.all-cases:
-  title: 'My cases'
-  description: ''
+opencase.cases:
+  title: 'Cases'
+  description: 'View cases'
   menu_name: opencase 
-  url: internal:/opencase/all-cases
+  url: internal:#
   weight: 0
+opencase.opencase_all_cases:
+  title: 'All Cases'
+  description: 'All cases I have access to'
+  menu_name: opencase 
+  parent: opencase.cases
+  url: internal:/opencase/all-cases
+  weight: 1
 
 opencase.opencase_add_people_menu:
   title: 'Add people'
-  description: 'Add more people to OpenCase'
+  description: 'Add new people'
   menu_name: opencase 
   url: internal:#
   weight: 1
@@ -20,8 +27,8 @@ opencase.add_people_links:
 opencase.opencase_admin_menu:
   title: 'Administration'
   description: 'Management and Configuration'
+  route_name: opencase.opencase_admin_menu
   menu_name: opencase 
-  url: internal:#
   weight: 100
 opencase.manage_user_logins:
   title: 'Manage user logins'
