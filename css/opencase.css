@@ -16,3 +16,16 @@ body {
 .js-form-item.form-item.js-form-type-checkbox.form-type-checkbox.js-form-item-new-revision.form-item-new-revision {
   display: none;
 }
+
+/* Style the search box in header bar. */
+#block-exposedformactor-searchpage-1 {
+  top: -20px;
+}
+
+#block-exposedformactor-searchpage-1 #edit-actions {
+  padding-top: 0;
+}
+
+#block-exposedformactor-searchpage-1 .form-text {
+  width: 200px;
+}

@@ -9,7 +9,7 @@ dependencies:
     - bartik
 id: exposedformactor_searchpage_1
 theme: bartik
-region: sidebar_first
+region: header
 weight: -9
 provider: null
 plugin: 'views_exposed_filter_block:actor_search-page_1'

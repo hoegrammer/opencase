@@ -554,7 +554,7 @@ display:
           expose:
             operator_id: search_api_fulltext_op
             label: 'Search by Name'
-            description: 'Type at least 3 letters of a first or last name and press enter.'
+            description: 'Type at least 3 letters and press enter.'
             use_operator: false
             operator: search_api_fulltext_op
             identifier: search_api_fulltext
