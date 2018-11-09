@@ -30,8 +30,6 @@ function opencase_block_access(\Drupal\block\Entity\Block $block, $operation, \D
       'entity.oc_activity.canonical',
       'entity.oc_activity.edit_form',
       'entity.oc_activity.add_form',
-      'system.menu.opencase-add-actors',
-      'block.block.opencaseaddactors',
     ];
     return AccessResult::forbiddenIf(!in_array($route_name, $routes_where_it_should_be_shown))->addCacheableDependency($block);
   }
@@ -140,13 +138,7 @@ function opencase_form_oc_case_type_edit_form_alter(&$form, $form_state) {
 function opencase_uninstall() {
   $configs = [
     'block.block.opencasecontextualmenu',
-    'block.block.opencase',
-    'block.block.opencaseaddactors',
-    'system.menu.opencase-add-actors',
-    'system.menu.openc',
     'views.view.cases',
-    'block.block.opencaseglobal',
-    'system.menu.opencase-admin',
     'views.view.activities'
   ];
   foreach($configs as $config) {

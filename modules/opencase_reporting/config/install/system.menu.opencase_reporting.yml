@@ -1,7 +1,0 @@
-langcode: en
-status: true
-dependencies: {  }
-id: opencase_reporting
-label: 'OpenCase Reporting'
-description: ''
-locked: false

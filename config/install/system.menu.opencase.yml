@@ -1,7 +1,0 @@
-langcode: en
-status: true
-dependencies: {  }
-id: opencase
-label: OpenCase
-description: 'Main navigation menu for OpenCase'
-locked: false
