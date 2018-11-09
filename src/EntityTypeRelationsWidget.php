@@ -20,7 +20,7 @@ class EntityTypeRelationsWidget {
       $options[$machine_name] = $info['label'];
     }
     $form['allowed_actor_types'] = array(
-      '#title' => t('Actor types'),
+      '#title' => t('Allowed involved parties'),
       '#description' => t('Types of people that can be involved in this kind of case.'),
       '#type' => 'checkboxes',
       '#options' => $options

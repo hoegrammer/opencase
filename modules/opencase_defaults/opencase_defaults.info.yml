@@ -1,6 +1,6 @@
 name: 'Opencase Example Configuration'
 type: module
-description: 'Actor types, case types, activity types and user roles suited to an asylum advice group'
+description: 'Person types, case types, activity types and user roles suited to an asylum advice group'
 core: 8.x
 package: 'OpenCase'
 dependencies:

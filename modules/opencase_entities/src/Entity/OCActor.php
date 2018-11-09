@@ -17,8 +17,8 @@ use Drupal\user\UserInterface;
  *
  * @ContentEntityType(
  *   id = "oc_actor",
- *   label = @Translation("Actor"),
- *   bundle_label = @Translation("Actor type"),
+ *   label = @Translation("Person"),
+ *   bundle_label = @Translation("Person type"),
  *   handlers = {
  *     "storage" = "Drupal\opencase_entities\OCActorStorage",
  *     "view_builder" = "Drupal\Core\Entity\EntityViewBuilder",

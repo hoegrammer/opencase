@@ -8,7 +8,7 @@ dependencies:
     - search_api
     - user
 id: actor_search
-label: 'Actor Search'
+label: 'Person Search'
 module: views
 description: ''
 tag: ''

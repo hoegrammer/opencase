@@ -55,13 +55,13 @@ class OCActorForm extends ContentEntityForm {
 
     switch ($status) {
       case SAVED_NEW:
-        drupal_set_message($this->t('Created the %label Actor.', [
+        drupal_set_message($this->t('Created %label.', [
           '%label' => $entity->label(),
         ]));
         break;
 
       default:
-        drupal_set_message($this->t('Saved the %label Actor.', [
+        drupal_set_message($this->t('Saved %label.', [
           '%label' => $entity->label(),
         ]));
     }

@@ -21,7 +21,7 @@ class ActorTypeHelp extends BlockBase {
   public function build() {
     return array(
       '#markup' => "
-        <h3>All actor types have contact details fields by default. Other fields can be added and managed here.</h3>
+        <h3>All person types have contact details fields by default. Other fields can be added and managed here.</h3>
 
       "
     );

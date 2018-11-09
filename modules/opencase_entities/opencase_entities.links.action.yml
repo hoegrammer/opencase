@@ -1,11 +1,11 @@
 entity.oc_actor.add_form:
   route_name: entity.oc_actor.add_page
-  title: 'Add Actor'
+  title: 'Add Person'
   appears_on:
     - entity.oc_actor.collection
 entity.oc_actor_type.add_form:
   route_name: entity.oc_actor_type.add_form
-  title: 'Add Actor type'
+  title: 'Add Person type'
   appears_on:
     - entity.oc_actor_type.collection
 
