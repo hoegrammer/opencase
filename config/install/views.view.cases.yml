@@ -584,7 +584,7 @@ display:
           admin_label: ''
           empty: true
           tokenize: false
-          content: "<h1>No cases found</h1>\n<p>You do not have access to any existing cases.</p>\n<p>To <b>add a new case</b>, first search for the person you want to add a case to. If they are not on the system yet you can add them using the <b>Add actors</b> menu in the left sidebar.</p>\n"
+          content: "<h1>No cases found</h1>\n<p>You do not have access to any existing cases.</p>\n<p>To <b>add a new case</b>, first search for the person you want to add a case to. If they are not on the system yet you can add them using the <b>Add People.</b> menu.</p>\n"
           plugin_id: text_custom
     cache_metadata:
       max-age: -1

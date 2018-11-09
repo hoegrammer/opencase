@@ -1,40 +1,75 @@
+opencase.all-cases:
+  title: 'My cases'
+  description: ''
+  menu_name: opencase 
+  url: internal:/opencase/all-cases
+  weight: 0
+
+opencase.opencase_add_people_menu:
+  title: 'Add people'
+  description: 'Add more people to OpenCase'
+  menu_name: opencase 
+  url: internal:#
+  weight: 1
+opencase.add_people_links:
+  class: Drupal\opencase\Plugin\Menu\AddActorsMenuLink
+  deriver: Drupal\opencase\Plugin\Derivative\AddActorsMenuLink
+  menu_name: opencase
+  parent: opencase.opencase_add_people_menu
+
+opencase.opencase_admin_menu:
+  title: 'Administration'
+  description: 'Management and Configuration'
+  menu_name: opencase 
+  url: internal:#
+  weight: 100
 opencase.manage_user_logins:
   title: 'Manage user logins'
   description: 'Manage who can access the system'
-  menu_name: opencase-admin 
+  menu_name: opencase
+  parent: opencase.opencase_admin_menu 
   url: internal:/admin/people
   weight: 0
-opencase.manage_actor_types:
-  title: 'Manage actor types'
-  description: 'Configure types of actors and their fields'
-  menu_name: opencase-admin 
+opencase.manage_person_types:
+  title: 'Manage person types'
+  description: 'Configure types of people and their fields'
+  menu_name: opencase
+  parent: opencase.opencase_admin_menu 
   url: internal:/admin/opencase/oc_actor_type
   weight: 1
 opencase.manage_case_types:
   title: 'Manage case types'
   description: 'Configure types of cases and their fields'
-  menu_name: opencase-admin 
+  menu_name: opencase
+  parent: opencase.opencase_admin_menu 
   url: internal:/admin/opencase/oc_case_type
   weight: 2
 opencase.manage_activity_types:
   title: 'Manage activity types'
   description: 'Configure types of activities and their fields'
-  menu_name: opencase-admin 
+  menu_name: opencase
+  parent: opencase.opencase_admin_menu 
   url: internal:/admin/opencase/oc_activity_type
   weight: 3
+
+opencase.opencase_support_menu:
+  title: 'Support'
+  description: 'Get help and advice'
+  menu_name: opencase 
+  url: internal:#
+  weight: 101
 opencase.view_documentation:
   title: 'Read documentation'
   description: 'Find out about OpenCase and how it works'
-  menu_name: openc
+  menu_name: opencase
+  parent: opencase.opencase_support_menu 
   url: https://hoegrammer.gitbooks.io/opencase/content/
   weight: 0
-opencase.send_feedback:
-  title: 'Send feedback'
+opencase.contact_developers:
+  title: 'Contact OpenCase'
   description: 'Contact the OpenCase developers'
-  menu_name: openc
+  menu_name: opencase
+  parent: opencase.opencase_support_menu 
   url: internal:/contact
   weight: 1
-opencase.add_actors_links:
-  class: Drupal\opencase\Plugin\Menu\AddActorsMenuLink
-  deriver: Drupal\opencase\Plugin\Derivative\AddActorsMenuLink
-  menu_name: opencase-add-actors
+
