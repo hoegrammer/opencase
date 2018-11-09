@@ -3,4 +3,4 @@ opencase_defaults.reporting_menu:
   description: 'Report on clients'
   menu_name: opencase
   url: internal:#
-  weight: 100
+  weight: 10
