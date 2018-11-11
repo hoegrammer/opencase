@@ -1,8 +1,4 @@
 opencase.opencase_admin_menu:
-  path: '#'
-  requirements:
-    _permission: 'administer users'
-opencase.opencase_admin_menu:
-  path: '#'
+  path: '/'
   requirements:
     _permission: 'administer users'

@@ -29,8 +29,8 @@ settings:
   slide: vertical
   supposition: 1
   hoverintent: 1
-  touch: '0'
-  touchbh: '2'
+  touch: '1'
+  touchbh: '1'
   touchbp: '768'
   touchua: '0'
   touchual: ''
