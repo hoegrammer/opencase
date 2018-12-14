@@ -10,7 +10,7 @@ id: osic_level_export
 name: 'OSIC level (Export)'
 url_alias: osic_level
 weight: 0
-min_count: 1
+min_count: 0
 show_only_one_result: false
 field_identifier: field_osic_level
 facet_source_id: 'search_api:views_data_export__reporting_volunteers__data_export_1'

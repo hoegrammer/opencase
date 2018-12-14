@@ -9,7 +9,7 @@ id: created_export
 name: 'Created - Export'
 url_alias: created
 weight: 0
-min_count: 1
+min_count: 0
 show_only_one_result: false
 field_identifier: created
 facet_source_id: 'search_api:views_data_export__reporting_clients__data_export_1'

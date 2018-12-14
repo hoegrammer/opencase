@@ -10,7 +10,7 @@ id: gender_identified_with_export
 name: 'Gender Identity'
 url_alias: gender_identified_with
 weight: 0
-min_count: 1
+min_count: 0
 show_only_one_result: false
 field_identifier: field_gender_identified_with
 facet_source_id: 'search_api:views_data_export__reporting_clients__data_export_1'
