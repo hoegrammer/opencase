@@ -6,14 +6,14 @@ dependencies:
     - views.view.reporting_clients
   module:
     - search_api
-id: nationality_export
-name: 'Nationality'
-url_alias: nationality
+id: nationalities
+name: Nationalities
+url_alias: nationalities
 weight: 0
-min_count: 1
+min_count: 0
 show_only_one_result: false
-field_identifier: field_nationality
-facet_source_id: 'search_api:views_data_export__reporting_clients__data_export_1'
+field_identifier: field_nationalities
+facet_source_id: 'search_api:views_page__reporting_clients__page_1'
 widget:
   type: checkbox
   config:

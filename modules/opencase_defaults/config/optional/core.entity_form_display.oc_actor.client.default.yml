@@ -9,11 +9,12 @@ dependencies:
     - field.field.oc_actor.client.field_disability
     - field.field.oc_actor.client.field_ethnic_o
     - field.field.oc_actor.client.field_gender_identified_with
+    - field.field.oc_actor.client.field_general_noes
     - field.field.oc_actor.client.field_how_heard
     - field.field.oc_actor.client.field_income
     - field.field.oc_actor.client.field_languages_spoken
     - field.field.oc_actor.client.field_marital_
-    - field.field.oc_actor.client.field_nationality
+    - field.field.oc_actor.client.field_nationalities
     - field.field.oc_actor.client.field_referred_by
     - opencase_entities.oc_actor_type.client
   module:
@@ -81,6 +82,14 @@ content:
     third_party_settings: {  }
     type: options_select
     region: content
+  field_general_noes:
+    weight: 27
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
   field_how_heard:
     weight: 13
     settings: {  }
@@ -105,13 +114,11 @@ content:
     third_party_settings: {  }
     type: options_select
     region: content
-  field_nationality:
+  field_nationalities:
     weight: 8
-    settings:
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
-    type: string_textfield
+    type: options_select
     region: content
   field_referred_by:
     weight: 14

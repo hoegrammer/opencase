@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.oc_actor.field_nationalities
+    - opencase_entities.oc_actor_type.client
+  module:
+    - options
+id: oc_actor.client.field_nationalities
+field_name: field_nationalities
+entity_type: oc_actor
+bundle: client
+label: Nationality
+description: 'To select multiple nationalities, hold down <b>Ctrl</b> (or the Mac equivalent) while clicking.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

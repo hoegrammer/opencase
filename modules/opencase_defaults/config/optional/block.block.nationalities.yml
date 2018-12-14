@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.nationalities
+  module:
+    - facets
+  theme:
+    - bartik
+id: nationalities
+theme: bartik
+region: sidebar_second
+weight: 0
+provider: null
+plugin: 'facet_block:nationalities'
+settings:
+  id: 'facet_block:nationalities'
+  label: Nationalities
+  provider: facets
+  label_display: visible
+  block_id: nationalities
+visibility: {  }

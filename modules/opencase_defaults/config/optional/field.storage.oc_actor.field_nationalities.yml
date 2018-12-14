@@ -1,0 +1,29 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - opencase_entities
+    - options
+id: oc_actor.field_nationalities
+field_name: field_nationalities
+entity_type: oc_actor
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: British
+      label: British
+    -
+      value: Stateless
+      label: Stateless
+    -
+      value: 'More need adding!'
+      label: 'More need adding!'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

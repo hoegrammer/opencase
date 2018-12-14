@@ -3,19 +3,18 @@ status: true
 dependencies:
   config:
     - search_api.index.opencase_reporting_clients
-    - views.view.reporting_clients
   module:
-    - search_api
-id: nationality
-name: 'Nationality'
-url_alias: nationality
+    - views_data_export
+id: nationalities_export
+name: Nationalities-export
+url_alias: nationalities_export
 weight: 0
 min_count: 1
 show_only_one_result: false
-field_identifier: field_nationality
-facet_source_id: 'search_api:views_page__reporting_clients__page_1'
+field_identifier: field_nationalities
+facet_source_id: 'search_api:views_data_export__reporting_clients__data_export_1'
 widget:
-  type: checkbox
+  type: links
   config:
     show_numbers: false
     soft_limit: 0
@@ -30,6 +29,18 @@ hard_limit: 0
 exclude: false
 only_visible_when_facet_source_is_visible: true
 processor_configs:
+  active_widget_order:
+    processor_id: active_widget_order
+    weights:
+      sort: 20
+    settings:
+      sort: DESC
+  count_widget_order:
+    processor_id: count_widget_order
+    weights:
+      sort: 30
+    settings:
+      sort: DESC
   display_value_widget_order:
     processor_id: display_value_widget_order
     weights:

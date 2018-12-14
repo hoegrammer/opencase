@@ -6,7 +6,7 @@ dependencies:
     - field.storage.oc_actor.field_disability
     - field.storage.oc_actor.field_gender_identified_with
     - field.storage.oc_actor.field_languages_spoken
-    - field.storage.oc_actor.field_nationality
+    - field.storage.oc_actor.field_nationalities
     - search_api.server.opencase_reporting_server
   module:
     - opencase_entities
@@ -56,14 +56,38 @@ field_settings:
     dependencies:
       config:
         - field.storage.oc_actor.field_languages_spoken
-  field_nationality:
+  field_nationalities:
     label: Nationality
     datasource_id: 'entity:oc_actor'
-    property_path: field_nationality
+    property_path: field_nationalities
     type: string
     dependencies:
       config:
-        - field.storage.oc_actor.field_nationality
+        - field.storage.oc_actor.field_nationalities
+  first_name:
+    label: 'First Name'
+    datasource_id: 'entity:oc_actor'
+    property_path: first_name
+    type: string
+    dependencies:
+      module:
+        - opencase_entities
+  last_name:
+    label: 'Last Name'
+    datasource_id: 'entity:oc_actor'
+    property_path: last_name
+    type: string
+    dependencies:
+      module:
+        - opencase_entities
+  post_code:
+    label: 'Post Code'
+    datasource_id: 'entity:oc_actor'
+    property_path: post_code
+    type: string
+    dependencies:
+      module:
+        - opencase_entities
 datasource_settings:
   'entity:oc_actor':
     bundles:
