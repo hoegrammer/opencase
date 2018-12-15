@@ -9,7 +9,7 @@ use Drupal\Core\Config\Entity\ConfigEntityBundleBase;
  *
  * @ConfigEntityType(
  *   id = "oc_actor_type",
- *   label = @Translation("Actor type"),
+ *   label = @Translation("Person type"),
  *   handlers = {
  *     "access" = "Drupal\opencase_entities\OCActorTypeAccessControlHandler",
  *     "view_builder" = "Drupal\Core\Entity\EntityViewBuilder",

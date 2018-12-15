@@ -14,7 +14,7 @@ class OCActorTypeListBuilder extends ConfigEntityListBuilder {
    * {@inheritdoc}
    */
   public function buildHeader() {
-    $header['label'] = $this->t('Actor type');
+    $header['label'] = $this->t('Person type');
     $header['id'] = $this->t('Machine name');
     return $header + parent::buildHeader();
   }

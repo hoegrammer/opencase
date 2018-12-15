@@ -22,7 +22,7 @@ class OCActorTypeForm extends EntityForm {
       '#title' => $this->t('Label'),
       '#maxlength' => 255,
       '#default_value' => $oc_actor_type->label(),
-      '#description' => $this->t("Label for the Actor type."),
+      '#description' => $this->t("Label for the Person type."),
       '#required' => TRUE,
     ];
 
@@ -49,13 +49,13 @@ class OCActorTypeForm extends EntityForm {
 
     switch ($status) {
       case SAVED_NEW:
-        drupal_set_message($this->t('Created the %label Actor type.', [
+        drupal_set_message($this->t('Created the %label Person type.', [
           '%label' => $oc_actor_type->label(),
         ]));
         break;
 
       default:
-        drupal_set_message($this->t('Saved the %label Actor type.', [
+        drupal_set_message($this->t('Saved the %label Person type.', [
           '%label' => $oc_actor_type->label(),
         ]));
     }
