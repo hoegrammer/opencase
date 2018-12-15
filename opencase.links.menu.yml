@@ -73,8 +73,8 @@ opencase.view_documentation:
   url: https://hoegrammer.gitbooks.io/opencase/content/
   weight: 0
 opencase.contact_developers:
-  title: 'Contact OpenCase'
-  description: 'Contact the OpenCase developers'
+  title: 'Ask the developers'
+  description: 'Ask us (erm, me actually) anything!'
   menu_name: opencase
   parent: opencase.opencase_support_menu 
   url: internal:/contact
