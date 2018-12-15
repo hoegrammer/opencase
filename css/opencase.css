@@ -29,3 +29,15 @@ body {
 #block-exposedformactor-searchpage-1 .form-text {
   width: 200px;
 }
+
+/* Make drop-down nav menu opaque */
+.block-superfish .menu ul {
+  background: white;
+  color: darkgray;
+}
+.block-superfish .menu ul li {
+  border-bottom: 1px dotted darkgray;
+}
+.block-superfish .menu ul li a:hover {
+  color: black;
+}
