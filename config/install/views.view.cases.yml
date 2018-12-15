@@ -447,7 +447,7 @@ display:
           empty_zero: false
           hide_alter_empty: false
           plugin_id: custom
-      filters:
+      filters: null
       sorts:
         created:
           id: created
@@ -465,7 +465,20 @@ display:
           entity_field: created
           plugin_id: date
       title: ''
-      header: {  }
+      header:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content:
+            value: '<p>To <strong>add a new case</strong>, first search for the person you want to add it to. If the person is not on the system yet, you can add them using the "People" menu.</p>'
+            format: basic_html
+          plugin_id: text
       footer: {  }
       empty:
         area_text_custom:
@@ -569,7 +582,7 @@ display:
         filter_groups: false
         empty: false
       path: opencase/all-cases
-      filters:
+      filters: null
       filter_groups:
         operator: AND
         groups:
@@ -584,14 +597,13 @@ display:
           admin_label: ''
           empty: true
           tokenize: false
-          content: "<h1>No cases found</h1>\n<p>You do not have access to any existing cases.</p>\n<p>To <b>add a new case</b>, first search for the person you want to add a case to. If they are not on the system yet you can add them using the <b>Add People.</b> menu.</p>\n"
+          content: "<h1>No cases found</h1>\n<p>You do not have access to any existing cases.</p>\n<p>To <b>add a new case</b>, first search for the person you want to add a case to. If they are not on the system yet you can add them using the <b>Add actors</b> menu in the left sidebar.</p>\n"
           plugin_id: text_custom
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - url
         - url.query_args
         - user.roles
       tags: {  }
