@@ -427,6 +427,9 @@ display:
               category: ''
               manager: ''
               company: ''
+      displays:
+        page_1: page_1
+        default: '0'
     cache_metadata:
       max-age: -1
       contexts:
