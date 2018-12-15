@@ -9,13 +9,13 @@ dependencies:
     - field.field.oc_actor.client.field_disability
     - field.field.oc_actor.client.field_ethnic_o
     - field.field.oc_actor.client.field_gender_identified_with
-    - field.field.oc_actor.client.field_general_noes
     - field.field.oc_actor.client.field_how_heard
     - field.field.oc_actor.client.field_income
     - field.field.oc_actor.client.field_languages_spoken
     - field.field.oc_actor.client.field_marital_
     - field.field.oc_actor.client.field_nationalities
     - field.field.oc_actor.client.field_referred_by
+    - field.field.oc_actor.client.field_sex
     - opencase_entities.oc_actor_type.client
   module:
     - datetime
@@ -26,7 +26,7 @@ bundle: client
 mode: default
 content:
   field_asylum_status:
-    weight: 6
+    weight: 4
     settings: {  }
     third_party_settings: {  }
     type: options_select
@@ -40,27 +40,19 @@ content:
     type: string_textfield
     region: content
   field_confidentiality_form:
-    weight: 15
+    weight: 13
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
     type: file_generic
     region: content
   field_date_of_birth:
-    weight: 3
+    weight: 0
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
     region: content
   field_dependants:
-    weight: 12
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
-  field_disability:
     weight: 10
     settings:
       size: 60
@@ -68,8 +60,16 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
+  field_disability:
+    weight: 8
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   field_ethnic_o:
-    weight: 7
+    weight: 5
     settings:
       size: 60
       placeholder: ''
@@ -77,56 +77,54 @@ content:
     type: string_textfield
     region: content
   field_gender_identified_with:
-    weight: 4
+    weight: 1
     settings: {  }
     third_party_settings: {  }
     type: options_select
-    region: content
-  field_general_noes:
-    weight: 27
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textarea
     region: content
   field_how_heard:
-    weight: 13
-    settings: {  }
-    third_party_settings: {  }
-    type: options_select
-    region: content
-  field_income:
     weight: 11
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
-  field_languages_spoken:
+  field_income:
     weight: 9
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
+  field_languages_spoken:
+    weight: 7
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
   field_marital_:
-    weight: 5
+    weight: 3
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   field_nationalities:
-    weight: 8
+    type: options_select
+    weight: 6
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: options_select
-    region: content
   field_referred_by:
-    weight: 14
+    weight: 12
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
+  field_sex:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
     region: content
   name:
     type: string_textfield
@@ -134,30 +132,6 @@ content:
     region: content
     settings:
       size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  phone:
-    type: string_textfield
-    weight: 0
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  phone2:
-    type: string_textfield
-    weight: 1
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  postal_address:
-    type: string_textarea
-    weight: 2
-    region: content
-    settings:
-      rows: 5
       placeholder: ''
     third_party_settings: {  }
   user_id:

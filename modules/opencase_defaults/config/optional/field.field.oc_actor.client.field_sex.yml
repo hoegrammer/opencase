@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.oc_actor.field_sex
+    - opencase_entities.oc_actor_type.client
+  module:
+    - options
+id: oc_actor.client.field_sex
+field_name: field_sex
+entity_type: oc_actor
+bundle: client
+label: Sex
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string
