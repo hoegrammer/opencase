@@ -1,0 +1,4 @@
+opencase_reporting.reporting_menu:
+  path: '/'
+  requirements:
+    _permission: 'use opencase'

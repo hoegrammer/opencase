@@ -2,3 +2,11 @@ opencase.opencase_admin_menu:
   path: '/'
   requirements:
     _permission: 'administer opencase entity bundles'
+opencase.opencase_cases_menu:
+  path: '/'
+  requirements:
+    _permission: 'use opencase'
+opencase.opencase_people_menu:
+  path: '/'
+  requirements:
+    _permission: 'use opencase'

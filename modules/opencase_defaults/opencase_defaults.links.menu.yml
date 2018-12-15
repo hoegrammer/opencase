@@ -1,12 +1,12 @@
 opencase_defaults.report_on_clients:
   title: 'Clients'
   description: 'Report on clients'
-  parent: opencase_defaults.reporting_menu
+  parent: opencase_reporting.reporting_menu
   url: internal:/opencase/reporting/clients
   weight: 0
 opencase_defaults.report_on_volunteers:
   title: 'Volunteers'
   description: 'Report on volunteers'
-  parent: opencase_defaults.reporting_menu
+  parent: opencase_reporting.reporting_menu
   url: internal:/opencase/reporting/volunteers
   weight: 1

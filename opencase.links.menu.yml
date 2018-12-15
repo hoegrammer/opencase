@@ -2,7 +2,7 @@ opencase.cases:
   title: 'Cases'
   description: 'View cases'
   menu_name: opencase 
-  url: internal:#
+  route_name: opencase.opencase_cases_menu
   weight: 0
 opencase.opencase_all_cases:
   title: 'All Cases'
@@ -16,7 +16,7 @@ opencase.opencase_add_people_menu:
   title: 'Add people'
   description: 'Add new people'
   menu_name: opencase 
-  url: internal:#
+  route_name: opencase.opencase_people_menu
   weight: 1
 opencase.add_people_links:
   class: Drupal\opencase\Plugin\Menu\AddActorsMenuLink
