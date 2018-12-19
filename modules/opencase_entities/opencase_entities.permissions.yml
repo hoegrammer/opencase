@@ -11,58 +11,6 @@ administer actor entities:
   description: 'Allow to access the administration form to configure Actor entities.'
   restrict access: true
 
-#add client entities:
-#  title: 'Create new Client entities'
-#
-#delete client entities:
-#  title: 'Delete Client entities'
-#
-#edit client entities:
-#  title: 'Edit Client entities'
-#
-#view published client entities:
-#  title: 'View published Client entities'
-#
-#view unpublished client entities:
-#  title: 'View unpublished Client entities'
-#
-#view all client revisions:
-#  title: 'View all Client revisions'
-#
-#revert all client revisions:
-#  title: 'Revert all Client revisions'
-#  description: 'Role requires permission <em>view Client revisions</em> and <em>edit rights</em> for client entities in question or <em>administer client entities</em>.'
-#
-#delete all client revisions:
-#  title: 'Delete all Client revisions'
-#  description: 'Role requires permission to <em>view Client revisions</em> and <em>delete rights</em> for client entities in question or <em>administer client entities</em>.'
-#
-#add volunteer entities:
-#  title: 'Create new Volunteer entities'
-#
-#delete volunteer entities:
-#  title: 'Delete Volunteer entities'
-#
-#edit volunteer entities:
-#  title: 'Edit Volunteer entities'
-#
-#view published volunteer entities:
-#  title: 'View published Volunteer entities'
-#
-#view unpublished volunteer entities:
-#  title: 'View unpublished Volunteer entities'
-#
-#view all volunteer revisions:
-#  title: 'View all Volunteer revisions'
-#
-#revert all volunteer revisions:
-#  title: 'Revert all Volunteer revisions'
-#  description: 'Role requires permission <em>view Volunteer revisions</em> and <em>edit rights</em> for volunteer entities in question or <em>administer volunteer entities</em>.'
-#
-#delete all volunteer revisions:
-#  title: 'Delete all Volunteer revisions'
-#  description: 'Role requires permission to <em>view Volunteer revisions</em> and <em>delete rights</em> for volunteer entities in question or <em>administer volunteer entities</em>.'
-
 add case entities:
   title: 'Create new Case entities'
 
