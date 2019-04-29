@@ -1,6 +1,9 @@
 permission_callbacks:
   - Drupal\opencase_entities\OpenCaseEntityPermissions::permissions
 
+view edit delete all actor entities:
+  title: 'View/Edit/Delete all types of people'
+  description: '';
 
 administer opencase entity bundles:
   title: 'Administer OpenCase Actor/Case/Activity Types'
