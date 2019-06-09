@@ -13,7 +13,7 @@ dependencies:
     - field.field.oc_actor.client.field_income
     - field.field.oc_actor.client.field_languages_spoken
     - field.field.oc_actor.client.field_marital_
-    - field.field.oc_actor.client.field_nationality
+    - field.field.oc_actor.client.field_nationalities
     - field.field.oc_actor.client.field_referred_by
     - opencase_entities.oc_actor_type.client
   module:
@@ -117,7 +117,7 @@ content:
     third_party_settings: {  }
     type: list_default
     region: content
-  field_nationality:
+  field_nationalities:
     weight: 8
     label: above
     settings:

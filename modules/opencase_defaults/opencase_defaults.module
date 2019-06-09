@@ -10,24 +10,6 @@ use Drupal\user\Entity\Role;
 use Drupal\user\RoleInterface;
 
 /**
- * When a new actor type is created, this gives the CRM Admin and Overseer roles permission
- * to view, edit and delete them.
- */
-#function opencase_defaults_entity_insert(Drupal\Core\Entity\EntityInterface $entity) {
-#  if (get_class($entity) == 'Drupal\opencase_entities\Entity\OCActorType') {
-#    $type = $entity->id();
-#    $roles = Role::loadMultiple(['opencase_admin', 'overseer']);
-#    foreach ($roles as $role) {
-#      $role->grantPermission("view published $type entities");
-#      $role->grantPermission("edit $type entities");
-#      $role->grantPermission("delete $type entities");
-#      $role->grantPermission("add new $type entities");
-#    }
-#    \Drupal::logger('foo')->notice("<pre>".print_r(user_role_permissions(['overseer']), true) . "</pre>");
-#  }
-#}
-
-/**
  * Implements hook_help().
  */
 function opencase_defaults_help($route_name, RouteMatchInterface $route_match) {
@@ -53,3 +35,4 @@ function opencase_defaults_theme() {
     ],
   ];
 }
+
