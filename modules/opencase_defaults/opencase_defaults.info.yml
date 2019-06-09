@@ -7,5 +7,4 @@ dependencies:
   - contact
   - field
   - opencase_entities
-  - opencase_reporting
   - options
