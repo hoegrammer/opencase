@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.gender_identified_with
+  module:
+    - facets
+    - system
+  theme:
+    - bartik
+id: facet_gender_identified_with
+theme: bartik
+region: sidebar_second
+weight: 0
+provider: null
+plugin: 'facet_block:gender_identified_with'
+settings:
+  id: 'facet_block:gender_identified_with'
+  label: 'Gender Identity'
+  provider: facets
+  label_display: visible
+  block_id: facet_gender_identified_with
+visibility:
+  request_path:
+    id: request_path
+    pages: '/opencase/reporting/clients'
+    negate: false
+    context_mapping: {  }

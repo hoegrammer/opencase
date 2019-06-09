@@ -1,0 +1,8 @@
+name: 'Opencase example reporting'
+type: module
+description: 'Reporting on the types of people, cases etc that the Opencase Defaults module provides'
+core: 8.x
+package: 'OpenCase'
+dependencies:
+  - opencase_defaults
+  - opencase_reporting

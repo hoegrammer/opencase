@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.disability
+  module:
+    - facets
+    - system
+  theme:
+    - bartik
+id: facet_disability
+theme: bartik
+region: sidebar_second
+weight: 0
+provider: null
+plugin: 'facet_block:disability'
+settings:
+  id: 'facet_block:disability'
+  label: 'Disability'
+  provider: facets
+  label_display: visible
+  block_id: facet_disability
+visibility:
+  request_path:
+    id: request_path
+    pages: '/opencase/reporting/clients'
+    negate: false
+    context_mapping: {  }

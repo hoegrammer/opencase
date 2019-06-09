@@ -1,0 +1,47 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - search_api.index.opencase_reporting_clients
+    - views.view.reporting_clients
+  module:
+    - search_api
+id: disability_export
+name: 'Disability'
+url_alias: disability
+weight: 0
+min_count: 0
+show_only_one_result: false
+field_identifier: field_disability
+facet_source_id: 'search_api:views_data_export__reporting_clients__data_export_1'
+widget:
+  type: checkbox
+  config:
+    show_numbers: false
+    soft_limit: 0
+    soft_limit_settings:
+      show_less_label: 'Show less'
+      show_more_label: 'Show more'
+query_operator: or
+use_hierarchy: false
+expand_hierarchy: false
+enable_parent_when_child_gets_disabled: true
+hard_limit: 0
+exclude: false
+only_visible_when_facet_source_is_visible: true
+processor_configs:
+  display_value_widget_order:
+    processor_id: display_value_widget_order
+    weights:
+      sort: 40
+    settings:
+      sort: ASC
+  url_processor_handler:
+    processor_id: url_processor_handler
+    weights:
+      pre_query: 50
+      build: 15
+    settings: {  }
+empty_behavior:
+  behavior: none
+show_title: false

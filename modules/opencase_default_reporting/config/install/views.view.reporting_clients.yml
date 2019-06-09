@@ -1,0 +1,683 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.oc_actor.field_asylum_status
+    - field.storage.oc_actor.field_disability
+    - field.storage.oc_actor.field_gender_identified_with
+    - field.storage.oc_actor.field_languages_spoken
+    - field.storage.oc_actor.field_nationalities
+    - search_api.index.opencase_reporting_clients
+  module:
+    - csv_serialization
+    - options
+    - rest
+    - search_api
+    - serialization
+    - user
+    - views_data_export
+id: reporting_clients
+label: 'Reporting: Clients'
+module: views
+description: ''
+tag: ''
+base_table: search_api_index_opencase_reporting_clients
+base_field: search_api_id
+core: 8.x
+display:
+  default:
+    display_plugin: default
+    id: default
+    display_title: Master
+    position: 0
+    display_options:
+      access:
+        type: perm
+        options:
+          perm: 'use opencase'
+      cache:
+        type: tag
+        options: {  }
+      query:
+        type: views_query
+        options:
+          bypass_access: false
+          skip_access: false
+      exposed_form:
+        type: basic
+        options:
+          submit_button: Apply
+          reset_button: false
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          expose_sort_order: true
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      pager:
+        type: mini
+        options:
+          items_per_page: 50
+          offset: 0
+          id: 0
+          total_pages: null
+          tags:
+            previous: ‹‹
+            next: ››
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+      style:
+        type: table
+      row:
+        type: fields
+      fields:
+        name:
+          id: name
+          table: search_api_datasource_opencase_reporting_clients_entity_oc_actor
+          field: name
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Name
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          field_rendering: true
+          fallback_handler: search_api
+          fallback_options:
+            link_to_item: false
+            use_highlighting: false
+            multi_type: separator
+            multi_separator: ', '
+          entity_type: oc_actor
+          plugin_id: search_api_field
+        field_asylum_status:
+          id: field_asylum_status
+          table: search_api_index_opencase_reporting_clients
+          field: field_asylum_status
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Asylum status'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: list_default
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          field_rendering: true
+          fallback_handler: search_api
+          fallback_options:
+            link_to_item: false
+            use_highlighting: false
+            multi_type: separator
+            multi_separator: ', '
+          entity_type: null
+          entity_field: null
+          plugin_id: search_api_field
+        field_disability:
+          id: field_disability
+          table: search_api_index_opencase_reporting_clients
+          field: field_disability
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Disability
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          field_rendering: true
+          fallback_handler: search_api
+          fallback_options:
+            link_to_item: false
+            use_highlighting: false
+            multi_type: separator
+            multi_separator: ', '
+          plugin_id: search_api_field
+        field_gender_identified_with:
+          id: field_gender_identified_with
+          table: search_api_index_opencase_reporting_clients
+          field: field_gender_identified_with
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Gender ID'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: list_default
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          field_rendering: true
+          fallback_handler: search_api
+          fallback_options:
+            link_to_item: false
+            use_highlighting: false
+            multi_type: separator
+            multi_separator: ', '
+          plugin_id: search_api_field
+        field_nationalities:
+          id: field_nationalities
+          table: search_api_datasource_opencase_reporting_clients_entity_oc_actor
+          field: field_nationalities
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Nationality
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: list_default
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          field_rendering: true
+          fallback_handler: search_api
+          fallback_options:
+            link_to_item: false
+            use_highlighting: false
+            multi_type: separator
+            multi_separator: ', '
+          entity_type: oc_actor
+          plugin_id: search_api_field
+        field_languages_spoken:
+          id: field_languages_spoken
+          table: search_api_index_opencase_reporting_clients
+          field: field_languages_spoken
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Languages
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: list_default
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          field_rendering: true
+          fallback_handler: search_api
+          fallback_options:
+            link_to_item: false
+            use_highlighting: false
+            multi_type: separator
+            multi_separator: ', '
+          plugin_id: search_api_field
+        post_code:
+          id: post_code
+          table: search_api_datasource_opencase_reporting_clients_entity_oc_actor
+          field: post_code
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Post Code'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          field_rendering: true
+          fallback_handler: search_api
+          fallback_options:
+            link_to_item: false
+            use_highlighting: false
+            multi_type: separator
+            multi_separator: ', '
+          entity_type: oc_actor
+          plugin_id: search_api_field
+      filters: {  }
+      sorts: {  }
+      title: 'Client Report'
+      header:
+        entity_block_content:
+          id: entity_block_content
+          table: views
+          field: entity_block_content
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: true
+          target: 944ff38d-5931-4439-91d5-f53b5ad7aac7
+          view_mode: default
+          bypass_access: false
+          plugin_id: entity
+      footer: {  }
+      empty: {  }
+      relationships: {  }
+      arguments: {  }
+      display_extenders: {  }
+      use_ajax: true
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+        - user.permissions
+      tags:
+        - 'config:field.storage.oc_actor.field_asylum_status'
+        - 'config:field.storage.oc_actor.field_disability'
+        - 'config:field.storage.oc_actor.field_gender_identified_with'
+        - 'config:field.storage.oc_actor.field_languages_spoken'
+        - 'config:field.storage.oc_actor.field_nationalities'
+  data_export_1:
+    display_plugin: data_export
+    id: data_export_1
+    display_title: 'Data export'
+    position: 2
+    display_options:
+      display_extenders: {  }
+      path: opencase/reporting/clients
+      filename: '[view:title].csv'
+      cache:
+        type: none
+      defaults:
+        cache: false
+      displays:
+        page_1: page_1
+        default: '0'
+      style:
+        type: data_export
+        options:
+          formats:
+            csv: csv
+          csv_settings:
+            delimiter: ','
+            enclosure: '"'
+            escape_char: \
+            strip_tags: true
+            trim: true
+            encoding: utf8
+          xls_settings:
+            xls_format: Excel2007
+            metadata:
+              creator: ''
+              last_modified_by: ''
+              title: ''
+              description: ''
+              subject: ''
+              keywords: ''
+              category: ''
+              manager: ''
+              company: ''
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - request_format
+        - user.permissions
+      tags:
+        - 'config:field.storage.oc_actor.field_asylum_status'
+        - 'config:field.storage.oc_actor.field_disability'
+        - 'config:field.storage.oc_actor.field_gender_identified_with'
+        - 'config:field.storage.oc_actor.field_languages_spoken'
+        - 'config:field.storage.oc_actor.field_nationalities'
+  page_1:
+    display_plugin: page
+    id: page_1
+    display_title: Page
+    position: 1
+    display_options:
+      display_extenders: {  }
+      path: opencase/reporting/clients
+      cache:
+        type: none
+      defaults:
+        cache: false
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+        - user.permissions
+      tags:
+        - 'config:field.storage.oc_actor.field_asylum_status'
+        - 'config:field.storage.oc_actor.field_disability'
+        - 'config:field.storage.oc_actor.field_gender_identified_with'
+        - 'config:field.storage.oc_actor.field_languages_spoken'
+        - 'config:field.storage.oc_actor.field_nationalities'
