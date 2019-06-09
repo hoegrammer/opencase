@@ -3,7 +3,7 @@ permission_callbacks:
 
 view edit delete all actor entities:
   title: 'View/Edit/Delete all types of people'
-  description: '';
+  description: ''
 
 administer opencase entity bundles:
   title: 'Administer OpenCase Actor/Case/Activity Types'
