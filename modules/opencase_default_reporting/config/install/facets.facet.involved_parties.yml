@@ -39,6 +39,13 @@ processor_configs:
       sort: 40
     settings:
       sort: ASC
+  exclude_specified_items:
+    processor_id: exclude_specified_items
+    weights:
+      build: 50
+    settings:
+      exclude: client
+      regex: true
   translate_entity:
     processor_id: translate_entity
     weights:
