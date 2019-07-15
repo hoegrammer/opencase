@@ -1,0 +1,29 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.outcome
+  module:
+    - facets
+    - system
+  theme:
+    - bartik
+id: outcome
+theme: bartik
+region: sidebar_second
+weight: 0
+provider: null
+plugin: 'facet_block:outcome'
+settings:
+  id: 'facet_block:outcome'
+  label: Outcome
+  provider: facets
+  label_display: visible
+  block_id: outcome
+visibility:
+  request_path:
+    id: request_path
+    pages: /opencase/reporting/cases
+    negate: false
+    context_mapping: {  }
+

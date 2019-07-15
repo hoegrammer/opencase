@@ -2,17 +2,21 @@
 
 function opencase_default_reporting_uninstall() {
   $configs = [
-    'search_api.index.opencase_reporting_cases',
-    'search_api.index.opencase_reporting_clients',
-    'search_api.index.opencase_reporting_volunteers',
+//    'search_api.index.opencase_reporting_cases',
+//    'search_api.index.opencase_reporting_clients',
+//    'search_api.index.opencase_reporting_volunteers',
     'block.block.facet_asylum_status',
     'block.block.facet_created',
     'block.block.facet_disability',
     'block.block.facet_gender_identified_with',
     'block.block.facet_languages',
     'block.block.nationalities',
+    'block.block.osiclevel',
+    'block.block.outcome',
+    'block.block.involvedparties',
     'views.view.reporting_clients',
     'views.view.reporting_volunteers',
+    'views.view.reporting_cases',
     'facets.facet.asylum_status_export',
     'facets.facet.disability',
     'facets.facet.nationalities_export',
@@ -27,6 +31,10 @@ function opencase_default_reporting_uninstall() {
     'facets.facet.osic_level',
     'facets.facet.disability_export',
     'facets.facet.languages',
+    'facets.facet.outcome',
+    'facets.facet.outcome_export',
+    'facets.facet.involved_parties',
+    'facets.facet.involved_parties_export',
   ];
   foreach($configs as $config) {
     Drupal::configFactory()->getEditable($config)->delete();
