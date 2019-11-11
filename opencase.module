@@ -138,6 +138,8 @@ function opencase_form_oc_case_type_edit_form_alter(&$form, $form_state) {
 function opencase_uninstall() {
   $configs = [
     'block.block.opencasecontextualmenu',
+    'block.block.opencase',
+    'system.menu.opencase',
     'views.view.cases',
     'views.view.activities'
   ];
