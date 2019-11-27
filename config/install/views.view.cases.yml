@@ -465,20 +465,7 @@ display:
           entity_field: created
           plugin_id: date
       title: ''
-      header:
-        area:
-          id: area
-          table: views
-          field: area
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: true
-          tokenize: false
-          content:
-            value: '<p>To <strong>add a new case</strong>, first search for the person you want to add it to. If the person is not on the system yet, you can add them using the "People" menu.</p>'
-            format: basic_html
-          plugin_id: text
+      header: {  }
       footer: {  }
       empty:
         area_text_custom:
