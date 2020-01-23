@@ -13,7 +13,6 @@ description: ''
 tag: ''
 base_table: oc_activity_field_data
 base_field: id
-core: 8.x
 display:
   default:
     display_plugin: default
@@ -233,7 +232,7 @@ display:
             more_link_text: ''
             more_link_path: ''
             strip_tags: false
-            trim: true
+            trim: false
             preserve_tags: ''
             html: false
           element_type: ''

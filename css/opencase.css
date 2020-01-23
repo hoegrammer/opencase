@@ -41,3 +41,8 @@ body {
 .block-superfish .menu ul li a:hover {
   color: black;
 }
+
+/* In views, display label at top of field. Ths is because full descriptions are displayed in the activity view so having the label in the middle means it disappears down the page. */
+td.views-field {
+    vertical-align: top;
+}
