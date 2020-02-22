@@ -210,6 +210,27 @@ class OCActivity extends RevisionableContentEntityBase implements OCActivityInte
   public static function baseFieldDefinitions(EntityTypeInterface $entity_type) {
     $fields = parent::baseFieldDefinitions($entity_type);
 
+    $fields['activity_date_time'] = BaseFieldDefinition::create('datetime')
+      ->setLabel(t('Date and time'))
+      ->setDescription(t('When the activity started.'))
+      ->setRevisionable(TRUE)
+      ->setSettings([
+        'datetime_type' => 'date'
+      ])
+      ->setDefaultValue('2000-01-01')
+      ->setDisplayOptions('view', [
+        'label' => 'above',
+        'type' => 'datetime_default',
+        'settings' => [
+          'format_type' => 'medium',
+        ],
+        'weight' => -3,
+      ])
+      ->setDisplayOptions('form', [
+        'type' => 'datetime_default',
+        'weight' => -3,
+      ]);
+
     // not currently in use. Will set view and form settings when ready
     $fields['status'] = BaseFieldDefinition::create('boolean')
       ->setLabel(t('Publishing status'))

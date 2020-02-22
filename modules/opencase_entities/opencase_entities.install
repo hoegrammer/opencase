@@ -1,0 +1,31 @@
+<?php
+
+/**
+ * Add 'activity_date_time' field to 'oc_activity' entities.
+ */
+function opencase_entities_update_8003() {
+  $storage_definition =  \Drupal\Core\Field\BaseFieldDefinition::create('datetime')
+      ->setLabel(t('Date and time'))
+      ->setDescription(t('When the activity started.'))
+      ->setRevisionable(TRUE)
+      ->setSettings([
+        'datetime_type' => 'date'
+      ])
+      ->setDefaultValue('2000-01-01')
+      ->setDisplayOptions('view', [
+        'type' => 'datetime_default',
+        'settings' => [
+          'format_type' => 'medium',
+        ],
+        'label' => 'above',
+        'weight' => -3,
+      ])
+      ->setDisplayOptions('form', [
+        'type' => 'datetime_default',
+        'weight' => -3,
+      ]);
+
+  \Drupal::entityDefinitionUpdateManager()
+    ->installFieldStorageDefinition('activity_date_time', 'oc_activity', 'oc_activity', $storage_definition);
+}
+
