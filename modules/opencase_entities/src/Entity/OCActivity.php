@@ -9,6 +9,8 @@ use Drupal\Core\Entity\RevisionableInterface;
 use Drupal\Core\Entity\EntityChangedTrait;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\user\UserInterface;
+use Drupal\datetime\Plugin\Field\FieldType\DateTimeItem;
+use Drupal\Core\Datetime\DrupalDateTime;
 
 /**
  * Defines the Activity entity.
@@ -81,6 +83,12 @@ class OCActivity extends RevisionableContentEntityBase implements OCActivityInte
     return array(\Drupal::request()->query->get('case_id'));
   }
 
+  public static function currentDateTime() {
+    $current_time = DrupalDateTime::createFromTimestamp(time());
+    $formatted = $current_time->format(DateTimeItem::DATETIME_STORAGE_FORMAT);
+    \Drupal::logger("nr_debug")->notice($formatted);
+    return $formatted;
+  }
   /**
    * {@inheritdoc}
    */
@@ -212,12 +220,10 @@ class OCActivity extends RevisionableContentEntityBase implements OCActivityInte
 
     $fields['activity_date_time'] = BaseFieldDefinition::create('datetime')
       ->setLabel(t('Date and time'))
-      ->setDescription(t('When the activity started.'))
+      ->setDescription('')
       ->setRevisionable(TRUE)
-      ->setSettings([
-        'datetime_type' => 'date'
-      ])
-      ->setDefaultValue('2000-01-01')
+      ->setRequired(TRUE)
+      ->setDefaultValueCallback('Drupal\opencase_entities\Entity\OCActivity::currentDateTime')
       ->setDisplayOptions('view', [
         'label' => 'above',
         'type' => 'datetime_default',

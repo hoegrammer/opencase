@@ -477,7 +477,7 @@ display:
           admin_label: ''
           empty: true
           tokenize: false
-          content: "<p>Either there are no cases involving this person, or you do not have access to them.</p>\n"
+          content: "<p>Either there are no cases involving this person, or you do not have access to them.</p> <p>To create a case, use the sidebar menu to the right</p>"
           plugin_id: text_custom
       relationships: {  }
       arguments:
@@ -584,7 +584,7 @@ display:
           admin_label: ''
           empty: true
           tokenize: false
-          content: "<h1>No cases found</h1>\n<p>You do not have access to any existing cases.</p>\n<p>To <b>add a new case</b>, first search for the person you want to add a case to. If they are not on the system yet you can add them using the <b>Add actors</b> menu in the left sidebar.</p>\n"
+          content: "<h1>No cases found</h1>\n<p>You do not have access to any existing cases.</p>\n<p>To <b>add a new case</b>, first search for the person you want to create a case for, using the search bar at the top right of the screen. If they are not on the system yet, add them using the <b>Add People</b> tab.</p>\n"
           plugin_id: text_custom
     cache_metadata:
       max-age: -1

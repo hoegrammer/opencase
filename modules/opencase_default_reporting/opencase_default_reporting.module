@@ -2,9 +2,9 @@
 
 function opencase_default_reporting_uninstall() {
   $configs = [
-//    'search_api.index.opencase_reporting_cases',
-//    'search_api.index.opencase_reporting_clients',
-//    'search_api.index.opencase_reporting_volunteers',
+    'search_api.index.opencase_reporting_cases',
+    'search_api.index.opencase_reporting_clients',
+    'search_api.index.opencase_reporting_volunteers',
     'block.block.facet_asylum_status',
     'block.block.facet_created',
     'block.block.facet_disability',
