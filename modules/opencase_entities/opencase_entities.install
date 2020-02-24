@@ -6,9 +6,8 @@
 function opencase_entities_update_8003() {
   $storage_definition =  \Drupal\Core\Field\BaseFieldDefinition::create('datetime')
       ->setLabel(t('Date and time'))
-      ->setDescription(t('When the activity started.'))
       ->setRevisionable(TRUE)
-      ->setDefaultValueCallback('Drupal\opencase_entities\Entity\OCActivity::currentDateTime')
+      ->setDefaultValueCallback('\Drupal\opencase_entities\Entity\OCActivity::currentDateTime')
       ->setDisplayOptions('view', [
         'type' => 'datetime_default',
         'settings' => [

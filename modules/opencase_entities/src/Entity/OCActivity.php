@@ -220,10 +220,9 @@ class OCActivity extends RevisionableContentEntityBase implements OCActivityInte
 
     $fields['activity_date_time'] = BaseFieldDefinition::create('datetime')
       ->setLabel(t('Date and time'))
-      ->setDescription('')
       ->setRevisionable(TRUE)
       ->setRequired(TRUE)
-      ->setDefaultValueCallback('Drupal\opencase_entities\Entity\OCActivity::currentDateTime')
+      ->setDefaultValueCallback('\Drupal\opencase_entities\Entity\OCActivity::currentDateTime')
       ->setDisplayOptions('view', [
         'label' => 'above',
         'type' => 'datetime_default',
