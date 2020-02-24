@@ -1,15 +1,5 @@
 <?php
 
-function opencase_entities_update_8013() {
-  $update_manager = \Drupal::entityDefinitionUpdateManager();
-  $definition = $update_manager->getFieldStorageDefinition('activity_date_time', 'oc_activity');
- // $definition->setDescription('');
- // $definition->setRequired('');
-      //->setDefaultValueCallback('Drupal\opencase_entities\Entity\OCActivity::currentDateTime')
-  $update_manager->updateFieldStorageDefinition($definition);
-}
-
-
 /**
  * Add 'activity_date_time' field to 'oc_activity' entities.
  */
@@ -18,10 +8,7 @@ function opencase_entities_update_8003() {
       ->setLabel(t('Date and time'))
       ->setDescription(t('When the activity started.'))
       ->setRevisionable(TRUE)
-      ->setSettings([
-        'datetime_type' => 'date'
-      ])
-      ->setDefaultValue('2000-01-01')
+      ->setDefaultValueCallback('Drupal\opencase_entities\Entity\OCActivity::currentDateTime')
       ->setDisplayOptions('view', [
         'type' => 'datetime_default',
         'settings' => [

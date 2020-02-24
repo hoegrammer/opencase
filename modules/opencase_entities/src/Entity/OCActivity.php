@@ -87,7 +87,6 @@ class OCActivity extends RevisionableContentEntityBase implements OCActivityInte
     $current_time = DrupalDateTime::createFromTimestamp(time());
     $formatted = $current_time->format(DateTimeItem::DATETIME_STORAGE_FORMAT);
     \Drupal::logger("nr_debug")->notice($formatted);
-    $formatted="2010-10-10";
     return $formatted;
   }
   /**
@@ -224,9 +223,6 @@ class OCActivity extends RevisionableContentEntityBase implements OCActivityInte
       ->setDescription('')
       ->setRevisionable(TRUE)
       ->setRequired(TRUE)
-      ->setSettings([
-        'datetime_type' => 'date'
-      ])
       ->setDefaultValueCallback('Drupal\opencase_entities\Entity\OCActivity::currentDateTime')
       ->setDisplayOptions('view', [
         'label' => 'above',
