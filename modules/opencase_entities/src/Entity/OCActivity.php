@@ -86,6 +86,7 @@ class OCActivity extends RevisionableContentEntityBase implements OCActivityInte
   public static function currentDateTime() {
     $current_time = DrupalDateTime::createFromTimestamp(time());
     $formatted = $current_time->format(DateTimeItem::DATETIME_STORAGE_FORMAT);
+    \Drupal::logger("nr_debug")->notice($formatted);
     return $formatted;
   }
   /**
