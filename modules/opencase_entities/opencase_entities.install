@@ -1,5 +1,11 @@
 <?php
 
+function opencase_entities_update_8016() {
+  $update_manager = \Drupal::entityDefinitionUpdateManager();
+  $definition = $update_manager->getFieldStorageDefinition('activity_date_time', 'oc_activity');
+  $update_manager->updateFieldStorageDefinition($definition);
+}
+
 /**
  * Add 'activity_date_time' field to 'oc_activity' entities.
  */

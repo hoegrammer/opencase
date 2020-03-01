@@ -9,6 +9,29 @@ use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Access\AccessResult;
 use Drupal\opencase\EntityTypeRelationsWidget;
 
+/**
+ * Implements hook_element_info_alter().
+ */
+function opencase_element_info_alter(array &$types) {
+  $types['datetime']['#process'][] = 'opencase_process_element';
+}
+
+/**
+ * Element process callback for datetime fields. Removes the seconds part.
+ */
+function opencase_process_element($element) {
+  if ($element['#date_time_element'] !== 'none') {
+    $element['#date_time_format'] = 'H:i';
+  }
+  if (!empty($element['time']['#value'])) {
+    $parts = explode(':', $element['time']['#value']);
+    $parts = array_splice($parts, 0, 2);
+    $element['time']['#value'] = implode(':', $parts);
+  }
+  // Remove seconds in browsers that support HTML5 type=date.
+  $element['time']['#attributes']['step'] = 60;
+  return $element;
+}
 
 /**
  * Implements hook_block_access
