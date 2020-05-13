@@ -16,7 +16,18 @@
  */
 #}
 <div{{ attributes.addClass('oc_case') }}>
-  {% if content %}
-    {{- content -}}
-  {% endif %}
+  <h2>{{ title }}</h2>
+  <div class="oc_entity">
+    <div class="left">
+      {{ base_fields.actors_involved }}
+      {{ base_fields.changed }}
+      {{ base_fields.created }}
+      {{ base_fields.user_id }}
+    </div>
+    <div class="right">
+      {% for field in other_fields %}
+        {{ field }}
+      {% endfor %}
+    </div>
+  </div>
 </div>

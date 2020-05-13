@@ -16,7 +16,20 @@
  */
 #}
 <div{{ attributes.addClass('oc_actor') }}>
-  {% if content %}
-    {{- content -}}
-  {% endif %}
+  <div class="oc_entity">
+    <div class="left">
+      {% for field in fields_other_than_contact_details %}
+        {{ field }}
+      {% endfor %}
+    </div>
+    <div class="right">
+      <div id ="contact_details">
+        <h2>Contact Details</h2>
+        <a class="field" href="/opencase/oc_actor/{{ id }}/contact_details_history">See history</a>
+        {% for field in contact_details %}
+          {{ field }}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
 </div>

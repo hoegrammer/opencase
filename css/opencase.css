@@ -46,3 +46,27 @@ body {
 td.views-field {
     vertical-align: top;
 }
+
+/* Entity displays */
+.oc_entity .left {
+  display: inline-block;
+  width: 45%;
+  padding: 1em;
+}
+
+.oc_entity .right {
+  display: inline-block;
+  width: 45%;
+  padding: 1em;
+  float: right;
+}
+.oc_entity .field {
+  margin-top: 1em;
+}
+
+/* Make entity reference field labels match normal field labels */
+.field--type-entity-reference .field__label {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 1em !important;
+  font-weight: bold !important;
+}

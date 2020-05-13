@@ -247,11 +247,6 @@ class OCActor extends RevisionableContentEntityBase implements OCActorInterface 
         'text_processing' => 0,
       ])
       ->setDefaultValue('')
-      ->setDisplayOptions('view', [
-        'label' => 'above',
-        'type' => 'string',
-        'weight' => -9,
-      ])
       ->setDisplayOptions('form', [
         'type' => 'string_textfield',
         'weight' => -9,
@@ -267,11 +262,6 @@ class OCActor extends RevisionableContentEntityBase implements OCActorInterface 
         'text_processing' => 0,
       ])
       ->setDefaultValue('')
-      ->setDisplayOptions('view', [
-        'label' => 'above',
-        'type' => 'string',
-        'weight' => -8,
-      ])
       ->setDisplayOptions('form', [
         'type' => 'string_textfield',
         'weight' => -8,
@@ -287,11 +277,6 @@ class OCActor extends RevisionableContentEntityBase implements OCActorInterface 
         'text_processing' => 0,
       ])
       ->setDefaultValue('')
-      ->setDisplayOptions('view', [
-        'label' => 'above',
-        'type' => 'string',
-        'weight' => -7,
-      ])
       ->setDisplayOptions('form', [
         'type' => 'string_textfield',
         'weight' => -7,
@@ -313,6 +298,7 @@ class OCActor extends RevisionableContentEntityBase implements OCActorInterface 
     // so it is not exposed to user configuration. 
     $fields['email'] = BaseFieldDefinition::create('string')
       ->setLabel(t('Email Address'))
+      ->setRevisionable(TRUE)
       ->setSettings(array(
         'default_value' => '',
         'max_length' => 30,
@@ -329,6 +315,7 @@ class OCActor extends RevisionableContentEntityBase implements OCActorInterface 
       ));
     $fields['phone'] = BaseFieldDefinition::create('string')
       ->setLabel(t('Main Phone Number'))
+      ->setRevisionable(TRUE)
       ->setSettings(array(
         'default_value' => '',
         'max_length' => 20,
@@ -344,6 +331,7 @@ class OCActor extends RevisionableContentEntityBase implements OCActorInterface 
         'weight' => -4,
       ));
     $fields['phone2'] = BaseFieldDefinition::create('string')
+      ->setRevisionable(TRUE)
       ->setLabel(t('Alternative Phone Number'))
       ->setSettings(array(
         'default_value' => '',
@@ -360,6 +348,7 @@ class OCActor extends RevisionableContentEntityBase implements OCActorInterface 
         'weight' => -3,
       ));
     $fields['postal_address'] = BaseFieldDefinition::create('string_long')
+      ->setRevisionable(TRUE)
       ->setLabel(t('Postal Address'))
       ->setDescription(t('Full address, apart from post code.'))
       ->setSettings(array(
@@ -377,6 +366,7 @@ class OCActor extends RevisionableContentEntityBase implements OCActorInterface 
         'weight' => -2,
       ));
     $fields['post_code'] = BaseFieldDefinition::create('string')
+      ->setRevisionable(TRUE)
       ->setLabel(t('Post Code'))
       ->setSettings(array(
         'default_value' => '',

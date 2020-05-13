@@ -1,5 +1,62 @@
 <?php
 
+// Change date formats on created and changed dates.
+function opencase_entities_update_801910() {
+  $update_manager = \Drupal::entityDefinitionUpdateManager();
+  $field = $update_manager->getFieldStorageDefinition('created', 'oc_case');
+  $properties = array(
+    'targetEntityType' => $field->getTargetEntityTypeId(),
+    'bundle' => $field->getTargetBundle()
+  );
+  if ($view_displays = \Drupal::entityTypeManager()->getStorage('entity_view_display')->loadByProperties($properties)) {
+    foreach ($view_displays as $view_display) {
+      $view_display->setComponent('created', array(
+        'type' => 'datetime_default',
+        'settings' => ['format_type' => 'short'],
+      ) + $component)->save();
+    }
+  }
+}
+
+// Make contact details revisionable.
+function opencase_entities_update_80191() {
+  $update_manager = \Drupal::entityDefinitionUpdateManager();
+  $contact_details_fields = ['email', 'phone', 'phone2', 'postal_address', 'post_code'];
+  foreach($contact_details_fields as $field) {
+    $definition = $update_manager->getFieldStorageDefinition($field, 'oc_actor');
+    $definition->setRevisionable(TRUE);
+  }
+}
+
+use \Drupal\Core\Entity\Sql\SqlContentEntityStorageSchemaConverter;
+
+/**
+ * Update my_entity to be revisionable.
+ */
+function opencase_entities_update_8019(&$sandbox) {
+  $schema_converter = new SqlContentEntityStorageSchemaConverter(
+    'oc_actor',
+    \Drupal::entityTypeManager(),
+    \Drupal::entityDefinitionUpdateManager(),
+    \Drupal::service('entity.last_installed_schema.repository'),
+    \Drupal::keyValue('entity.storage_schema.sql'),
+    \Drupal::database()
+  );
+
+  $contact_details_fields = ['email', 'phone', 'phone2', 'postal_address', 'post_code'];
+  $schema_converter->convertToRevisionable($sandbox, $contact_details_fields);
+}
+
+// Make contact details revisionable.
+function opencase_entities_update_8018() {
+  $update_manager = \Drupal::entityDefinitionUpdateManager();
+  $contact_details_fields = ['email', 'phone', 'phone2', 'postal_address', 'post_code'];
+  foreach($contact_details_fields as $field) {
+    $definition = $update_manager->getFieldStorageDefinition($field, 'oc_actor');
+    $update_manager->updateFieldStorageDefinition($definition);
+  }
+}
+
 function opencase_entities_update_8016() {
   $update_manager = \Drupal::entityDefinitionUpdateManager();
   $definition = $update_manager->getFieldStorageDefinition('activity_date_time', 'oc_activity');
@@ -30,4 +87,3 @@ function opencase_entities_update_8003() {
   \Drupal::entityDefinitionUpdateManager()
     ->installFieldStorageDefinition('activity_date_time', 'oc_activity', 'oc_activity', $storage_definition);
 }
-

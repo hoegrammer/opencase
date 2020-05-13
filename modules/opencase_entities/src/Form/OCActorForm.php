@@ -38,18 +38,11 @@ class OCActorForm extends ContentEntityForm {
    */
   public function save(array $form, FormStateInterface $form_state) {
     $entity = $this->entity;
-
-    // Save as a new revision if requested to do so.
-    if (!$form_state->isValueEmpty('new_revision') && $form_state->getValue('new_revision') != FALSE) {
-      $entity->setNewRevision();
-
-      // If a new revision is created, save the current user as revision author.
-      $entity->setRevisionCreationTime(REQUEST_TIME);
-      $entity->setRevisionUserId(\Drupal::currentUser()->id());
-    }
-    else {
-      $entity->setNewRevision(FALSE);
-    }
+    // Always make a new revision for a person. They are not changed often and people are likely to
+    // want to know what has happened to them over time.
+    $entity->setNewRevision();
+    $entity->setRevisionCreationTime(REQUEST_TIME);
+    $entity->setRevisionUserId(\Drupal::currentUser()->id());
 
     $status = parent::save($form, $form_state);
 

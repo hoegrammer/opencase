@@ -222,16 +222,15 @@ class OCCase extends RevisionableContentEntityBase implements OCCaseInterface {
       ->setDefaultValue(TRUE);
 
     $fields['user_id'] = BaseFieldDefinition::create('entity_reference')
-      ->setLabel(t('Entered by'))
+      ->setLabel(t('Created by'))
       ->setDescription(t('The user ID of author of the Case entity.'))
       ->setRevisionable(TRUE)
       ->setSetting('target_type', 'user')
       ->setSetting('handler', 'default')
       ->setTranslatable(TRUE)
       ->setDisplayOptions('view', [
-        'label' => 'inline',
+        'label' => 'above',
         'type' => 'author',
-        'weight' => -4,
       ]);
     $fields['name'] = BaseFieldDefinition::create('string')
       ->setLabel(t('Case Title'))
@@ -245,7 +244,6 @@ class OCCase extends RevisionableContentEntityBase implements OCCaseInterface {
       ->setDisplayOptions('view', [
         'label' => 'hidden',
         'type' => 'string',
-        'weight' => -3,
       ])
       ->setDisplayOptions('form', [
         'type' => 'string_textfield',
@@ -261,6 +259,7 @@ class OCCase extends RevisionableContentEntityBase implements OCCaseInterface {
       ->setTranslatable(TRUE)
       ->setCardinality(-1)
       ->setDisplayOptions('form', [
+        'label' => 'above',
         'type' => 'entity_reference_autocomplete',
         'weight' => -2,
         'settings' => [
@@ -272,7 +271,6 @@ class OCCase extends RevisionableContentEntityBase implements OCCaseInterface {
       ])
       ->setDisplayOptions('view', [
         'label' => 'above',
-        'weight' => -2
       ])
       ->setDefaultValueCallback('Drupal\opencase_entities\Entity\OCCase::defaultVal')
       ->setRequired(TRUE);
@@ -295,17 +293,30 @@ class OCCase extends RevisionableContentEntityBase implements OCCaseInterface {
       ])
       ->setDisplayOptions('view', [
         'label' => 'above',
-        'weight' => -1,
         'settings' => ['use_description_as_link_text' => 'true']
       ]);
 
     $fields['created'] = BaseFieldDefinition::create('created')
-      ->setLabel(t('Created'))
-      ->setDescription(t('The time that the entity was created.'));
+      ->setLabel(t('Created on'))
+      ->setDescription(t('When the case was created.'))
+      ->setDisplayOptions('view', [
+        'type' => "datetime_default",
+        'label' => 'above',
+        'settings' => [
+          'date_format' => 'short'
+        ]
+      ]);
 
     $fields['changed'] = BaseFieldDefinition::create('changed')
-      ->setLabel(t('Changed'))
-      ->setDescription(t('The time that the entity was last edited.'));
+      ->setLabel(t('Last updated'))
+      ->setDescription(t('When the case was last edited.'))
+      ->setDisplayOptions('view', [
+        'type' => "datetime_custom",
+        'label' => 'above',
+        'settings' => [
+          'date_format' => 'm/d/Y'
+        ]
+      ]);
 
     $fields['revision_translation_affected'] = BaseFieldDefinition::create('boolean')
       ->setLabel(t('Revision translation affected'))
