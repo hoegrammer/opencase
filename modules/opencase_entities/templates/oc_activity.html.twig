@@ -16,7 +16,18 @@
  */
 #}
 <div{{ attributes.addClass('oc_activity') }}>
-  {% if content %}
-    {{- content -}}
-  {% endif %}
+  <h2>{{ title }}</h2>
+  <div class="oc_entity">
+    <div class="left">
+      {{ base_fields.activity_date_time }}
+      {{ base_fields.description }}
+      {{ base_fields.time_taken }}
+      {{ base_fields.user_id }}
+    </div>
+    <div class="right">
+      {% for field in other_fields %}
+        {{ field }}
+      {% endfor %}
+    </div>
+  </div>
 </div>
