@@ -5,3 +5,8 @@ opencase-lib:
       css/opencase.css: {}
   js: 
     js/opencase.js: {}
+opencase-grouped-views:
+  version: 1.x
+  css:
+    layout:
+      css/grouped_views.css: {}

@@ -70,3 +70,11 @@ td.views-field {
   font-size: 1em !important;
   font-weight: bold !important;
 }
+
+/* Styling for grouped views */
+table.views-table.views-view-table caption {
+  text-align: left;
+  margin-bottom: 1em;
+  margin-top: 2em;
+  font-weight: bold;
+}

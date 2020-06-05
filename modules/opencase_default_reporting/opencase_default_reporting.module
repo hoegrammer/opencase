@@ -2,9 +2,9 @@
 
 function opencase_default_reporting_uninstall() {
   $configs = [
-//    'search_api.index.opencase_reporting_cases',
-//    'search_api.index.opencase_reporting_clients',
-//    'search_api.index.opencase_reporting_volunteers',
+    'search_api.index.opencase_reporting_cases',
+    'search_api.index.opencase_reporting_clients',
+    'search_api.index.opencase_reporting_volunteers',
     'block.block.facet_asylum_status',
     'block.block.facet_created',
     'block.block.facet_disability',
@@ -17,6 +17,7 @@ function opencase_default_reporting_uninstall() {
     'views.view.reporting_clients',
     'views.view.reporting_volunteers',
     'views.view.reporting_cases',
+    'views.view.name_and_status_changes',
     'facets.facet.asylum_status_export',
     'facets.facet.disability',
     'facets.facet.nationalities_export',

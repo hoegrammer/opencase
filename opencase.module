@@ -164,7 +164,8 @@ function opencase_uninstall() {
     'block.block.opencase',
     'system.menu.opencase',
     'views.view.cases',
-    'views.view.activities'
+    'views.view.activities',
+    'views.view.contact_details_changes'
   ];
   foreach($configs as $config) {
     Drupal::configFactory()->getEditable($config)->delete();

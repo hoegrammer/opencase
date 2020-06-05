@@ -1,0 +1,7 @@
+opencase_default_reporting.report_on_status_changes:
+  title: 'Status Changes'
+  description: "Report on changes to people's name, asylum or marital status"
+  parent: opencase_reporting.reporting_menu
+  url: internal:/opencase/reporting/name_and_status_changes
+  weight: 2
+

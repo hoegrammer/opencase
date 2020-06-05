@@ -1,0 +1,5 @@
+ciac_grouped_views:
+  version: 1.x
+  css:
+    layout:
+      css/grouped_views.css: {}
