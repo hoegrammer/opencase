@@ -300,22 +300,14 @@ class OCCase extends RevisionableContentEntityBase implements OCCaseInterface {
       ->setLabel(t('Created on'))
       ->setDescription(t('When the case was created.'))
       ->setDisplayOptions('view', [
-        'type' => "datetime_default",
         'label' => 'above',
-        'settings' => [
-          'date_format' => 'short'
-        ]
       ]);
 
     $fields['changed'] = BaseFieldDefinition::create('changed')
       ->setLabel(t('Last updated'))
       ->setDescription(t('When the case was last edited.'))
       ->setDisplayOptions('view', [
-        'type' => "datetime_custom",
         'label' => 'above',
-        'settings' => [
-          'date_format' => 'm/d/Y'
-        ]
       ]);
 
     $fields['revision_translation_affected'] = BaseFieldDefinition::create('boolean')
