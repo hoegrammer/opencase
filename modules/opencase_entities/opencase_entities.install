@@ -1,23 +1,5 @@
 <?php
 
-// Change date formats on created and changed dates.
-function opencase_entities_update_801910() {
-  $update_manager = \Drupal::entityDefinitionUpdateManager();
-  $field = $update_manager->getFieldStorageDefinition('created', 'oc_case');
-  $properties = array(
-    'targetEntityType' => $field->getTargetEntityTypeId(),
-    'bundle' => $field->getTargetBundle()
-  );
-  if ($view_displays = \Drupal::entityTypeManager()->getStorage('entity_view_display')->loadByProperties($properties)) {
-    foreach ($view_displays as $view_display) {
-      $view_display->setComponent('created', array(
-        'type' => 'datetime_default',
-        'settings' => ['format_type' => 'short'],
-      ) + $component)->save();
-    }
-  }
-}
-
 // Make contact details revisionable.
 function opencase_entities_update_80191() {
   $update_manager = \Drupal::entityDefinitionUpdateManager();
@@ -30,9 +12,6 @@ function opencase_entities_update_80191() {
 
 use \Drupal\Core\Entity\Sql\SqlContentEntityStorageSchemaConverter;
 
-/**
- * Update my_entity to be revisionable.
- */
 function opencase_entities_update_8019(&$sandbox) {
   $schema_converter = new SqlContentEntityStorageSchemaConverter(
     'oc_actor',
