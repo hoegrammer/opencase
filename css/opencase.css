@@ -78,3 +78,10 @@ table.views-table.views-view-table caption {
   margin-top: 2em;
   font-weight: bold;
 }
+
+/* remove "details" accordion, see https://drupal.stackexchange.com/questions/294312/why-has-this-details-accordion-appeared-in-this-view */
+.views-table details {
+
+    display: none;
+
+}
