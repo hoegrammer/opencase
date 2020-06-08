@@ -1,5 +1,22 @@
 <?php
 
+
+use \Drupal\Core\Entity\Sql\SqlContentEntityStorageSchemaConverter;
+
+function opencase_entities_update_80192(&$sandbox) {
+  $schema_converter = new SqlContentEntityStorageSchemaConverter(
+    'oc_actor',
+    \Drupal::entityTypeManager(),
+    \Drupal::entityDefinitionUpdateManager(),
+    \Drupal::service('entity.last_installed_schema.repository'),
+    \Drupal::keyValue('entity.storage_schema.sql'),
+    \Drupal::database()
+  );
+
+  $contact_details_fields = ['email', 'phone', 'phone2', 'postal_address', 'post_code'];
+  $schema_converter->convertToRevisionable($sandbox, $contact_details_fields);
+}
+
 function opencase_entities_update_8016() {
   $update_manager = \Drupal::entityDefinitionUpdateManager();
   $definition = $update_manager->getFieldStorageDefinition('activity_date_time', 'oc_activity');
